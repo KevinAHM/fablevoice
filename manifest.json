@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "FableVoice - Friends & Fables Extension",
+  "version": "0.4",
+  "author": "Anaheim",
+  "description": "Adds streaming Text-To-Speech, Speech-To-Text, and other features to Fables & Friends.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["tabletop-audio.json","audio.js", "mic.js"],
+      "matches": ["https://play.fables.gg/*"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://play.fables.gg/*/play"],
+      "js": ["content.js", "butterup.min.js", "jquery-3.7.1.slim.min.js", "jquery-confirm.min.js", "popper.min.js", "tippy-bundle.umd.min.js"],
+      "css": ["butterup.min.css","jquery-confirm.min.css", "style.css"]
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_popup": "popup.html",
+    "default_title": "FableVoice Settings"
+  }
+}

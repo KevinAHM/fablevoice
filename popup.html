@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FableVoice Settings</title>
+    <style>
+        body {
+            width: 300px;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1c1e;
+            color: #e0e0e0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        * {
+            box-sizing: inherit;
+        }
+        h2 {
+            color: #ffd700;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 24px;
+        }
+        h3 {
+            color: #ffd700;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .setting {
+            margin-bottom: 15px;
+        }
+        label {
+            display: inline-block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #ffd700;
+        }
+        input[type="password"], select, button, textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #444;
+            background-color: #2a2c2e;
+            color: #e0e0e0;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        select {
+            margin-bottom: 0;
+        }
+        button {
+            padding: 10px;
+            background-color: #ffd700;
+            color: #1a1c1e;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #ffea00;
+        }
+        #status {
+            font-weight: bold;
+            color: #ffd700;
+        }
+        #voiceList {
+            max-height: 150px;
+            overflow-y: auto;
+        }
+        .status-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .checkbox-setting {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .checkbox-setting input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .checkbox-setting label {
+            margin-bottom: 0;
+        }
+        .api-description {
+            font-size: 0.9em;
+            color: #b0b0b0;
+            margin-top: 5px;
+            line-height: 1.4;
+        }
+        .api-link {
+            color: #ffd700;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .api-link:hover {
+            color: #ffea00;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h2>FableVoice Settings</h2>
+    <div class="status-container">
+        <p>Addon is <span id="status">disabled</span></p>
+        <button id="toggleTTS">Enable Addon</button>
+    </div>
+    <div class="setting">
+        <label for="apiKey">Cartesia API Key:</label>
+        <input type="password" id="apiKey" placeholder="Enter your Cartesia API key">
+        <p class="api-description">Enhance your Fables experience with text-to-speech. Get your free Cartesia API key <a href="https://cartesia.ai/" target="_blank" class="api-link">here</a>.</p>
+    </div>
+    <div class="setting">
+        <label for="openaiApiKey">OpenAI API Key:</label>
+        <input type="password" id="openaiApiKey" placeholder="Enter your OpenAI API key">
+        <p class="api-description">Power intelligent music selection for your scenes and AI-assisted editing. Get your OpenAI API key <a href="https://platform.openai.com/api-keys" target="_blank" class="api-link">here</a>.</p>
+    </div>
+    <h3>Text-To-Speech</h3>
+    <div class="setting">
+        <label for="voiceSelect">Voice:</label>
+        <select id="voiceSelect">
+            <option value="">Loading voices...</option>
+        </select>
+    </div>
+    <div class="setting">
+        <label for="speedSelect">Speed:</label>
+        <select id="speedSelect">
+            <option value="slowest">Slowest</option>
+            <option value="slow">Slow</option>
+            <option value="normal" selected>Normal</option>
+            <option value="fast">Fast</option>
+            <option value="fastest">Fastest</option>
+        </select>
+    </div>
+    <div class="checkbox-setting">
+        <input type="checkbox" id="autoPlayNew" checked>
+        <label for="autoPlayNew">Auto Play Franz</label>
+    </div>
+    <div class="checkbox-setting">
+        <input type="checkbox" id="autoPlayOwn">
+        <label for="autoPlayOwn">Auto Play Players</label>
+    </div>
+    <div class="checkbox-setting">
+        <input type="checkbox" id="useNpcVoices">
+        <label for="useNpcVoices">Use NPC Voices</label>
+    </div>
+    <span class="api-description">(requires OpenAI key to process dialog)</span>
+    <h3>Speech-To-Text</h3>
+    <div class="checkbox-setting">
+        <input type="checkbox" id="autoSendAfterSpeaking">
+        <label for="autoSendAfterSpeaking">Auto Send After Speaking</label>
+    </div>
+    <h3>UI</h3>
+    <div class="setting">
+        <label for="locationBackground">Use Location as Background:</label>
+        <select id="locationBackground">
+            <option value="off">Off</option>
+            <option value="normal">Normal</option>
+            <option value="dark">Dark</option>
+        </select>
+    </div>
+    <h3>Music</h3>
+    <div class="checkbox-setting">
+        <input type="checkbox" id="autoSelectMusic">
+        <label for="autoSelectMusic">Auto-Select Based on Scene</label>
+    </div>
+    <div class="setting">
+        <label for="musicAiNotes">Notes to Music AI:</label>
+        <textarea id="musicAiNotes" rows="3" style="width: 100%;" placeholder="Enter any additional notes for music selection..."></textarea>
+    </div>
+    <p class="api-description">Music provided by <a href="https://tabletopaudio.com/" target="_blank" class="api-link">Tabletop Audio</a>.</p>
+
+    <h3>Editor</h3>
+    <div class="checkbox-setting">
+        <input type="checkbox" id="enableStoryEditor">
+        <label for="enableStoryEditor">Enable Story Editor</label>
+    </div>
+    <div class="setting">
+        <label for="maxRevisions">Max Revisions in a Row:</label>
+        <input type="number" id="maxRevisions" min="1" max="10" value="3">
+    </div>
+    <div class="setting">
+        <label for="disallowedElements">Disallowed Story Elements:</label>
+        <textarea id="disallowedElements" rows="3" style="width: 100%;" placeholder="- windmills
+- hooded figures
+- ornate boxes
+- conspiritorial whispers, tones, gestures
+- any references to 'conspiritorial'"></textarea>
+    </div>
+    <div class="setting">
+        <label for="disallowedRelaxed">Disallowed While Relaxed:</label>
+        <textarea id="disallowedRelaxed" rows="3" style="width: 100%;" placeholder="- quests
+- magic
+- bandits
+- combat
+- urgency"></textarea>
+    </div>
+
+    <button id="loadVoices" style="margin-top: 0px;">Load Voices</button>
+    <button id="saveSettings">Save Settings</button>
+    <script src="popup.js"></script>
+</body>
+</html>

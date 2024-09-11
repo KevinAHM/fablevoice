@@ -1,0 +1,7856 @@
+[
+  {
+    "title": "Imperial Pursuit",
+    "tags": [
+      "music",
+      "scifi"
+    ],
+    "keys": [
+      "Star Wars",
+      "Deathstar",
+      "Stormtroopers",
+      "Empire",
+      "spacestation",
+      "chase"
+    ],
+    "description": "Imperial forces are closing in. Can you escape in time?",
+    "file": "429_Imperial_Pursuit"
+  },
+  {
+    "title": "The Sisterhood",
+    "tags": [
+      "music",
+      "scifi",
+      "fantasy"
+    ],
+    "keys": [
+      "Dune",
+      "Arrakis",
+      "Bene Geserit",
+      "Chapterhouse",
+      "coven",
+      "temple",
+      "prayer"
+    ],
+    "description": "The Sisterhood's plans encompass millennia.",
+    "file": "428_The_Sisterhood"
+  },
+  {
+    "title": "Bug Hunt",
+    "tags": [
+      "music",
+      "scifi",
+      "horror"
+    ],
+    "keys": [
+      "alien",
+      "aliens",
+      "spacestation",
+      "spaceship",
+      "action",
+      "nostromo",
+      "xenomorph"
+    ],
+    "description": "\"Is this going to be a standup fight sir, or just another bug hunt?\" -Lt. Gorman",
+    "file": "427_Bug_Hunt"
+  },
+  {
+    "title": "Stagecoach Heist",
+    "tags": [
+      "music",
+      "historical"
+    ],
+    "keys": [
+      "west",
+      "American",
+      "cowboys",
+      "horses",
+      "action",
+      "chase",
+      "Deadlands",
+      "gunfire",
+      "battle"
+    ],
+    "description": "A thrilling ride through a beautiful landscape. With guns.",
+    "file": "426_Stagecoach_Heist"
+  },
+  {
+    "title": "The Stranger",
+    "tags": [
+      "music",
+      "historical"
+    ],
+    "keys": [
+      "west",
+      "American",
+      "cowboys",
+      "horses",
+      "Deadlands",
+      "dark",
+      "haunted",
+      "mysterious"
+    ],
+    "description": "Mysterious drifter, menacing outsider, or loner hero. You Choose.",
+    "file": "425_The_Stranger"
+  },
+  {
+    "title": "Frontier Town",
+    "tags": [
+      "music",
+      "historical"
+    ],
+    "keys": [
+      "west",
+      "American",
+      "cowboys",
+      "village",
+      "horses",
+      "outpost",
+      "western",
+      "Deadlands"
+    ],
+    "description": "Life in a Western Town.",
+    "file": "424_Frontier_Town"
+  },
+  {
+    "title": "Magical Flora",
+    "tags": [
+      "music",
+      "fantasy",
+      "scifi",
+      "nature"
+    ],
+    "keys": [
+      "biome",
+      "forest",
+      "flowers",
+      "jungle",
+      "alien",
+      "planet",
+      "peaceful",
+      "pandora"
+    ],
+    "description": "A biome bursting with beautiful and mysterious plant life.",
+    "file": "423_Magical_Flora"
+  },
+  {
+    "title": "Ghost Ship",
+    "tags": [
+      "music",
+      "fantasy",
+      "historical",
+      "horror"
+    ],
+    "keys": [
+      "boat",
+      "ship",
+      "sailing",
+      "water",
+      "ocean",
+      "sea",
+      "pirates",
+      "navy",
+      "nautical"
+    ],
+    "description": "Adrift on the seas, what has become of its crew?",
+    "file": "422_Ghost_Ship"
+  },
+  {
+    "title": "The Madding Crowd",
+    "tags": [
+      "music",
+      "fantasy",
+      "historical"
+    ],
+    "keys": [
+      "city",
+      "urban",
+      "town",
+      "Waterdeep",
+      "Baldur's Gate",
+      "medieval",
+      "market"
+    ],
+    "description": "Crowded cities can often be comforting.",
+    "file": "421_The_Madding_Crowd"
+  },
+  {
+    "title": "Counting House",
+    "tags": [
+      "music",
+      "fantasy",
+      "historical"
+    ],
+    "keys": [
+      "bank",
+      "money",
+      "exchange",
+      "Gringotts",
+      "trade",
+      "currency"
+    ],
+    "description": "A sturdy, and gleaming center of commerce in the middle of the city.",
+    "file": "420_Counting_House"
+  },
+  {
+    "title": "Hidden Passage",
+    "tags": [
+      "music",
+      "fantasy"
+    ],
+    "keys": [
+      "tunnel",
+      "mountain pass",
+      "shortcut",
+      "cave",
+      "cavern",
+      "road",
+      "action"
+    ],
+    "description": "A long rumored path has been found. But, is it safe?",
+    "file": "419_Hidden_Passage"
+  },
+  {
+    "title": "Pagan Woods",
+    "tags": [
+      "music",
+      "fantasy",
+      "nature",
+      "horror"
+    ],
+    "keys": [
+      "forest",
+      "ruins",
+      "norse",
+      "viking",
+      "druids",
+      "witches",
+      "ritual",
+      "magic",
+      "spirits"
+    ],
+    "description": "Spirits exist in the trees, the rocks, and the loam.",
+    "file": "418_Pagan_Woods"
+  },
+  {
+    "title": "Mainframe",
+    "tags": [
+      "music",
+      "scifi",
+      "modern"
+    ],
+    "keys": [
+      "motherboard",
+      "computer",
+      "cyberpunk",
+      "cyberspace",
+      "metaverse",
+      "Tron",
+      "Shodan",
+      "Glados"
+    ],
+    "description": "The digital plane contains echoes of humanity.",
+    "file": "417_Mainframe"
+  },
+  {
+    "title": "Rebuilding",
+    "tags": [
+      "music",
+      "historical",
+      "fantasy"
+    ],
+    "keys": [
+      "city",
+      "village",
+      "town",
+      "medieval",
+      "construction",
+      "repair",
+      "square"
+    ],
+    "description": "A destroyed village is rebuilt by the townsfolk.",
+    "file": "416_Rebuilding"
+  },
+  {
+    "title": "Jungle Bunker",
+    "tags": [
+      "music",
+      "scifi",
+      "nature"
+    ],
+    "keys": [
+      "forest",
+      "Endor",
+      "Star Wars",
+      "Stormtroopers",
+      "redoubt",
+      "action",
+      "mechs",
+      "at-st"
+    ],
+    "description": "\"There's only a few guards, this shouldn't be too much trouble\" - H. Solo",
+    "file": "415_Jungle_Bunker"
+  },
+  {
+    "title": "Stakeout",
+    "tags": [
+      "music",
+      "modern"
+    ],
+    "keys": [
+      "city",
+      "urban",
+      "spy",
+      "spies",
+      "cyberpunk",
+      "technology",
+      "surveillance",
+      "camera"
+    ],
+    "description": "Who watches the watchmen?",
+    "file": "414_Stakeout"
+  },
+  {
+    "title": "Collegium Magica",
+    "tags": [
+      "music",
+      "fantasy"
+    ],
+    "keys": [
+      "library",
+      "study",
+      "mage",
+      "maester",
+      "research",
+      "symposium",
+      "books",
+      "scrolls"
+    ],
+    "description": "Shelves brim with books and scrolls of ancient knowledge.",
+    "file": "413_Collegium_Magica"
+  },
+  {
+    "title": "Tomb Guardians",
+    "tags": [
+      "fantasy",
+      "horror"
+    ],
+    "keys": [
+      "statues",
+      "crypt",
+      "cave",
+      "cavern",
+      "underground",
+      "automaton",
+      "monster"
+    ],
+    "description": "Two giant statues guard the secrets of the vault.",
+    "file": "412_Tomb_Guardians"
+  },
+  {
+    "title": "Ship of the Line",
+    "tags": [
+      "music",
+      "historical"
+    ],
+    "keys": [
+      "ocean",
+      "sea",
+      "waves",
+      "sailing",
+      "sailboat",
+      "wind",
+      "nautical",
+      "navy",
+      "naval"
+    ],
+    "description": "The fastest ship in the fleet, and the best appointed.",
+    "file": "411_Ship_of_the_Line"
+  },
+  {
+    "title": "Forgotten Forest",
+    "tags": [
+      "music",
+      "fantasy"
+    ],
+    "keys": [
+      "woods",
+      "dark",
+      "magic",
+      "magical",
+      "spooky",
+      "druids",
+      "exploration"
+    ],
+    "description": "A nexus between realms, these woods are brimming with magical energy.",
+    "file": "410_Forgotten_Forest"
+  },
+  {
+    "title": "Docking Procedure",
+    "tags": [
+      "music",
+      "scifi",
+      "modern"
+    ],
+    "keys": [
+      "space",
+      "spaceship",
+      "spacestation",
+      "freight",
+      "cargo",
+      "rendezvous",
+      "port",
+      "starship"
+    ],
+    "description": "A veteran freighter captain coerces her ancient ship into port.",
+    "file": "409_Docking_Procedure"
+  },
+  {
+    "title": "Nautiloid Escape",
+    "tags": [
+      "music",
+      "fantasy",
+      "scifi",
+      "horror"
+    ],
+    "keys": [
+      "Mind Flayers",
+      "ilithid",
+      "elder brain",
+      "action",
+      "suspense",
+      "crash",
+      "shipwreck"
+    ],
+    "description": "An illithid ship is tearing itself apart as you and your party race to escape.",
+    "file": "408_Nautiloid_Escape"
+  },
+  {
+    "title": "Viking Tavern",
+    "tags": [
+      "music",
+      "fantasy",
+      "historical"
+    ],
+    "keys": [
+      "inn",
+      "bar",
+      "pub",
+      "alehouse",
+      "warm",
+      "fireplace",
+      "longhouse",
+      "tavern"
+    ],
+    "description": "What's better than an ale, and a warm fire after a day of pillaging?",
+    "file": "407_Viking_Tavern"
+  },
+  {
+    "title": "Treacherous Path",
+    "tags": [
+      "music",
+      "fantasy"
+    ],
+    "keys": [
+      "danger",
+      "road",
+      "lava",
+      "fire",
+      "hell",
+      "mordor",
+      "demons",
+      "underworld",
+      "bridge"
+    ],
+    "description": "\"I know a shortcut!\" - The bard, probably",
+    "file": "406_Treacherous_Path"
+  },
+  {
+    "title": "Brood Mother",
+    "tags": [
+      "music",
+      "horror",
+      "fantasy",
+      "scifi"
+    ],
+    "keys": [
+      "spiders",
+      "hatchery",
+      "aragog",
+      "aliens",
+      "cave",
+      "lair",
+      "hive",
+      "dungeon",
+      "boss"
+    ],
+    "description": "Ten thousand hatchlings swarm around the matriarch. The door closes behind you.",
+    "file": "405_Brood_Mother"
+  },
+  {
+    "title": "Vampyr",
+    "tags": [
+      "music",
+      "horror",
+      "fantasy"
+    ],
+    "keys": [
+      "castle",
+      "undead",
+      "vampire",
+      "Strahd",
+      "Ravenloft",
+      "Dracula",
+      "Barovia"
+    ],
+    "description": "\"I want you to believe...to believe in things that you cannot\" - Bram Stoker",
+    "file": "404_Vampyr"
+  },
+  {
+    "title": "Steel Foundry",
+    "tags": [
+      "music",
+      "fantasy"
+    ],
+    "keys": [
+      "dwarven",
+      "dwarf",
+      "metal",
+      "blacksmith",
+      "factory",
+      "moria",
+      "hammer",
+      "smelt"
+    ],
+    "description": "Shadows dance on soot-blackened walls. Molten metal writhes like a captive star.",
+    "file": "403_Steel_Foundry"
+  },
+  {
+    "title": "The Drowned Tower",
+    "tags": [
+      "music",
+      "nature",
+      "fantasy"
+    ],
+    "keys": [
+      "underwater",
+      "ocean",
+      "sea",
+      "ruins",
+      "dive",
+      "whales",
+      "water",
+      "depths",
+      "sunken pyramid"
+    ],
+    "description": "An ancient tower lies forgotten in the depths, guarded by leviathans.",
+    "file": "402_The_Drowned_Tower"
+  },
+  {
+    "title": "Feast of Crispian",
+    "tags": [
+      "music",
+      "historical",
+      "fantasy"
+    ],
+    "keys": [
+      "tavern",
+      "inn",
+      "pub",
+      "hall",
+      "bard",
+      "celebration",
+      "festival",
+      "party"
+    ],
+    "description": "Soldiers gather in the great hall for a feast before battle.",
+    "file": "401_Feast_of_Crispian"
+  },
+  {
+    "title": "Whispering Caverns",
+    "tags": [
+      "music",
+      "nature",
+      "fantasy"
+    ],
+    "keys": [
+      "cave",
+      "grotto",
+      "spirits",
+      "ghosts",
+      "underdark",
+      "mine",
+      "underground",
+      "tomb"
+    ],
+    "description": "An underground prison for tortured souls. What secrets will they whisper?",
+    "file": "400_Whispering_Caverns"
+  },
+  {
+    "title": "Whiteout",
+    "tags": [
+      "music",
+      "nature",
+      "fantasy"
+    ],
+    "keys": [
+      "winter",
+      "snow",
+      "blizzard",
+      "tundra",
+      "arctic",
+      "ice",
+      "Icewind",
+      "wind",
+      "frozen",
+      "storm"
+    ],
+    "description": "Up is down, down is up, and you're freezing.",
+    "file": "399_Whiteout"
+  },
+  {
+    "title": "The Misty Marsh",
+    "tags": [
+      "music",
+      "nature",
+      "fantasy"
+    ],
+    "keys": [
+      "ocean",
+      "sea",
+      "water",
+      "Saltmarsh",
+      "peaceful",
+      "breeze",
+      "birds",
+      "reeds",
+      "boat",
+      "wetlands"
+    ],
+    "description": "A crepuscular paddle among the rushes and reeds.",
+    "file": "398_The_Misty_Marsh"
+  },
+  {
+    "title": "Homecoming",
+    "tags": [
+      "music",
+      "historical",
+      "fantasy"
+    ],
+    "keys": [
+      "medieval",
+      "festival",
+      "city",
+      "town",
+      "celebration",
+      "uplifting",
+      "heroic",
+      "vicotory",
+      "fanfare"
+    ],
+    "description": "A city welcomes its heroes upon their return.",
+    "file": "397_Homecoming"
+  },
+  {
+    "title": "The Ansible",
+    "tags": [
+      "scifi",
+      "modern",
+      "music"
+    ],
+    "keys": [
+      "artifact",
+      "ruins",
+      "ancient",
+      "mountain",
+      "beacon",
+      "communication",
+      "ultrawave"
+    ],
+    "description": "An ancient device for instant communication over unimaginable distances",
+    "file": "396_The_Ansible"
+  },
+  {
+    "title": "Launch Day",
+    "tags": [
+      "scifi",
+      "modern",
+      "music"
+    ],
+    "keys": [
+      "cyberpunk",
+      "spacehip",
+      "spacestation",
+      "space",
+      "rocket",
+      "gantry",
+      "exploration",
+      "Star Trek"
+    ],
+    "description": "A community gathers to watch a historic launch.",
+    "file": "395_Launch_Day"
+  },
+  {
+    "title": "Demon Army",
+    "tags": [
+      "music",
+      "fantasy"
+    ],
+    "keys": [
+      "battle",
+      "action",
+      "war",
+      "underworld",
+      "devil",
+      "fight",
+      "blood wars",
+      "lava",
+      "fire"
+    ],
+    "description": "Beyond the gates of hell, the horde prepares for battle.",
+    "file": "394_Demon_Army"
+  },
+  {
+    "title": "Hellhound Alley",
+    "tags": [
+      "music",
+      "fantasy",
+      "modern"
+    ],
+    "keys": [
+      "cyberpunk",
+      "street",
+      "night",
+      "dogs",
+      "gritty",
+      "urban",
+      "desolate"
+    ],
+    "description": "Yond hounds have a lean and hungry look. Such dogs are dangerous.",
+    "file": "393_Hellhound_Alley"
+  },
+  {
+    "title": "Trireme",
+    "tags": [
+      "music",
+      "historical",
+      "nature"
+    ],
+    "keys": [
+      "ocean",
+      "sea",
+      "waves",
+      "boat",
+      "ship",
+      "sailing",
+      "greece",
+      "greek",
+      "islands",
+      "sparta"
+    ],
+    "description": "It's a beautiful day for a boat ride around the Greek Islands.",
+    "file": "392_Trireme"
+  },
+  {
+    "title": "Train Job",
+    "tags": [
+      "music",
+      "modern",
+      "historical"
+    ],
+    "keys": [
+      "action",
+      "suspense",
+      "chase",
+      "locomotive",
+      "steam",
+      "spy",
+      "tension",
+      "heist",
+      "Bond"
+    ],
+    "description": "A 1960s-era heist film, starring you and your dashing friends.[4 Alternate versions available for Patreon Patrons]",
+    "file": "391_Train_Job"
+  },
+  {
+    "title": "Desert Devotional",
+    "tags": [
+      "music",
+      "fantasy"
+    ],
+    "keys": [
+      "temple",
+      "monks",
+      "chant",
+      "prayer",
+      "Dune",
+      "Arrakis",
+      "sand",
+      "peaceful",
+      "quiet"
+    ],
+    "description": "This ancient ritual often goes on for weeks.",
+    "file": "390_Desert_Devotional"
+  },
+  {
+    "title": "Medieval Market",
+    "tags": [
+      "music",
+      "fantasy",
+      "nature"
+    ],
+    "keys": [
+      "peaceful",
+      "spring",
+      "birds",
+      "town",
+      "city",
+      "square",
+      "magic",
+      "happy",
+      "festival"
+    ],
+    "description": "A picture-perfect town on a beautiful spring day.",
+    "file": "389_Medieval_Market"
+  },
+  {
+    "title": "Lord of Bones",
+    "tags": [
+      "music",
+      "fantasy",
+      "horror"
+    ],
+    "keys": [
+      "monster",
+      "skeleton",
+      "dungeon",
+      "hell",
+      "boss",
+      "action",
+      "fire",
+      "battle"
+    ],
+    "description": "Don't call him Mr. Bones, or Boney, or Boney McBoneFace.",
+    "file": "388_Lord_of_Bones"
+  },
+  {
+    "title": "Docking Bay",
+    "tags": [
+      "music",
+      "scifi"
+    ],
+    "keys": [
+      "mechs",
+      "army",
+      "troops",
+      "battle",
+      "action",
+      "chase",
+      "hangar",
+      "spaceship",
+      "droids"
+    ],
+    "description": "War is coming. Mechs and droids load supplies onto massive ships.",
+    "file": "387_Docking_Bay"
+  },
+  {
+    "title": "The Attic",
+    "tags": [
+      "music",
+      "horror"
+    ],
+    "keys": [
+      "house",
+      "haunted",
+      "creepy",
+      "scary",
+      "ghosts",
+      "spirits",
+      "hut",
+      "shack",
+      "halloween"
+    ],
+    "description": "An old house has many secrets. Halloween 2023.",
+    "file": "386_The_Attic"
+  },
+  {
+    "title": "Infiltration",
+    "tags": [
+      "music",
+      "modern"
+    ],
+    "keys": [
+      "stealth",
+      "escape",
+      "heist",
+      "guards",
+      "facility",
+      "spy",
+      "sneak"
+    ],
+    "description": "Stay quiet, stay low, stay alive.",
+    "file": "385_Infiltration"
+  },
+  {
+    "title": "Western Watchtower",
+    "tags": [
+      "music",
+      "fantasy"
+    ],
+    "keys": [
+      "fortress",
+      "ruins",
+      "mountains",
+      "castle",
+      "fort",
+      "outpost",
+      "guard tower",
+      "tower"
+    ],
+    "description": "A once mighty bulwark lies fallow in a time of peace.",
+    "file": "384_Western_Watchtower"
+  },
+  {
+    "title": "Banshee's Lair",
+    "tags": [
+      "music",
+      "fantasy"
+    ],
+    "keys": [
+      "house",
+      "shack",
+      "cabin",
+      "witch",
+      "crone",
+      "cottage"
+    ],
+    "description": "A strange old crone lives alone in the forest - waiting.",
+    "file": "383_Banshees_Lair"
+  },
+  {
+    "title": "Long Rest",
+    "tags": [
+      "music",
+      "fantasy"
+    ],
+    "keys": [
+      "camp",
+      "campsite",
+      "quiet",
+      "forest",
+      "night",
+      "campfire",
+      "eerie"
+    ],
+    "description": "It's been a day.",
+    "file": "382_Long_Rest"
+  },
+  {
+    "title": "Halfling Sneak",
+    "tags": [
+      "music",
+      "fantasy"
+    ],
+    "keys": [
+      "stealth",
+      "comedy",
+      "hobbits",
+      "castle",
+      "escape",
+      "guards",
+      "heist"
+    ],
+    "description": "You couldn't resist that shiny orb, could you?",
+    "file": "381_Halfling_Sneak"
+  },
+  {
+    "title": "The Great Lift",
+    "tags": [
+      "music",
+      "fantasy"
+    ],
+    "keys": [
+      "machine",
+      "mechanical",
+      "steampunk",
+      "engine",
+      "gears",
+      "clifftop",
+      "elevator",
+      "mountain"
+    ],
+    "description": "There's only one way up - or down.",
+    "file": "380_The_Great_Lift"
+  },
+  {
+    "title": "Terraforming",
+    "tags": [
+      "music",
+      "scifi",
+      "modern"
+    ],
+    "keys": [
+      "Mars",
+      "Terraforming Mars",
+      "atmosphere",
+      "machine",
+      "factory",
+      "industrial",
+      "planet"
+    ],
+    "description": "It takes decades to create an atmosphere on a lifeless planet.",
+    "file": "379_Terraforming"
+  },
+  {
+    "title": "Descent",
+    "tags": [
+      "music",
+      "fantasy"
+    ],
+    "keys": [
+      "cave",
+      "cavern",
+      "underdark",
+      "underground",
+      "drow",
+      "mine",
+      "pit",
+      "rope"
+    ],
+    "description": "Grab that 50 feet of rope. You're going down.",
+    "file": "378_Descent"
+  },
+  {
+    "title": "Through the Woods",
+    "tags": [
+      "music",
+      "fantasy"
+    ],
+    "keys": [
+      "horses",
+      "carriage",
+      "buggy",
+      "chase",
+      "action",
+      "battle",
+      "tension",
+      "forest"
+    ],
+    "description": "A horse-drawn carriage hurtles down a dark wooded lane.",
+    "file": "377_Through_the_Woods"
+  },
+  {
+    "title": "Voyage Begins",
+    "tags": [
+      "music",
+      "fantasy",
+      "historical"
+    ],
+    "keys": [
+      "docks",
+      "intro",
+      "beginning",
+      "ships",
+      "sailing",
+      "adventure",
+      "pier",
+      "journey",
+      "travel"
+    ],
+    "description": "Dock workers and sailors prepare a ship for departure.",
+    "file": "376_Voyage_Begins"
+  },
+  {
+    "title": "Rise of the Golem",
+    "tags": [
+      "music",
+      "fantasy",
+      "horror"
+    ],
+    "keys": [
+      "magic",
+      "spells",
+      "wizards",
+      "clay",
+      "construct",
+      "incantation",
+      "cleric"
+    ],
+    "description": "I have a giant golem, I made it out of clay.",
+    "file": "375_Rise_of_the_Golem"
+  },
+  {
+    "title": "Hall of Angels",
+    "tags": [
+      "music",
+      "fantasy"
+    ],
+    "keys": [
+      "museum",
+      "sculpture",
+      "statues",
+      "seraphs",
+      "archons",
+      "gallery"
+    ],
+    "description": "Angelic statues turn to observe - but only when you're not looking. ",
+    "file": "374_Hall_of_Angels"
+  },
+  {
+    "title": "Infernal Machine",
+    "tags": [
+      "music",
+      "scifi",
+      "fantasy"
+    ],
+    "keys": [
+      "mechanical",
+      "mechanism",
+      "steampunk",
+      "clockwork",
+      "steam",
+      "gears",
+      "engines"
+    ],
+    "description": "A massive, noisy, beast of a thing.",
+    "file": "373_Infernal_Machine"
+  },
+  {
+    "title": "Den of Iniquity",
+    "tags": [
+      "music",
+      "historical",
+      "fantasy"
+    ],
+    "keys": [
+      "tavern",
+      "bar",
+      "pub",
+      "brothel",
+      "inn",
+      "alehouse"
+    ],
+    "description": "A seedier tavern on the other side of town.",
+    "file": "372_Den_of_Iniquity"
+  },
+  {
+    "title": "Whirlpool",
+    "tags": [
+      "music",
+      "nature",
+      "fantasy"
+    ],
+    "keys": [
+      "shipwreck",
+      "ship",
+      "ocean",
+      "sea",
+      "waves",
+      "Poseidon",
+      "action",
+      "sail",
+      "sailing"
+    ],
+    "description": "A deadly ocean vortex threatens to devour your ship and crew.",
+    "file": "371_Whirlpool"
+  },
+  {
+    "title": "Awakenings",
+    "tags": [
+      "music",
+      "scifi",
+      "modern"
+    ],
+    "keys": [
+      "robot",
+      "android",
+      "artificial",
+      "automaton",
+      "computers",
+      "laborotory",
+      "cyberpunk"
+    ],
+    "description": "**Boot sequence..initialized** Neural network: online** Primary init..successful. ",
+    "file": "370_Awakenings"
+  },
+  {
+    "title": "Troll Grotto",
+    "tags": [
+      "music",
+      "fantasy"
+    ],
+    "keys": [
+      "cave",
+      "monster",
+      "tribal",
+      "tense",
+      "giant",
+      "Scandinavian",
+      "Norse",
+      "Nordic"
+    ],
+    "description": "Mog is an ornery troll who prefers the quiet life above the Arctic Circle.",
+    "file": "369_Troll_Grotto"
+  },
+  {
+    "title": "Ghosts of Appalachia",
+    "tags": [
+      "nature",
+      "fantasy"
+    ],
+    "keys": [
+      "hut",
+      "shack",
+      "spirits",
+      "country",
+      "cottage",
+      "abandoned",
+      "forest",
+      "winter",
+      "cabin",
+      "house"
+    ],
+    "description": "A derelict shack in the woods may have a past of its own. ",
+    "file": "368_Ghosts_of_Appalachia"
+  },
+  {
+    "title": "Rope Bridge",
+    "tags": [
+      "nature",
+      "fantasy"
+    ],
+    "keys": [
+      "jungle",
+      "clifftop",
+      "cliff",
+      "danger",
+      "suspense",
+      "swing bridge"
+    ],
+    "description": "This bridge doesn't look safe. ",
+    "file": "367_Rope_Bridge"
+  },
+  {
+    "title": "Roc's Nest",
+    "tags": [
+      "music",
+      "fantasy"
+    ],
+    "keys": [
+      "mountain",
+      "clifftop",
+      "birds",
+      "tension",
+      "drama",
+      "wings",
+      "monster"
+    ],
+    "description": "A massive mythical bird protecting her clutch. ",
+    "file": "366_Rocs_Nest"
+  },
+  {
+    "title": "Trail of Ashes",
+    "tags": [
+      "music",
+      "historical",
+      "fantasy"
+    ],
+    "keys": [
+      "war",
+      "marching",
+      "march",
+      "battlefield",
+      "celtic",
+      "medieval",
+      "armor",
+      "army"
+    ],
+    "description": "From battle to battle, war marches on.",
+    "file": "365_Trail_of_Ashes"
+  },
+  {
+    "title": "River of Blood",
+    "tags": [
+      "music",
+      "horror",
+      "fantasy"
+    ],
+    "keys": [
+      "Avernus",
+      "barren",
+      "wasteland",
+      "dead",
+      "hell",
+      "hades"
+    ],
+    "description": "This great red river runs through the fractured lands.",
+    "file": "364_River_of_Blood"
+  },
+  {
+    "title": "Starship Adrift",
+    "tags": [
+      "music",
+      "scifi"
+    ],
+    "keys": [
+      "space",
+      "spaceship",
+      "Star Trek",
+      "interstellar",
+      "mothership",
+      "Expanse"
+    ],
+    "description": "Set engines to low, hide in a nearby nebula",
+    "file": "363_Starship_Adrift"
+  },
+  {
+    "title": "Rolling Emporium",
+    "tags": [
+      "music",
+      "fantasy"
+    ],
+    "keys": [
+      "oxen",
+      "oxcart",
+      "aurochs",
+      "market",
+      "vendors",
+      "nomads",
+      "wagon",
+      "souk"
+    ],
+    "description": "Pulled by a massive aurochs, this wheeled market never slows, and never stops.",
+    "file": "362_Rolling_Emporium"
+  },
+  {
+    "title": "Ancient Beacon",
+    "tags": [
+      "music",
+      "fantasy",
+      "scifi"
+    ],
+    "keys": [
+      "desert",
+      "dune",
+      "pyramid",
+      "ansible",
+      "sand",
+      "wind",
+      "bedouin",
+      "stargate"
+    ],
+    "description": "Ten thousand years have gone by without a response.",
+    "file": "361_Ancient_Beacon"
+  },
+  {
+    "title": "Pit Fighter",
+    "tags": [
+      "music",
+      "fantasy",
+      "historical"
+    ],
+    "keys": [
+      "arena",
+      "colosseum",
+      "gladiators",
+      "combat",
+      "trial",
+      "duel",
+      "sport",
+      "blood sport"
+    ],
+    "description": "Welcome to Thunderdome.",
+    "file": "360_Pit_Fighter"
+  },
+  {
+    "title": "Skull Island",
+    "tags": [
+      "music",
+      "fantasy",
+      "nature"
+    ],
+    "keys": [
+      "ocean",
+      "adventure",
+      "drama",
+      "ship",
+      "shipwreck",
+      "tribal",
+      "jungle",
+      "King Kong",
+      "Kong"
+    ],
+    "description": "As your ship approaches, you feel like you're being watched.",
+    "file": "359_Skull_Island"
+  },
+  {
+    "title": "Egg Chamber",
+    "tags": [
+      "music",
+      "scifi",
+      "fantasy",
+      "nature"
+    ],
+    "keys": [
+      "alien",
+      "aliens",
+      "creepy",
+      "hatchery",
+      "brood"
+    ],
+    "description": "A few of these translucent pods are starting to quiver...",
+    "file": "358_Egg_Chamber"
+  },
+  {
+    "title": "Promontory",
+    "tags": [
+      "music",
+      "fantasy",
+      "nature"
+    ],
+    "keys": [
+      "ocean",
+      "waves",
+      "cliff",
+      "clifftop",
+      "bluff",
+      "overlook",
+      "peaceful"
+    ],
+    "description": "Nighttime on a rocky clifftop is a great place to reminisce.",
+    "file": "357_Promontory"
+  },
+  {
+    "title": "Adventure Begins",
+    "tags": [
+      "music",
+      "fantasy"
+    ],
+    "keys": [
+      "Waterdeep",
+      "Neverwinter",
+      "Baldur's Gate",
+      "city",
+      "intro",
+      "beginning"
+    ],
+    "description": "Every story has a beginning.",
+    "file": "356_Adventure_Begins"
+  },
+  {
+    "title": "Hydroponics Bay",
+    "tags": [
+      "music",
+      "scifi"
+    ],
+    "keys": [
+      "starship",
+      "Star Trek",
+      "Enterprise",
+      "vines",
+      "technology",
+      "botany",
+      "garden"
+    ],
+    "description": "A place to grow food and cultivate alien botany aboard a starship.",
+    "file": "355_Hydroponics_Bay"
+  },
+  {
+    "title": "Warlock's Whisper",
+    "tags": [
+      "music",
+      "horror",
+      "fantasy"
+    ],
+    "keys": [
+      "magic",
+      "dark",
+      "evil",
+      "sorcery",
+      "creepy",
+      "wizard",
+      "energy"
+    ],
+    "description": "Dark magic. Darker soul.",
+    "file": "354_Warlocks_Whisper"
+  },
+  {
+    "title": "Spirit of the Plains",
+    "tags": [
+      "music",
+      "nature",
+      "fantasy"
+    ],
+    "keys": [
+      "peaceful",
+      "magical",
+      "magic",
+      "spiritual",
+      "wind",
+      "deer",
+      "stag"
+    ],
+    "description": "The great stag of the plains is seldom seen, and speaks to few mortals.",
+    "file": "353_Spirit_of_the_Plains"
+  },
+  {
+    "title": "Black Rider",
+    "tags": [
+      "music",
+      "fantasy",
+      "horror"
+    ],
+    "keys": [
+      "tolkien",
+      "hobbits",
+      "action",
+      "nazgul",
+      "horses",
+      "forest",
+      "chase"
+    ],
+    "description": "Roaming the world on horseback, in search of the darkest powers.",
+    "file": "352_Black_Rider"
+  },
+  {
+    "title": "Halfling Lodge",
+    "tags": [
+      "music",
+      "fantasy"
+    ],
+    "keys": [
+      "tavern",
+      "inn",
+      "hobbits",
+      "tolkien",
+      "happy",
+      "festive",
+      "party"
+    ],
+    "description": "A cozy fire, a mug of ale, and a long pipe. Halfling hospitality at its finest.",
+    "file": "351_Halfling_Lodge"
+  },
+  {
+    "title": "Covert Ops",
+    "tags": [
+      "music",
+      "modern"
+    ],
+    "keys": [
+      "spy",
+      "espionage",
+      "city",
+      "urban",
+      "stakeout",
+      "noir",
+      "street"
+    ],
+    "description": "A dark and gritty world of espionage. Not a martini in sight.",
+    "file": "350_Covert_Ops"
+  },
+  {
+    "title": "Puzzle Dungeon",
+    "tags": [
+      "music",
+      "fantasy"
+    ],
+    "keys": [
+      "labyrinth",
+      "maze",
+      "mechanical",
+      "crypt",
+      "sneak",
+      "tension"
+    ],
+    "description": "A vast, mechanical, moving labyrinth. Step lightly.",
+    "file": "349_Puzzle_Dungeon"
+  },
+  {
+    "title": "Viking Village",
+    "tags": [
+      "music",
+      "historical",
+      "fantasy"
+    ],
+    "keys": [
+      "town",
+      "north",
+      "snow",
+      "cold",
+      "village",
+      "ice",
+      "mountains",
+      "frozen"
+    ],
+    "description": "Life in a northern town.",
+    "file": "348_Viking_Village"
+  },
+  {
+    "title": "Elven Procession",
+    "tags": [
+      "music",
+      "nature",
+      "fantasy"
+    ],
+    "keys": [
+      "forest",
+      "woods",
+      "elves",
+      "elf",
+      "tolkien",
+      "spirits",
+      "peaceful"
+    ],
+    "description": "A secret elf ritual that few mortals have ever witnessed.",
+    "file": "347_Elven_Procession"
+  },
+  {
+    "title": "Tinkertown",
+    "tags": [
+      "scifi",
+      "modern"
+    ],
+    "keys": [
+      "robots",
+      "machines",
+      "junkyard",
+      "cyberpunk",
+      "metal",
+      "mechanical",
+      "future",
+      "tech"
+    ],
+    "description": "Machines fixing machines, fixing machines.",
+    "file": "346_Tinkertown"
+  },
+  {
+    "title": "High Seas Pursuit",
+    "tags": [
+      "historical",
+      "music",
+      "nature"
+    ],
+    "keys": [
+      "ship",
+      "ships",
+      "sailing",
+      "ocean",
+      "battle",
+      "action",
+      "chase",
+      "sail"
+    ],
+    "description": "The rigging groans under a full press of sail. Speed is of the essence.",
+    "file": "345_High_Seas_Pursuit"
+  },
+  {
+    "title": "Yōkai Forest",
+    "tags": [
+      "nature",
+      "fantasy",
+      "horror"
+    ],
+    "keys": [
+      "yokai",
+      "demon",
+      "spirit",
+      "Japan",
+      "Japanese",
+      "mysterious",
+      "trees"
+    ],
+    "description": "The veil between our world, and the spirit world, is especially thin here.",
+    "file": "344_Yokai_Forest"
+  },
+  {
+    "title": "Dungeon Collapse",
+    "tags": [
+      "music",
+      "fantasy"
+    ],
+    "keys": [
+      "action",
+      "battle",
+      "combat",
+      "chase",
+      "church",
+      "temple",
+      "ruins",
+      "destruction"
+    ],
+    "description": "You probably shouldn't have picked up that ancient idol.",
+    "file": "343_Dungeon_Collapse"
+  },
+  {
+    "title": "Tavern Celebration",
+    "tags": [
+      "music",
+      "fantasy"
+    ],
+    "keys": [
+      "inn",
+      "festival",
+      "dance",
+      "party",
+      "action",
+      "tavern",
+      "happy"
+    ],
+    "description": "The mead must flow.",
+    "file": "342_Tavern_Celebration"
+  },
+  {
+    "title": "Beggar's Rest",
+    "tags": [
+      "music",
+      "fantasy",
+      "historical"
+    ],
+    "keys": [
+      "city",
+      "village",
+      "slum",
+      "ghetto",
+      "victorian",
+      "flea bottom",
+      "street"
+    ],
+    "description": "All great cities have a seedy side.",
+    "file": "341_Beggars_Rest"
+  },
+  {
+    "title": "Starbase Omega",
+    "tags": [
+      "music",
+      "scifi"
+    ],
+    "keys": [
+      "space",
+      "spacestation",
+      "spaceship",
+      "interstellar",
+      "outpost"
+    ],
+    "description": "The promenade of this massive orbital station hums with activity.",
+    "file": "340_Starbase_Omega"
+  },
+  {
+    "title": "Red Planet",
+    "tags": [
+      "music",
+      "scifi"
+    ],
+    "keys": [
+      "mars",
+      "desert",
+      "wind",
+      "sand",
+      "habitat",
+      "space",
+      "colony",
+      "Dune"
+    ],
+    "description": "A small group of intrepid humans establishes the first Martian colony.",
+    "file": "339_Red_Planet"
+  },
+  {
+    "title": "Adventure Supply",
+    "tags": [
+      "music",
+      "fantasy"
+    ],
+    "keys": [
+      "shop",
+      "store",
+      "merchant",
+      "general store",
+      "goods",
+      "supplies"
+    ],
+    "description": "Everything you need for your next adventure is sold here.",
+    "file": "338_Adventure_Supply"
+  },
+  {
+    "title": "Village of the Damned",
+    "tags": [
+      "music",
+      "fantasy",
+      "horror"
+    ],
+    "keys": [
+      "scary",
+      "storm",
+      "rain",
+      "creepy",
+      "halloween",
+      "barovia",
+      "gothic",
+      "town",
+      "supernatural"
+    ],
+    "description": "Something is terribly, terribly wrong here. Halloween 2022.",
+    "file": "337_Village_of_the_Damned"
+  },
+  {
+    "title": "Medieval Banquet",
+    "tags": [
+      "music",
+      "fantasy",
+      "historical"
+    ],
+    "keys": [
+      "feast",
+      "party",
+      "gathering",
+      "wedding",
+      "court",
+      "castle",
+      "dinner",
+      "food"
+    ],
+    "description": "A grand feast in the great hall. Eat, drink, and be merry.",
+    "file": "336_Medieval_Banquet"
+  },
+  {
+    "title": "Abandoned Chapel",
+    "tags": [
+      "music",
+      "fantasy"
+    ],
+    "keys": [
+      "temple",
+      "church",
+      "cathedral",
+      "ruins",
+      "gothic",
+      "decay"
+    ],
+    "description": "Nature has burst through the walls. A moody gothic reverie.",
+    "file": "335_Abandoned_Chapel"
+  },
+  {
+    "title": "Harpies' Nest",
+    "tags": [
+      "music",
+      "fantasy"
+    ],
+    "keys": [
+      "harpy",
+      "action",
+      "battle",
+      "wind",
+      "wings",
+      "cliff",
+      "mountain",
+      "monster"
+    ],
+    "description": "A clutch of eggs in a cliffside nest, jealously guarded by fearsome winged creatures.",
+    "file": "334_Harpies_Nest"
+  },
+  {
+    "title": "Arcane Athenaeum",
+    "tags": [
+      "music",
+      "modern",
+      "fantasy"
+    ],
+    "keys": [
+      "libary",
+      "magic",
+      "books",
+      "scrolls",
+      "scribe",
+      "Candlekeep"
+    ],
+    "description": "A mystical library in which everything is in motion.",
+    "file": "333_Arcane_Athenaeum"
+  },
+  {
+    "title": "Myconid Colony",
+    "tags": [
+      "music",
+      "nature",
+      "fantasy"
+    ],
+    "keys": [
+      "underdark",
+      "dank",
+      "dark",
+      "spooky",
+      "moist",
+      "mushroom",
+      "fungus",
+      "magic"
+    ],
+    "description": "In a warm corner of the Underdark, the fungus folk dwell.",
+    "file": "332_Myconid_Colony"
+  },
+  {
+    "title": "Drowned Sailors",
+    "tags": [
+      "music",
+      "nature",
+      "fantasy"
+    ],
+    "keys": [
+      "beach",
+      "ocean",
+      "shipwreck",
+      "water",
+      "zombies",
+      "battle",
+      "action"
+    ],
+    "description": "What unnatural forces have imbued these sailors with a foul mimicry of life?",
+    "file": "331_Drowned_Sailors"
+  },
+  {
+    "title": "Mega City Slums",
+    "tags": [
+      "music",
+      "scifi",
+      "modern"
+    ],
+    "keys": [
+      "cyberpunk",
+      "urban",
+      "future",
+      "tech",
+      "Blade Runner",
+      "ghetto",
+      "dystopian"
+    ],
+    "description": "When cities are the size of continents, not everyone lives the good life.",
+    "file": "330_Mega_City_Slums"
+  },
+  {
+    "title": "Desert Temple",
+    "tags": [
+      "music",
+      "nature",
+      "fantasy"
+    ],
+    "keys": [
+      "sand",
+      "wasteland",
+      "dune",
+      "Bedouin",
+      "tribal",
+      "desert",
+      "barren"
+    ],
+    "description": "As much a fortress as it is a place of devotion.",
+    "file": "329_Desert_Temple"
+  },
+  {
+    "title": "Battle Requiem",
+    "tags": [
+      "music",
+      "fantasy"
+    ],
+    "keys": [
+      "war",
+      "tragedy",
+      "battlefield",
+      "defeat",
+      "sorrow",
+      "retreat",
+      "refugee"
+    ],
+    "description": "\"War does not determine who is right - only who is left.\" - Bertrand Russell",
+    "file": "328_Battle_Requiem"
+  },
+  {
+    "title": "Distilled: Tropical",
+    "tags": [
+      "music",
+      "nature",
+      "modern"
+    ],
+    "keys": [
+      "beach",
+      "ocean",
+      "waves",
+      "surf",
+      "tiki",
+      "rum",
+      "tropics",
+      "whiskey",
+      "whisky"
+    ],
+    "description": "Alternate versions available for Patreon Patrons",
+    "file": "327_Distilled_Tropical"
+  },
+  {
+    "title": "Distilled: Tranquility",
+    "tags": [
+      "music",
+      "nature"
+    ],
+    "keys": [
+      "Asia",
+      "China",
+      "Japan",
+      "Zen",
+      "peaceful",
+      "baijiu",
+      "whiskey",
+      "whisky",
+      "garden"
+    ],
+    "description": "Alternate versions available for Patreon Patrons",
+    "file": "326_Distilled_Tranquility"
+  },
+  {
+    "title": "Distilled: Warehouse",
+    "tags": [
+      "historical",
+      "modern"
+    ],
+    "keys": [
+      "barrels",
+      "whiskey",
+      "whisky",
+      "storage",
+      "spirits"
+    ],
+    "description": "Alternate versions available for Patreon Patrons",
+    "file": "325_Distilled_Warehouse"
+  },
+  {
+    "title": "Distilled: Highlands",
+    "tags": [
+      "music",
+      "nature"
+    ],
+    "keys": [
+      "peat",
+      "mountains",
+      "hills",
+      "Scotland",
+      "Scottish",
+      "whiskey",
+      "whisky"
+    ],
+    "description": "Alternate versions available for Patreon Patrons",
+    "file": "324_Distilled_Highlands"
+  },
+  {
+    "title": "Distilled: Backwoods",
+    "tags": [
+      "historical",
+      "nature",
+      "music"
+    ],
+    "keys": [
+      "still",
+      "whisky",
+      "whiskey",
+      "moonshine",
+      "spirits"
+    ],
+    "description": "Alternate versions available for Patreon Patrons",
+    "file": "323_Distilled_Backwoods"
+  },
+  {
+    "title": "Distilled: Cooperage",
+    "tags": [
+      "historical",
+      "modern",
+      "music"
+    ],
+    "keys": [
+      "barrels",
+      "whiskey",
+      "whisky",
+      "workshop",
+      "craft"
+    ],
+    "description": "Alternate versions available for Patreon Patrons",
+    "file": "322_Distilled_Cooperage"
+  },
+  {
+    "title": "Invisible Mountain",
+    "tags": [
+      "music",
+      "nature",
+      "fantasy"
+    ],
+    "keys": [
+      "tepui",
+      "peaceful",
+      "stream",
+      "wind",
+      "clouds",
+      "peak",
+      "summit",
+      "water"
+    ],
+    "description": "Enshrouded by clouds, a hidden world guards its secrets closely.",
+    "file": "321_Invisible_Mountain"
+  },
+  {
+    "title": "Cultist's Cavern",
+    "tags": [
+      "music",
+      "fantasy"
+    ],
+    "keys": [
+      "pagan",
+      "ritual",
+      "magic",
+      "occult",
+      "ominous",
+      "chant",
+      "summon"
+    ],
+    "description": "A Faceless organization gathers to orchestrate events, and re-shape the world.",
+    "file": "320_Cultists_Cavern"
+  },
+  {
+    "title": "Shaman's Hollow",
+    "tags": [
+      "music",
+      "nature",
+      "fantasy"
+    ],
+    "keys": [
+      "forest",
+      "woods",
+      "magic",
+      "ritual",
+      "druids",
+      "archdruids",
+      "pagan"
+    ],
+    "description": "A secluded spot in the forest where the magic is concentrated",
+    "file": "319_Shamans_Hollow"
+  },
+  {
+    "title": "The Gaping Maw",
+    "tags": [
+      "music",
+      "fantasy"
+    ],
+    "keys": [
+      "gate",
+      "mordor",
+      "action",
+      "drama",
+      "battle",
+      "combat",
+      "hell",
+      "tolkien",
+      "passage"
+    ],
+    "description": "Looming before you is a massive black gate, carved into the side of a mountain.",
+    "file": "318_The_Gaping_Maw"
+  },
+  {
+    "title": "Robot Scrapyard",
+    "tags": [
+      "music",
+      "scifi"
+    ],
+    "keys": [
+      "cyberpunk",
+      "peaceful",
+      "mech",
+      "android",
+      "machine",
+      "factory",
+      "junkyard"
+    ],
+    "description": "Repair, recycle, rebuild, repeat.",
+    "file": "317_Robot_Scrapyard"
+  },
+  {
+    "title": "Goblin Ambush",
+    "tags": [
+      "music",
+      "fantasy"
+    ],
+    "keys": [
+      "battle",
+      "action",
+      "combat",
+      "Phandelver",
+      "chase",
+      "skirmish"
+    ],
+    "description": "Goblins are always trying to take stuff without paying.",
+    "file": "316_Goblin_Ambush"
+  },
+  {
+    "title": "Dragon Rider",
+    "tags": [
+      "music",
+      "fantasy"
+    ],
+    "keys": [
+      "action",
+      "wyvern",
+      "wind",
+      "chase",
+      "battle",
+      "combat",
+      "dragons",
+      "drakes",
+      "pern"
+    ],
+    "description": "Astride a dragon, the wind and the skies beckon.",
+    "file": "315_Dragon_Rider"
+  },
+  {
+    "title": "Shuttle Crash",
+    "tags": [
+      "fantasy",
+      "scifi",
+      "nature"
+    ],
+    "keys": [
+      "alien",
+      "planet",
+      "jungle",
+      "swamp",
+      "derelict",
+      "spaceship",
+      "wreck",
+      "shipwreck"
+    ],
+    "description": "Surviving was the easy part. Now the real work begins.",
+    "file": "314_Shuttle_Crash"
+  },
+  {
+    "title": "Dusk of the Dryad",
+    "tags": [
+      "fantasy",
+      "horror",
+      "nature"
+    ],
+    "keys": [
+      "woods",
+      "forest",
+      "trees",
+      "spooky",
+      "nymph",
+      "feywild",
+      "fey",
+      "faerie"
+    ],
+    "description": "Walk the forest gently, lest you upset the dryad.",
+    "file": "313_Dusk_of_the_Dryad"
+  },
+  {
+    "title": "Generation Ship",
+    "tags": [
+      "scifi"
+    ],
+    "keys": [
+      "space",
+      "interstellar",
+      "mothership",
+      "spaceship",
+      "stars",
+      "expanse",
+      "star trek"
+    ],
+    "description": "The last survivors of a dying world continue their 500-year journey to a new home.",
+    "file": "312_Generation_Ship"
+  },
+  {
+    "title": "Swamp Thing",
+    "tags": [
+      "fantasy",
+      "horror",
+      "nature"
+    ],
+    "keys": [
+      "marsh",
+      "monster",
+      "spooky",
+      "boat",
+      "water",
+      "bog",
+      "creature"
+    ],
+    "description": "Deep within a fetid swamp, an ancient creature lurks.",
+    "file": "311_Swamp_Thing"
+  },
+  {
+    "title": "Moisture Farm",
+    "tags": [
+      "scifi",
+      "music"
+    ],
+    "keys": [
+      "Star Wars",
+      "Tatooine",
+      "desert",
+      "barren",
+      "water",
+      "Dune"
+    ],
+    "description": "On a desolate planet, massive machines extract water from the air.",
+    "file": "310_Moisture_Farm"
+  },
+  {
+    "title": "Bloodgate",
+    "tags": [
+      "fantasy",
+      "music"
+    ],
+    "keys": [
+      "gateway",
+      "portal",
+      "dimension",
+      "lich",
+      "sword coast",
+      "blood",
+      "wizards"
+    ],
+    "description": "A dimensional portal tended to by dark wizards.",
+    "file": "309_Bloodgate"
+  },
+  {
+    "title": "Skullwharf",
+    "tags": [
+      "fantasy",
+      "music"
+    ],
+    "keys": [
+      "port",
+      "docks",
+      "underground",
+      "underdark",
+      "cave",
+      "Skullport",
+      "Waterdeep",
+      "drow"
+    ],
+    "description": "A dangerous, underground port accessible only by sea caves and secret passages.",
+    "file": "308_Skullwharf"
+  },
+  {
+    "title": "Sand Raiders",
+    "tags": [
+      "scifi",
+      "modern",
+      "music"
+    ],
+    "keys": [
+      "Star Wars",
+      "Tusken Raiders",
+      "Tatooine",
+      "desert",
+      "battle",
+      "action",
+      "combat"
+    ],
+    "description": "On a desert planet, far far away. A nomadic tribe struggles for survival.",
+    "file": "307_Sand_Raiders"
+  },
+  {
+    "title": "Aftermath",
+    "tags": [
+      "scifi",
+      "modern",
+      "music"
+    ],
+    "keys": [
+      "nuclear",
+      "cataclysm",
+      "wasteland",
+      "survivor",
+      "dead",
+      "barren"
+    ],
+    "description": "Humanity always finds a way.",
+    "file": "306_Aftermath"
+  },
+  {
+    "title": "Hidden Valley",
+    "tags": [
+      "fantasy",
+      "music"
+    ],
+    "keys": [
+      "wind",
+      "quiet",
+      "peaceful",
+      "safe",
+      "verdant",
+      "vale",
+      "trees",
+      "birds"
+    ],
+    "description": "After an arduous journey, the vista before you is a welcome sight.",
+    "file": "305_Hidden_Valley"
+  },
+  {
+    "title": "Fog of War",
+    "tags": [
+      "fantasy",
+      "horror"
+    ],
+    "keys": [
+      "vikings",
+      "battle",
+      "camp",
+      "bivouac",
+      "suspense",
+      "dread",
+      "ominous"
+    ],
+    "description": "A small band of warriors prepares for battle.",
+    "file": "304_Fog_of_War"
+  },
+  {
+    "title": "Summoning",
+    "tags": [
+      "fantasy",
+      "music"
+    ],
+    "keys": [
+      "witches",
+      "witchcraft",
+      "coven",
+      "ritual",
+      "seance",
+      "occult",
+      "magic"
+    ],
+    "description": "A coven prepares to summon an ancient spirit.",
+    "file": "303_Summoning"
+  },
+  {
+    "title": "Floating Market",
+    "tags": [
+      "fantasy",
+      "historical"
+    ],
+    "keys": [
+      "water",
+      "bazaar",
+      "vendor",
+      "river",
+      "inlet",
+      "shop",
+      "wares",
+      "canal"
+    ],
+    "description": "A misty morning on the canals. Vendors and buyers go about their routines.",
+    "file": "302_Floating_Market"
+  },
+  {
+    "title": "Pool of Radiance",
+    "tags": [
+      "fantasy"
+    ],
+    "keys": [
+      "water",
+      "magic",
+      "peaceful",
+      "ritual",
+      "temple",
+      "ethereal",
+      "blood",
+      "arcane"
+    ],
+    "description": "Iridescent liquid swirls in its depths. A potent source of arcane energy.",
+    "file": "301_Pool_of_Radiance"
+  },
+  {
+    "title": "Burn Maneuver",
+    "tags": [
+      "scifi",
+      "modern"
+    ],
+    "keys": [
+      "space",
+      "spaceship",
+      "stars",
+      "star trek",
+      "expanse",
+      "rocket",
+      "starship",
+      "engines"
+    ],
+    "description": "An interstellar vessel prepares for braking. Buckle in.",
+    "file": "300_Burn_Maneuver"
+  },
+  {
+    "title": "Necropolis",
+    "tags": [
+      "fantasy",
+      "horror"
+    ],
+    "keys": [
+      "ruins",
+      "ancient",
+      "death",
+      "city",
+      "decay",
+      "rubble",
+      "crypt",
+      "grave",
+      "tomb"
+    ],
+    "description": "A massive, spirit-filled city of the dead. Don't kick the skulls. ",
+    "file": "299_Necropolis"
+  },
+  {
+    "title": "Gateway to Hell",
+    "tags": [
+      "fantasy",
+      "horror"
+    ],
+    "keys": [
+      "volcano",
+      "crater",
+      "fire",
+      "fiery",
+      "evil",
+      "hades",
+      "underworld",
+      "brimstone"
+    ],
+    "description": "A foul, smoldering pit, reeking of brimstone and disappointment.",
+    "file": "298_Gateway_to_Hell"
+  },
+  {
+    "title": "Survivors' Bivouac",
+    "tags": [
+      "fantasy",
+      "music"
+    ],
+    "keys": [
+      "camp",
+      "encampment",
+      "campsite",
+      "refugee",
+      "retreat",
+      "sad",
+      "campfire"
+    ],
+    "description": "A rag tag group stops to make camp, and reflect on what went wrong.",
+    "file": "297_Survivors_Bivouac"
+  },
+  {
+    "title": "The Frozen Trail",
+    "tags": [
+      "nature"
+    ],
+    "keys": [
+      "winter",
+      "ice",
+      "arctic",
+      "north",
+      "cold",
+      "freezing",
+      "snow"
+    ],
+    "description": "A serene and snowy backdrop, against which anything can happen.",
+    "file": "296_The_Frozen_Trail"
+  },
+  {
+    "title": "Closing Time",
+    "tags": [
+      "modern",
+      "music"
+    ],
+    "keys": [
+      "cyberpunk",
+      "city",
+      "urban",
+      "traffic",
+      "night"
+    ],
+    "description": "Last call, before you make the winding walk home in Dark City.",
+    "file": "295_Closing_Time"
+  },
+  {
+    "title": "Cutpurse Pursuit",
+    "tags": [
+      "fantasy",
+      "historical",
+      "music"
+    ],
+    "keys": [
+      "medieval",
+      "town",
+      "city",
+      "alley",
+      "urban",
+      "chase",
+      "Witcher"
+    ],
+    "description": "A sharp-eyed scamp wanders a medieval city's back alleys. ",
+    "file": "294_Cutpurse_Pursuit"
+  },
+  {
+    "title": "Sanitarium",
+    "tags": [
+      "horror",
+      "historical"
+    ],
+    "keys": [
+      "Cthulhu",
+      "Lovecraft",
+      "mythos",
+      "hospital",
+      "asylum"
+    ],
+    "description": "A private facility on a windy bluff. Most patients never leave.",
+    "file": "293_Sanitarium"
+  },
+  {
+    "title": "Bleakwater Docks",
+    "tags": [
+      "horror",
+      "historical"
+    ],
+    "keys": [
+      "Cthulhu",
+      "harbor",
+      "boats",
+      "fishing",
+      "village",
+      "whaling",
+      "mythos",
+      "Lovecraft"
+    ],
+    "description": "This turn-of-the-century, New England fishing village has a dark secret.",
+    "file": "292_Bleakwater_Docks"
+  },
+  {
+    "title": "Investigator's Office",
+    "tags": [
+      "horror",
+      "historical"
+    ],
+    "keys": [
+      "detective",
+      "Cthulhu",
+      "vintage",
+      "noir",
+      "private eye",
+      "film noir",
+      "Lovecraft",
+      "mythos"
+    ],
+    "description": "Boston, 1919. Strange things are afoot. You've been hired to look into them.",
+    "file": "291_Investigators_Office"
+  },
+  {
+    "title": "Wagon Ride",
+    "tags": [
+      "fantasy",
+      "music"
+    ],
+    "keys": [
+      "horse",
+      "carriage",
+      "cart",
+      "oxen",
+      "ox",
+      "oxcart",
+      "travel",
+      "drama",
+      "Skyrim"
+    ],
+    "description": "A solemn ride to an uncertain destination. How did you get here? What have you done?",
+    "file": "290_Wagon_Ride"
+  },
+  {
+    "title": "Ancient Artifact",
+    "tags": [
+      "fantasy",
+      "scifi"
+    ],
+    "keys": [
+      "alien",
+      "object",
+      "temple",
+      "Dune",
+      "Numenera",
+      "technology"
+    ],
+    "description": "A mysterious object, dormant for centuries, begins to thrum with energy.",
+    "file": "289_Ancient_Artifact"
+  },
+  {
+    "title": "Everdeep",
+    "tags": [
+      "fantasy"
+    ],
+    "keys": [
+      "ocean",
+      "sea",
+      "underwater",
+      "Netherdeep",
+      "depths",
+      "water",
+      "abyss"
+    ],
+    "description": "A vast underwater city, hidden for millennia.",
+    "file": "288_Everdeep"
+  },
+  {
+    "title": "The Strange",
+    "tags": [
+      "fantasy"
+    ],
+    "keys": [
+      "Apothecaria",
+      "city",
+      "chaos",
+      "chaotic",
+      "demons",
+      "magical"
+    ],
+    "description": "Alternate versions available for Patreon Patrons",
+    "file": "287_The_Strange"
+  },
+  {
+    "title": "Blastfire Bog",
+    "tags": [
+      "fantasy"
+    ],
+    "keys": [
+      "Apothecaria",
+      "swamp",
+      "insects",
+      "goblins",
+      "dryads",
+      "ruins"
+    ],
+    "description": "Alternate versions available for Patreon Patrons",
+    "file": "286_Blastfire_Bog"
+  },
+  {
+    "title": "High Rannoc Village",
+    "tags": [
+      "fantasy"
+    ],
+    "keys": [
+      "Apothecaria",
+      "town",
+      "village",
+      "mountain"
+    ],
+    "description": "Alternate versions available for Patreon Patrons",
+    "file": "285_High_Rannoc_Village"
+  },
+  {
+    "title": "Oasis City",
+    "tags": [
+      "fantasy",
+      "historical"
+    ],
+    "keys": [
+      "souk",
+      "arab",
+      "arabian",
+      "sand",
+      "camels",
+      "market",
+      "desert",
+      "camels",
+      "spice",
+      "Ank'Harel",
+      "Ank Harel"
+    ],
+    "description": "A glimmering desert city, built on the most precious commodity of all. Water.",
+    "file": "284_Oasis_City"
+  },
+  {
+    "title": "Pattern Recognition",
+    "tags": [
+      "scifi",
+      "modern"
+    ],
+    "keys": [
+      "cyberpunk",
+      "computers",
+      "stealth",
+      "suspense",
+      "tech",
+      "noir",
+      "drama",
+      "investigation"
+    ],
+    "description": "Hack the system, stay in the shadows. ",
+    "file": "283_Pattern_Recognition"
+  },
+  {
+    "title": "The Wild Hunt",
+    "tags": [
+      "music",
+      "nature",
+      "fantasy"
+    ],
+    "keys": [
+      "action",
+      "combat",
+      "chase",
+      "horses",
+      "horseback",
+      "forest",
+      "woods",
+      "pagan",
+      "Witcher"
+    ],
+    "description": "Charging through the forest on horseback. Woe be your prey.",
+    "file": "282_The_Wild_Hunt"
+  },
+  {
+    "title": "Escape from Shadow",
+    "tags": [
+      "music",
+      "fantasy"
+    ],
+    "keys": [
+      "action",
+      "combat",
+      "battle",
+      "drama",
+      "army",
+      "adventure"
+    ],
+    "description": "The road is long, and frought with peril. May the light guide you.",
+    "file": "281_Escape_from_Shadow"
+  },
+  {
+    "title": "The City Above",
+    "tags": [
+      "music",
+      "modern"
+    ],
+    "keys": [
+      "urban",
+      "skyscraper",
+      "city",
+      "rooftop",
+      "cyberpunk"
+    ],
+    "description": "High above the city, there is peace, and possibility.",
+    "file": "280_The_City_Above"
+  },
+  {
+    "title": "Blighted Farm",
+    "tags": [
+      "fantasy",
+      "nature",
+      "horror"
+    ],
+    "keys": [
+      "rural",
+      "medieval",
+      "village",
+      "town",
+      "diseased",
+      "evil",
+      "defiled",
+      "rotten"
+    ],
+    "description": "Something has befouled your once productive farm.",
+    "file": "279_Blighted_Farm"
+  },
+  {
+    "title": "Farmyard",
+    "tags": [
+      "fantasy",
+      "nature"
+    ],
+    "keys": [
+      "rural",
+      "medieval",
+      "town",
+      "village",
+      "agriculture",
+      "peaceful"
+    ],
+    "description": "A small plot of land, well tended.",
+    "file": "278_Farmyard"
+  },
+  {
+    "title": "A New Beginning",
+    "tags": [
+      "fantasy",
+      "scifi",
+      "nature"
+    ],
+    "keys": [
+      "peaceful",
+      "ocean",
+      "waves",
+      "planet",
+      "dawn",
+      "exploration"
+    ],
+    "description": "A new dawn breaks, and new adventures begin.",
+    "file": "277_A_New_Beginning"
+  },
+  {
+    "title": "Forge of Fury",
+    "tags": [
+      "fantasy"
+    ],
+    "keys": [
+      "dwarf",
+      "dwarven",
+      "smith",
+      "fire",
+      "metal",
+      "blacksmith",
+      "moria",
+      "khazad dum"
+    ],
+    "description": "Dwarven metalwork takes focus, and dedication.",
+    "file": "276_Forge_of_Fury"
+  },
+  {
+    "title": "Lorekeeper Grove",
+    "tags": [
+      "fantasy",
+      "nature"
+    ],
+    "keys": [
+      "druids",
+      "elven",
+      "elf",
+      "forest",
+      "woods",
+      "ritual",
+      "peaceful",
+      "emerald enclave"
+    ],
+    "description": "Nature must be protected.",
+    "file": "275_Lorekeeper_Grove"
+  },
+  {
+    "title": "Jungle Shaman",
+    "tags": [
+      "fantasy",
+      "nature"
+    ],
+    "keys": [
+      "rites",
+      "jungle",
+      "beach",
+      "waterfall",
+      "spirits",
+      "ritual",
+      "voodoo"
+    ],
+    "description": "Between dense jungle, and the ocean, a Shaman calls forth ancestral spirits.",
+    "file": "274_Jungle_Shaman"
+  },
+  {
+    "title": "Arcane Clockworks",
+    "tags": [
+      "fantasy",
+      "music"
+    ],
+    "keys": [
+      "steampunk",
+      "mechanical",
+      "gears",
+      "dance",
+      "1920s",
+      "1930s",
+      "gnome",
+      "workshop"
+    ],
+    "description": "A beautifully chaotic, and frenzied environment for work, or play.",
+    "file": "273_Arcane_Clockworks"
+  },
+  {
+    "title": "Starforged: Vault",
+    "tags": [
+      "scifi",
+      "music"
+    ],
+    "keys": [
+      "abandoned",
+      "derelict",
+      "relics",
+      "technology",
+      "alien"
+    ],
+    "description": "Alternate versions available for Patreon Patrons",
+    "file": "272_Starforged_Vault"
+  },
+  {
+    "title": "Starforged: Fray",
+    "tags": [
+      "scifi",
+      "music"
+    ],
+    "keys": [
+      "action",
+      "combat",
+      "Star Wars",
+      "spaceship",
+      "starship",
+      "space",
+      "lasers",
+      "battle"
+    ],
+    "description": "Alternate versions available for Patreon Patrons",
+    "file": "271_Starforged_Fray"
+  },
+  {
+    "title": "Starforged: Sojourn",
+    "tags": [
+      "scifi",
+      "music"
+    ],
+    "keys": [
+      "settlement",
+      "outpost",
+      "colony",
+      "star trek",
+      "alien"
+    ],
+    "description": "Alternate versions available for Patreon Patrons",
+    "file": "270_Starforged_Sojourn"
+  },
+  {
+    "title": "Starforged: Planetside",
+    "tags": [
+      "scifi",
+      "music"
+    ],
+    "keys": [
+      "exploration",
+      "alien",
+      "planet",
+      "star trek"
+    ],
+    "description": "Alternate versions available for Patreon Patrons",
+    "file": "269_Starforged_Planetside"
+  },
+  {
+    "title": "Starforged: Space",
+    "tags": [
+      "scifi",
+      "music"
+    ],
+    "keys": [
+      "interstellar",
+      "stars",
+      "space",
+      "star trek",
+      "space travel"
+    ],
+    "description": "Alternate versions available for Patreon Patrons",
+    "file": "268_Starforged_Space"
+  },
+  {
+    "title": "Court of the Count",
+    "tags": [
+      "fantasy",
+      "horror"
+    ],
+    "keys": [
+      "Strahd",
+      "Dracula",
+      "castle",
+      "cthulhu",
+      "vampire",
+      "library",
+      "scary",
+      "barovia",
+      "Ravenloft"
+    ],
+    "description": "Your strangely alluring host beckons you to join him in his private study.",
+    "file": "267_Court_of_the_Count"
+  },
+  {
+    "title": "Orbital Prison Break",
+    "tags": [
+      "scifi",
+      "modern"
+    ],
+    "keys": [
+      "battle",
+      "war",
+      "action",
+      "fight",
+      "boss",
+      "combat",
+      "epic"
+    ],
+    "description": "The galaxy's worst are on the loose.",
+    "file": "266_Orbital_Prison_Break"
+  },
+  {
+    "title": "Shrine of Talos",
+    "tags": [
+      "fantasy",
+      "nature"
+    ],
+    "keys": [
+      "temple",
+      "church",
+      "cult",
+      "mountain",
+      "storm",
+      "thunder",
+      "lightning",
+      "wind"
+    ],
+    "description": "God of storms. God of destruction. Have a good reason for being here.",
+    "file": "265_Shrine_of_Talos"
+  },
+  {
+    "title": "Base Assault",
+    "tags": [
+      "scifi",
+      "modern"
+    ],
+    "keys": [
+      "battle",
+      "war",
+      "action",
+      "fight",
+      "boss",
+      "epic",
+      "combat"
+    ],
+    "description": "A ground assault on a heavily fortified position.",
+    "file": "264_Base_Assault"
+  },
+  {
+    "title": "Mysterious Grotto",
+    "tags": [
+      "fantasy",
+      "nature",
+      "music"
+    ],
+    "keys": [
+      "cave",
+      "dark",
+      "lair",
+      "cavern",
+      "dungeon",
+      "mountain"
+    ],
+    "description": "A dark wind courses through this massive, natural cavern.",
+    "file": "263_Mysterious_Grotto"
+  },
+  {
+    "title": "Victorian Slums",
+    "tags": [
+      "historical",
+      "music"
+    ],
+    "keys": [
+      "london",
+      "dickens",
+      "city",
+      "ghetto",
+      "urban",
+      "Jack the Ripper",
+      "Sherlock",
+      "19th century"
+    ],
+    "description": "Overcrowded, disease-ridden and poxy. There was nothing charming about it.",
+    "file": "262_Victorian_Slums"
+  },
+  {
+    "title": "Unto the Breach",
+    "tags": [
+      "fantasy",
+      "historical",
+      "music"
+    ],
+    "keys": [
+      "battle",
+      "war",
+      "siege",
+      "skirmish",
+      "army",
+      "soldiers",
+      "fight",
+      "combat"
+    ],
+    "description": "\"When the blast of war blows in our ears, Then imitate the action of the tiger\" - W. Shakespeare ",
+    "file": "261_Unto_the_Breach"
+  },
+  {
+    "title": "Skyship",
+    "tags": [
+      "fantasy",
+      "music"
+    ],
+    "keys": [
+      "airship",
+      "flying",
+      "sailing",
+      "transport"
+    ],
+    "description": "These magestic, flying vessels require powerful magic to create and operate.",
+    "file": "260_Skyship"
+  },
+  {
+    "title": "Grand Theater",
+    "tags": [
+      "historical",
+      "modern"
+    ],
+    "keys": [
+      "theatre",
+      "drama",
+      "auditorium",
+      "playhouse",
+      "hall",
+      "orchestra"
+    ],
+    "description": "\"The play's the thing...\"",
+    "file": "259_Grand_Theater"
+  },
+  {
+    "title": "Blighted Forest",
+    "tags": [
+      "fantasy",
+      "horror",
+      "nature"
+    ],
+    "keys": [
+      "rot",
+      "disease",
+      "evil",
+      "corrupted",
+      "poisoned",
+      "tainted",
+      "trees",
+      "grove"
+    ],
+    "description": "An unnatural rot is spreading through the trees.",
+    "file": "258_Blighted_Forest"
+  },
+  {
+    "title": "Country Workshop",
+    "tags": [
+      "fantasy",
+      "music",
+      "nature"
+    ],
+    "keys": [
+      "rural",
+      "town",
+      "medieval",
+      "peaceful",
+      "farm",
+      "blacksmith",
+      "tinker",
+      "village"
+    ],
+    "description": "A place to potter about, fixing things that want fixing.",
+    "file": "257_Country_Workshop"
+  },
+  {
+    "title": "Ice Dragon",
+    "tags": [
+      "fantasy",
+      "music"
+    ],
+    "keys": [
+      "snow",
+      "battle",
+      "boss",
+      "dragon",
+      "monsters",
+      "fight",
+      "action",
+      "war",
+      "combat"
+    ],
+    "description": "Ice dragons are hard to spot in winter, so it's a good thing they like to announce their arrival.",
+    "file": "256_Ice_Dragon"
+  },
+  {
+    "title": "The Hearth Inn",
+    "tags": [
+      "fantasy",
+      "music"
+    ],
+    "keys": [
+      "tavern",
+      "pub",
+      "inn",
+      "Candlekeep",
+      "bard",
+      "hearth"
+    ],
+    "description": "A bookish sort of place. Cozy, and bigger on the inside.",
+    "file": "255_The_Hearth_Inn"
+  },
+  {
+    "title": "Desert Planet Souk",
+    "tags": [
+      "fantasy",
+      "scifi"
+    ],
+    "keys": [
+      "sand",
+      "tatooine",
+      "jawas",
+      "droids",
+      "Star Wars",
+      "alien",
+      "bazaar",
+      "market"
+    ],
+    "description": "A sprawling, sand-swept bazaar of junk, droids, and everything between.",
+    "file": "254_Desert_Planet_Souk"
+  },
+  {
+    "title": "Submerged",
+    "tags": [
+      "fantasy",
+      "nature",
+      "music"
+    ],
+    "keys": [
+      "ocean",
+      "water",
+      "dark",
+      "calm",
+      "peaceful",
+      "quiet",
+      "ethereal",
+      "scuba"
+    ],
+    "description": "Floating beneath the surface, one world disappears, another awakens.",
+    "file": "253_Submerged"
+  },
+  {
+    "title": "Vault of Terror",
+    "tags": [
+      "fantasy",
+      "horror"
+    ],
+    "keys": [
+      "tomb",
+      "dungeon",
+      "dark",
+      "occult",
+      "tomb of horror",
+      "underground"
+    ],
+    "description": "A collaboration with world-class adventure designer DMDave! [Alternate versions, plus adventure PDF available for Patreon Patrons]",
+    "file": "252_Vault_of_Terror"
+  },
+  {
+    "title": "Candledeep",
+    "tags": [
+      "fantasy",
+      "historical"
+    ],
+    "keys": [
+      "library",
+      "Candlekeep",
+      "fortress",
+      "books",
+      "knowledge",
+      "monks",
+      "chant"
+    ],
+    "description": "A massive library inside a fortress. Is the knowledge worth the price of admission?",
+    "file": "251_Candledeep"
+  },
+  {
+    "title": "Wolf Pens",
+    "tags": [
+      "fantasy"
+    ],
+    "keys": [
+      "wolves",
+      "dungeon",
+      "jail",
+      "cellar",
+      "castle",
+      "monsters",
+      "suspense"
+    ],
+    "description": "Deep underground, 3 massive, chained wolves are kept hungry. But for what?",
+    "file": "250_Wolf_Pens"
+  },
+  {
+    "title": "Steampunk Station",
+    "tags": [
+      "fantasy",
+      "historical",
+      "music"
+    ],
+    "keys": [
+      "victorian",
+      "trains",
+      "machines",
+      "clocks",
+      "gears",
+      "airship"
+    ],
+    "description": "A huge central clock, and all manner of contraptions, keep the trains running on time.",
+    "file": "249_Steampunk_Station"
+  },
+  {
+    "title": "Alien Reactor",
+    "tags": [
+      "scifi",
+      "horror"
+    ],
+    "keys": [
+      "Cthulhu",
+      "dark",
+      "scary",
+      "tense",
+      "tension",
+      "monster",
+      "lovecraft"
+    ],
+    "description": "This throbbing mass of bio-electrical energy powers everything.",
+    "file": "248_Alien_Reactor"
+  },
+  {
+    "title": "Oregon Trail",
+    "tags": [
+      "historical",
+      "music"
+    ],
+    "keys": [
+      "west",
+      "America",
+      "wagon",
+      "wagon train",
+      "horse",
+      "oxen",
+      "journey",
+      "travel"
+    ],
+    "description": "Strength in numbers, wagon trains headed west for opportunity.",
+    "file": "247_Oregon_Trail"
+  },
+  {
+    "title": "Magic Shoppe",
+    "tags": [
+      "fantasy",
+      "music"
+    ],
+    "keys": [
+      "Harry Potter",
+      "Olivander",
+      "general store",
+      "store",
+      "potions",
+      "supplies",
+      "Diagon Alley"
+    ],
+    "description": "A small shop, at the end of a quiet, cobblestone street.",
+    "file": "246_Magic_Shoppe"
+  },
+  {
+    "title": "Secret Facility",
+    "tags": [
+      "scifi",
+      "modern",
+      "music"
+    ],
+    "keys": [
+      "cyberpunk",
+      "tension",
+      "tv",
+      "drama",
+      "police",
+      "spy",
+      "spies",
+      "noir"
+    ],
+    "description": "You're awake, but remember nothing. Now it's time to escape.",
+    "file": "245_Secret_Facility"
+  },
+  {
+    "title": "Vikings",
+    "tags": [
+      "fantasy",
+      "music",
+      "historical"
+    ],
+    "keys": [
+      "ocean",
+      "sail",
+      "boats",
+      "battle",
+      "drums",
+      "action",
+      "Scandinavian",
+      "Norse",
+      "Nordic",
+      "war",
+      "combat"
+    ],
+    "description": "\"Valhalla, I am coming.\" - Led Zeppelin",
+    "file": "244_Vikings"
+  },
+  {
+    "title": "Jungle Ruins",
+    "tags": [
+      "fantasy",
+      "nature",
+      "historical"
+    ],
+    "keys": [
+      "aztec",
+      "mayan",
+      "temple",
+      "forest",
+      "birds",
+      "humid",
+      "insects"
+    ],
+    "description": "Deep in the jungle, a hidden city, buried for centuries, is revealed.",
+    "file": "243_Jungle_Ruins"
+  },
+  {
+    "title": "Spider's Den",
+    "tags": [
+      "fantasy",
+      "horror"
+    ],
+    "keys": [
+      "dark",
+      "cave",
+      "lair",
+      "dungeon",
+      "boss",
+      "aragog",
+      "tunnel",
+      "web",
+      "insects"
+    ],
+    "description": "A massive arachnid lurks amongst the bones of its victims.",
+    "file": "242_Spiders_Den"
+  },
+  {
+    "title": "Pirates!",
+    "tags": [
+      "music",
+      "historical",
+      "fantasy"
+    ],
+    "keys": [
+      "sailing",
+      "ship",
+      "ocean",
+      "boat",
+      "nautical",
+      "sea",
+      "adventure"
+    ],
+    "description": "Romantic adventurers, or brigands of the sea. Salty, rum-sodden and irresistable.",
+    "file": "241_Pirates"
+  },
+  {
+    "title": "Throne Room",
+    "tags": [
+      "historical",
+      "fantasy"
+    ],
+    "keys": [
+      "palace",
+      "regal",
+      "royalty",
+      "court",
+      "gossip",
+      "king",
+      "queen",
+      "Love Letter",
+      "salon"
+    ],
+    "description": "A grand chamber where a monarch granted audience, held council and received homage.",
+    "file": "240_Throne_Room"
+  },
+  {
+    "title": "Nordic Noir",
+    "tags": [
+      "modern",
+      "music"
+    ],
+    "keys": [
+      "police",
+      "drama",
+      "television",
+      "tv",
+      "intrigue",
+      "investigation",
+      "detective",
+      "Scandinavian"
+    ],
+    "description": "Bleak landscapes, dark themes and powerful stories. A Scandinavian procedural. ",
+    "file": "239_Nordic_Noir"
+  },
+  {
+    "title": "Mind Flayer Chamber",
+    "tags": [
+      "fantasy",
+      "horror",
+      "music"
+    ],
+    "keys": [
+      "illithid",
+      "dungeon",
+      "suspense",
+      "brain",
+      "elder brain",
+      "action"
+    ],
+    "description": "Deep in the twisting maze of passages lies the elder brain, waiting, throbbing. ",
+    "file": "238_Mind_Flayer_Chamber"
+  },
+  {
+    "title": "Training Grounds",
+    "tags": [
+      "fantasy",
+      "music"
+    ],
+    "keys": [
+      "swords",
+      "fight",
+      "spar",
+      "battle",
+      "melee",
+      "clash",
+      "skirmish",
+      "action",
+      "castle",
+      "combat"
+    ],
+    "description": "The bustling courtyard of a castle often included soldiers drilling and sparring. ",
+    "file": "237_Training_Grounds"
+  },
+  {
+    "title": "Defiled Temple",
+    "tags": [
+      "fantasy",
+      "horror",
+      "music"
+    ],
+    "keys": [
+      "dungeon",
+      "monsters",
+      "dark",
+      "cult",
+      "church",
+      "occult",
+      "ritual"
+    ],
+    "description": "Remnants of a secret religious sect lie in ruin. Horrid creatures lurk in the shadows.",
+    "file": "236_Defiled_Temple"
+  },
+  {
+    "title": "Rainy Village",
+    "tags": [
+      "fantasy",
+      "music"
+    ],
+    "keys": [
+      "peaceful",
+      "town",
+      "rain",
+      "thunder",
+      "horses",
+      "rural"
+    ],
+    "description": "The constant rain makes the townfolk welcoming, and the inn cozier.",
+    "file": "235_Rainy_Village"
+  },
+  {
+    "title": "Lush World",
+    "tags": [
+      "fantasy",
+      "nature"
+    ],
+    "keys": [
+      "peaceful",
+      "quiet",
+      "water",
+      "calm",
+      "ethereal",
+      "psychedelic",
+      "birds"
+    ],
+    "description": "Verdant, colorific, surreal. A world where life begets beauty.",
+    "file": "234_Lush_World"
+  },
+  {
+    "title": "The Orrery",
+    "tags": [
+      "fantasy"
+    ],
+    "keys": [
+      "church",
+      "temple",
+      "cathedral",
+      "mechanical",
+      "peaceful",
+      "ritual",
+      "peaceful",
+      "steampunk"
+    ],
+    "description": "A massive mechanical solar system rotates above the monks. Is it science, or devotion?",
+    "file": "233_The_Orrery"
+  },
+  {
+    "title": "Mech War",
+    "tags": [
+      "music",
+      "modern",
+      "scifi"
+    ],
+    "keys": [
+      "battle",
+      "war",
+      "action",
+      "robot",
+      "Warhammer",
+      "drama",
+      "fight",
+      "boss",
+      "epic",
+      "combat"
+    ],
+    "description": "Large mechanized armies trying to pulverize each other into scrap.",
+    "file": "232_Mech_War"
+  },
+  {
+    "title": "Icebound Town",
+    "tags": [
+      "horror",
+      "fantasy"
+    ],
+    "keys": [
+      "cold",
+      "winter",
+      "ice",
+      "frozen",
+      "north",
+      "frost",
+      "Frostmaiden",
+      "Icewind Dale",
+      "arctic",
+      "village"
+    ],
+    "description": "One of a series of brutally cold northern towns. Not always friendly.",
+    "file": "231_Icebound_Town"
+  },
+  {
+    "title": "All Hallows' Eve",
+    "tags": [
+      "music",
+      "horror",
+      "fantasy"
+    ],
+    "keys": [
+      "Strahd",
+      "Dracula",
+      "vampire",
+      "wolf",
+      "scary",
+      "spooky",
+      "gothic",
+      "haunted",
+      "monster",
+      "Halloween",
+      "Ravenloft"
+    ],
+    "description": "\"When the sun sets, who doth not look for night?\" Halloween 2020",
+    "file": "230_All_Hallows_Eve"
+  },
+  {
+    "title": "Interrogation Room",
+    "tags": [
+      "modern",
+      "music"
+    ],
+    "keys": [
+      "cyberpunk",
+      "police",
+      "tension",
+      "tense",
+      "action",
+      "tv",
+      "sneak",
+      "dark",
+      "stealth"
+    ],
+    "description": "Whether you're police or suspect, this room is tense.",
+    "file": "229_Interrogation_Room"
+  },
+  {
+    "title": "Mushroom Forest",
+    "tags": [
+      "fantasy",
+      "nature"
+    ],
+    "keys": [
+      "ethereal",
+      "psychedelic",
+      "trippy",
+      "peaceful",
+      "calm",
+      "quiet"
+    ],
+    "description": "As you step into the forest, a warm euphoric glow washes over you.",
+    "file": "228_Mushroom_Forest"
+  },
+  {
+    "title": "Terror in the Woods",
+    "tags": [
+      "music",
+      "horror"
+    ],
+    "keys": [
+      "lovecraft",
+      "action",
+      "chase",
+      "tension",
+      "monsters",
+      "battle",
+      "combat"
+    ],
+    "description": "It's dark, you can hear them closing in. It's time to move.",
+    "file": "227_Terror_in_the_Woods"
+  },
+  {
+    "title": "60s Computer Lab",
+    "tags": [
+      "historical",
+      "scifi"
+    ],
+    "keys": [
+      "1950s",
+      "1960s",
+      "synthesizer",
+      "tension",
+      "technology",
+      "laborotory",
+      "science"
+    ],
+    "description": "Whirring machines in underground bunkers. The place where disaster is ultimately avoided.",
+    "file": "226_60s_Computer_Lab"
+  },
+  {
+    "title": "New Orleans Noir",
+    "tags": [
+      "historical",
+      "horror"
+    ],
+    "keys": [
+      "1920s",
+      "1930s",
+      "gothic",
+      "cthulhu",
+      "urban",
+      "city",
+      "mystery"
+    ],
+    "description": "Crescent City, 1920s. Something unnatural pervades the usually festive bustle.",
+    "file": "225_New_Orleans_Noir"
+  },
+  {
+    "title": "Mansion: Night",
+    "tags": [
+      "music"
+    ],
+    "keys": [
+      "stealth",
+      "search",
+      "house",
+      "sneak",
+      "dark",
+      "shadows",
+      "mysterious"
+    ],
+    "description": "Secrets are hidden in the great old house. Wait until dark, tread quietly.",
+    "file": "224_Mansion_Night"
+  },
+  {
+    "title": "Salt Marsh",
+    "tags": [
+      "nature",
+      "fantasy"
+    ],
+    "keys": [
+      "ocean",
+      "sea",
+      "water",
+      "Saltmarsh",
+      "peaceful",
+      "breeze",
+      "birds",
+      "reeds"
+    ],
+    "description": "Between ocean and grasslands, lies this ambiguous, liminal space. ",
+    "file": "223_Salt_Marsh"
+  },
+  {
+    "title": "Wuxia Tea House",
+    "tags": [
+      "historical",
+      "fantasy"
+    ],
+    "keys": [
+      "Asian",
+      "Chinese",
+      "China",
+      "martial arts",
+      "kung fu",
+      "rural",
+      "peaceful",
+      "village"
+    ],
+    "description": "A peaceful sanctuary to contemplate the essence of the sword.",
+    "file": "222_Wuxia_Tea_House"
+  },
+  {
+    "title": "Sunken Treasure",
+    "tags": [
+      "historical",
+      "nature"
+    ],
+    "keys": [
+      "underwater",
+      "water",
+      "deep",
+      "ocean",
+      "sea",
+      "depths",
+      "dive",
+      "scuba",
+      "shipwreck"
+    ],
+    "description": "In the depths, lie the bounty. ",
+    "file": "221_Sunken_Treasure"
+  },
+  {
+    "title": "Wuxia Village",
+    "tags": [
+      "fantasy",
+      "historical"
+    ],
+    "keys": [
+      "Asian",
+      "Chinese",
+      "China",
+      "martial arts",
+      "kung fu",
+      "rural",
+      "mountain",
+      "town"
+    ],
+    "description": "A desolate mountain town awaits a hero. ",
+    "file": "220_Wuxia_Village"
+  },
+  {
+    "title": "Tinkerer's Workshop",
+    "tags": [
+      "fantasy"
+    ],
+    "keys": [
+      "gnomes",
+      "shop",
+      "machines",
+      "funny",
+      "steampunk"
+    ],
+    "description": "This gnomish proprieter is a wizard with metal. ",
+    "file": "219_Tinkerers_Workshop"
+  },
+  {
+    "title": "Sleeping Ogre",
+    "tags": [
+      "fantasy"
+    ],
+    "keys": [
+      "stealth",
+      "dungeon",
+      "quiet",
+      "tense",
+      "sneak",
+      "dark",
+      "shadows",
+      "monster"
+    ],
+    "description": "The way is clear, there's just one not-so-small problem.",
+    "file": "218_Sleeping_Ogre"
+  },
+  {
+    "title": "Storm at Sea",
+    "tags": [
+      "historical"
+    ],
+    "keys": [
+      "sailing",
+      "ship",
+      "ocean",
+      "waves",
+      "nautical",
+      "navy",
+      "sail",
+      "squall",
+      "boat"
+    ],
+    "description": "A terrifying squall from the east. The crew must work together to save the ship.",
+    "file": "217_Storm_at_Sea"
+  },
+  {
+    "title": "Waterkeep: Night",
+    "tags": [
+      "fantasy",
+      "historical"
+    ],
+    "keys": [
+      "medieval",
+      "city",
+      "town",
+      "Waterdeep",
+      "society",
+      "night",
+      "quiet"
+    ],
+    "description": "Nighttime in the jewel of the north.",
+    "file": "216_Waterkeep_Night"
+  },
+  {
+    "title": "Space Battle",
+    "tags": [
+      "scifi"
+    ],
+    "keys": [
+      "action",
+      "combat",
+      "Star Wars",
+      "spaceship",
+      "starship",
+      "space opera",
+      "lasers"
+    ],
+    "description": "Epic finale to a galactic conflict. ",
+    "file": "215_Space_Battle"
+  },
+  {
+    "title": "Castle Kitchen",
+    "tags": [
+      "fantasy",
+      "historical"
+    ],
+    "keys": [
+      "medieval",
+      "cooking",
+      "food",
+      "restaurant",
+      "feast",
+      "oven"
+    ],
+    "description": "A massive, bustling kitchen was often the center of activity in a medieval castle.",
+    "file": "214_Castle_Kitchen"
+  },
+  {
+    "title": "Burning Village",
+    "tags": [
+      "fantasy",
+      "historical"
+    ],
+    "keys": [
+      "fire",
+      "chaos",
+      "destruction",
+      "town",
+      "flames",
+      "waste",
+      "hell"
+    ],
+    "description": "\"It was like this when we got here, honest!\"",
+    "file": "213_Burning_Village"
+  },
+  {
+    "title": "Witch Mountain",
+    "tags": [
+      "music"
+    ],
+    "keys": [
+      "action",
+      "magic",
+      "fight",
+      "battle",
+      "heroic",
+      "war",
+      "magical",
+      "heroic",
+      "combat"
+    ],
+    "description": "A lively and chaotic night of magic and danger. [Alternate version available for Patreon Patrons]",
+    "file": "212_Witch_Mountain"
+  },
+  {
+    "title": "Thieves' Guild",
+    "tags": [
+      "music",
+      "modern"
+    ],
+    "keys": [
+      "action",
+      "stealth",
+      "cyberpunk",
+      "mysterious",
+      "sneak",
+      "tv",
+      "dark",
+      "shadows"
+    ],
+    "description": "Live in shadow. Live for the perfect crime. This is everything. [Alternate version available for Patreon Patrons]",
+    "file": "211_Thieves_Guild"
+  },
+  {
+    "title": "Temple Garden",
+    "tags": [
+      "nature",
+      "fantasy"
+    ],
+    "keys": [
+      "peaceful",
+      "quiet",
+      "zen",
+      "water",
+      "fountain",
+      "calm",
+      "heal"
+    ],
+    "description": "Order and beauty exist in perfect balance here. [Alternate version available for Patreon Patrons]",
+    "file": "210_Temple_Garden"
+  },
+  {
+    "title": "Rat Battle",
+    "tags": [
+      "music"
+    ],
+    "keys": [
+      "fight",
+      "battle",
+      "action",
+      "skirmish",
+      "clash",
+      "melee",
+      "scuffle",
+      "combat"
+    ],
+    "description": "Not every sword is magical. Not every fight is epic.  [Alternate version available for Patreon Patrons]",
+    "file": "209_Rat_Battle"
+  },
+  {
+    "title": "Ghost Town",
+    "tags": [
+      "music",
+      "historical",
+      "fantasy"
+    ],
+    "keys": [
+      "desolate",
+      "rural",
+      "village",
+      "eerie",
+      "abandoned",
+      "ominous",
+      "peaceful"
+    ],
+    "description": "The last time you visited, it was full of people. Where is everyone? [2 alternate versions available for Patreon Patrons]",
+    "file": "208_Ghost_Town"
+  },
+  {
+    "title": "Biodome",
+    "tags": [
+      "music",
+      "modern"
+    ],
+    "keys": [
+      "peaceful",
+      "breeze",
+      "drama",
+      "relaxing",
+      "technology",
+      "dome",
+      "greenhouse"
+    ],
+    "description": "A controlled, self-sufficient eco-system. It's not outisde, but it feels like it. [Alternate version available for Patreon Patrons]",
+    "file": "207_Biodome"
+  },
+  {
+    "title": "Heart: High Rise",
+    "tags": [
+      "horror",
+      "fantasy"
+    ],
+    "keys": [
+      "ropes",
+      "bridges",
+      "wind",
+      "buildings",
+      "breeze",
+      "crows",
+      "vents"
+    ],
+    "description": "An Official track from Heart: The City Beneath RPG",
+    "file": "206_Heart_High_Rise"
+  },
+  {
+    "title": "Heart: Absolution",
+    "tags": [
+      "horror",
+      "fantasy"
+    ],
+    "keys": [
+      "chaos",
+      "nightmare",
+      "dreams",
+      "alien",
+      "terror"
+    ],
+    "description": "An Official track from Heart: The City Beneath RPG",
+    "file": "205_Heart_Absolution"
+  },
+  {
+    "title": "Heart: Meat Corridor",
+    "tags": [
+      "horror",
+      "fantasy"
+    ],
+    "keys": [
+      "tunnel",
+      "decay",
+      "rot",
+      "flesh",
+      "insects"
+    ],
+    "description": "An Official track from Heart: The City Beneath RPG",
+    "file": "204_Heart_Meat_Corridor"
+  },
+  {
+    "title": "Heart: Briar",
+    "tags": [
+      "horror",
+      "fantasy"
+    ],
+    "keys": [
+      "forest",
+      "woods",
+      "beasts",
+      "jungle",
+      "birds",
+      "crows"
+    ],
+    "description": "An Official track from Heart: The City Beneath RPG",
+    "file": "203_Heart_Briar"
+  },
+  {
+    "title": "Heart: Drowned",
+    "tags": [
+      "horror",
+      "fantasy"
+    ],
+    "keys": [
+      "water",
+      "sewars",
+      "cave",
+      "tunnel",
+      "flood",
+      "waves"
+    ],
+    "description": "An Official track from Heart: The City Beneath RPG",
+    "file": "202_Heart_Drowned"
+  },
+  {
+    "title": "Haven",
+    "tags": [
+      "music"
+    ],
+    "keys": [
+      "peaceful",
+      "rain",
+      "calm",
+      "mourning",
+      "thunder",
+      "drama",
+      "heroic"
+    ],
+    "description": "A safe quiet place to regroup for the next battle. [Alternate version available for Everyone]",
+    "file": "201_Haven"
+  },
+  {
+    "title": "Druid Hilltop",
+    "tags": [
+      "fantasy"
+    ],
+    "keys": [
+      "occult",
+      "ritual",
+      "summoning",
+      "Yester Hill",
+      "strahd",
+      "wind",
+      "chant"
+    ],
+    "description": "High on a hill, amidst a circle of ancient stones, hooded druids peform a dark ritual. [2 Alternate versions for Patreon Patrons]",
+    "file": "200_Druid_Hilltop"
+  },
+  {
+    "title": "Sun Dappled Trail",
+    "tags": [
+      "fantasy",
+      "nature",
+      "music"
+    ],
+    "keys": [
+      "forest",
+      "horses",
+      "peaceful",
+      "woods",
+      "trees",
+      "travel",
+      "journey"
+    ],
+    "description": "You and your party on horseback, travelling through a beautiful forest. [2 Alternate versions for Patreon Patrons]",
+    "file": "199_Sun_Dappled_Trail"
+  },
+  {
+    "title": "Shadowfell",
+    "tags": [
+      "fantasy",
+      "horror"
+    ],
+    "keys": [
+      "scary",
+      "eerie",
+      "dark",
+      "ominous",
+      "shadow",
+      "ethereal"
+    ],
+    "description": "An unpredictable realm of depression, stasis and despair. [Alternate versions for Patreon Patrons]",
+    "file": "198_Shadowfell"
+  },
+  {
+    "title": "Battle of the Amazons",
+    "tags": [
+      "fantasy",
+      "historical"
+    ],
+    "keys": [
+      "action",
+      "fight",
+      "clash",
+      "combat",
+      "heroic",
+      "war",
+      "combat"
+    ],
+    "description": "A fierce tribe of warrior women feared for their prowess in battle. [3 Alternate versions for Patreon Patrons]",
+    "file": "197_Battle_of_the_Amazons"
+  },
+  {
+    "title": "Crossing the Styx",
+    "tags": [
+      "fantasy",
+      "horror"
+    ],
+    "keys": [
+      "boat",
+      "water",
+      "Charon",
+      "row",
+      "hades",
+      "ominous",
+      "hell",
+      "ferry",
+      "ferryman"
+    ],
+    "description": "The fee for ferrying the dead is a single coin, placed in the mouth. [3 Alternate versions for Patreon Patrons]",
+    "file": "196_Crossing_the_Styx"
+  },
+  {
+    "title": "Shopping Mall",
+    "tags": [
+      "modern"
+    ],
+    "keys": [
+      "crowds",
+      "promenade",
+      "galleria",
+      "stores",
+      "80s",
+      "shops"
+    ],
+    "description": "A temple to the gods of modern consumerism. A Happy place. [Alternate version for Patreon Patrons]",
+    "file": "195_Shopping_Mall"
+  },
+  {
+    "title": "Tarrasque Interior",
+    "tags": [
+      "fantasy",
+      "horror"
+    ],
+    "keys": [
+      "monster",
+      "dank",
+      "wet",
+      "ominous",
+      "mysterious",
+      "dark"
+    ],
+    "description": "A special holiday free gift! Part of a huge collaboration project. Download the complete adventure, minis, maps and more  Here",
+    "file": "194_Tarrasque_Interior"
+  },
+  {
+    "title": "The Steppes",
+    "tags": [
+      "music"
+    ],
+    "keys": [
+      "drums",
+      "war",
+      "battle",
+      "army",
+      "mongolian",
+      "skirmish",
+      "combat",
+      "action",
+      "fight"
+    ],
+    "description": "A Mongolian flavored battle track. Mostly Drums. [Alternate version for Patreon Patrons]",
+    "file": "193_The_Steppes"
+  },
+  {
+    "title": "Swamp Planet",
+    "tags": [
+      "fantasy",
+      "scifi",
+      "nature"
+    ],
+    "keys": [
+      "alien",
+      "jungle",
+      "humid",
+      "insects",
+      "water",
+      "humid",
+      "dagobah"
+    ],
+    "description": "An entire planet, shrouded in dense mist, and teeming with life. [2 Alternate versions for Patreon Patrons]",
+    "file": "192_Swamp_Planet"
+  },
+  {
+    "title": "Dying World",
+    "tags": [
+      "fantasy",
+      "scifi"
+    ],
+    "keys": [
+      "alien",
+      "solitude",
+      "wind",
+      "dystopia",
+      "crumble",
+      "decay"
+    ],
+    "description": "The final days of a once vibrant planet. A return to entropy. [Alternate version for Patreon Patrons]",
+    "file": "191_Dying_World"
+  },
+  {
+    "title": "1940s Boardwalk",
+    "tags": [
+      "historical"
+    ],
+    "keys": [
+      "seaside",
+      "ocean",
+      "beach",
+      "1940s",
+      "1930s",
+      "cthulhu"
+    ],
+    "description": "Take a stroll through the colorful world of 1940s seaside Americana. [Alternate version for Patreon Patrons]",
+    "file": "190_1940s_Boardwalk"
+  },
+  {
+    "title": "Yuletide",
+    "tags": [
+      "historical",
+      "modern",
+      "music"
+    ],
+    "keys": [
+      "Christmas",
+      "fireplace",
+      "peaceful",
+      "winter",
+      "snow",
+      "holiday"
+    ],
+    "description": "A cozy fireside gathering of family and friends for the holidays. [2 Alternate versions for Patreon Patrons]",
+    "file": "189_Yuletide"
+  },
+  {
+    "title": "Barovian Village",
+    "tags": [
+      "fantasy",
+      "historical"
+    ],
+    "keys": [
+      "mountain",
+      "city",
+      "town",
+      "medieval",
+      "quiet",
+      "gothic",
+      "strahd",
+      "dracula",
+      "Ravenloft"
+    ],
+    "description": "Midnight. A small, quiet, mountain village in darkest Barovia. [Alternate version for Patreon Patrons]",
+    "file": "188_Barovian_Village"
+  },
+  {
+    "title": "Endgame",
+    "tags": [
+      "music"
+    ],
+    "keys": [
+      "battle",
+      "drama",
+      "action",
+      "fight",
+      "clash",
+      "boss",
+      "epic",
+      "heroic",
+      "combat"
+    ],
+    "description": "Big, brash, pulpy. Save this for the fights you might lose. [Alternate version for Patreon Patrons]",
+    "file": "187_Endgame"
+  },
+  {
+    "title": "Haunted",
+    "tags": [
+      "music",
+      "horror"
+    ],
+    "keys": [
+      "scary",
+      "eerie",
+      "halloween",
+      "ghosts",
+      "spooky",
+      "graveyard",
+      "monsters"
+    ],
+    "description": "The soundtrack to a place you really shouldn't be. Halloween 2019. [Alternate version for Patreon Patrons]",
+    "file": "186_Haunted"
+  },
+  {
+    "title": "Gravity",
+    "tags": [
+      "music",
+      "scifi"
+    ],
+    "keys": [
+      "space",
+      "orbit",
+      "tension",
+      "ominous",
+      "drama",
+      "action",
+      "cyberpunk"
+    ],
+    "description": "In space, things can go wrong very quickly. [Alternate version for Patreon Patrons]",
+    "file": "185_Gravity"
+  },
+  {
+    "title": "Underground Lake",
+    "tags": [
+      "fantasy",
+      "nature"
+    ],
+    "keys": [
+      "water",
+      "cave",
+      "cavern",
+      "mountain"
+    ],
+    "description": "Deep beneath the mountain, a massive lake shimmers before you. [2 Alternate versions for Patreon Patrons]",
+    "file": "184_Underground_Lake"
+  },
+  {
+    "title": "Sea of Moving Ice",
+    "tags": [
+      "fantasy",
+      "nature"
+    ],
+    "keys": [
+      "ocean",
+      "storm",
+      "waves",
+      "ominous",
+      "glacier",
+      "water",
+      "winter"
+    ],
+    "description": "These northern waters are treacherous and cold. [2 Alternate versions for Patreon Patrons]",
+    "file": "183_Sea_of_Moving_Ice"
+  },
+  {
+    "title": "Country Village",
+    "tags": [
+      "music",
+      "fantasy"
+    ],
+    "keys": [
+      "rural",
+      "town",
+      "medieval",
+      "peaceful",
+      "farm"
+    ],
+    "description": "A charming, quiet little village that welcomes you no matter what. [2 Alternate versions for Patreon Patrons]",
+    "file": "182_Country_Village"
+  },
+  {
+    "title": "Cyberpunk Bar",
+    "tags": [
+      "scifi",
+      "modern"
+    ],
+    "keys": [
+      "urban",
+      "future",
+      "blade runner",
+      "Shadowrun",
+      "tavern",
+      "matrix",
+      "club"
+    ],
+    "description": "A seedy place on the outskirts of the city. It's not pretty, but they probably have what you need. [2 Alternate versions for Patreon Patrons]",
+    "file": "181_Cyberpunk_Bar"
+  },
+  {
+    "title": "Abandoned Windmill",
+    "tags": [
+      "fantasy",
+      "historical",
+      "horror"
+    ],
+    "keys": [
+      "rural",
+      "country",
+      "landscape",
+      "building",
+      "ominous",
+      "medieval",
+      "desolate"
+    ],
+    "description": "Lying fallow for years on a blustery hilltop, the sails still spin as a weary reminder. But of what? [2 Alternate versions for Patreon Patrons]",
+    "file": "180_Abandoned_Windmill"
+  },
+  {
+    "title": "Cyberpunk City",
+    "tags": [
+      "scifi",
+      "modern"
+    ],
+    "keys": [
+      "urban",
+      "future",
+      "blade runner",
+      "Shadowrun",
+      "rain",
+      "matrix"
+    ],
+    "description": "The true melting pot. Language, culture and technology have merged into a single multi-faceted existence.[Alternate version for Patreon Patrons]",
+    "file": "179_Cyberpunk_City"
+  },
+  {
+    "title": "Ice Throne",
+    "tags": [
+      "fantasy"
+    ],
+    "keys": [
+      "cavern",
+      "frozen",
+      "cold",
+      "lich",
+      "cave",
+      "tundra",
+      "snow",
+      "winter"
+    ],
+    "description": "A frozen chamber from which to rule with an icy heart.  [Alternate version for Patreon Patrons]",
+    "file": "178_Ice_Throne"
+  },
+  {
+    "title": "Tavern Music",
+    "tags": [
+      "music",
+      "fantasy",
+      "historical"
+    ],
+    "keys": [
+      "inn",
+      "hearth",
+      "meeting",
+      "bard",
+      "dance",
+      "tavern"
+    ],
+    "description": "It's midsummer night down at the \"Adventurer's Arms\" and the bards are all here. [Alternate version for Patreon Patrons]",
+    "file": "177_Tavern_Music"
+  },
+  {
+    "title": "Barren Wastes",
+    "tags": [
+      "nature",
+      "fantasy",
+      "scifi",
+      "horror"
+    ],
+    "keys": [
+      "desert",
+      "steppes",
+      "lonely",
+      "solitude",
+      "wind",
+      "tundra",
+      "plains",
+      "arctic",
+      "alien",
+      "planet"
+    ],
+    "description": "Desolate, dessicated and dire. What used to be lush, isn't anymore. [2 Alternate versions for Patreon Patrons]",
+    "file": "176_Barren_Wastes"
+  },
+  {
+    "title": "Royal Court",
+    "tags": [
+      "fantasy",
+      "historical"
+    ],
+    "keys": [
+      "king",
+      "queen",
+      "royalty",
+      "palace",
+      "monarch",
+      "prince",
+      "medieval",
+      "imperial"
+    ],
+    "description": "In this highly structured setting, those who attend the monarch gather to plot and collude. [2 Alternate versions for Patreon Patrons]",
+    "file": "175_Royal_Court"
+  },
+  {
+    "title": "Wizard's Tower",
+    "tags": [
+      "music",
+      "fantasy"
+    ],
+    "keys": [
+      "magic",
+      "heroic",
+      "drama",
+      "action",
+      "magical"
+    ],
+    "description": "Amidst bottles and books and beasts in their cage, toils a mighty magician, a wizard most sage. [Alternate version for Patreon Patrons]",
+    "file": "174_Wizards_Tower"
+  },
+  {
+    "title": "Robotics Lab",
+    "tags": [
+      "scifi",
+      "modern"
+    ],
+    "keys": [
+      "technolgy",
+      "hi-tech",
+      "spaceship",
+      "spacestation",
+      "facility",
+      "labrotory",
+      "robots"
+    ],
+    "description": "A high tech facility for cutting edge research. [Alternate version for Patreon Patrons]",
+    "file": "173_Robotics_Lab"
+  },
+  {
+    "title": "Castle Jail",
+    "tags": [
+      "fantasy",
+      "horror"
+    ],
+    "keys": [
+      "dungeon",
+      "prison",
+      "cell",
+      "torture",
+      "dark",
+      "dank",
+      "dripping"
+    ],
+    "description": "A dank, horrible cell in which to ponder your life's choices. [Alternate version for Patreon Patrons]",
+    "file": "172_Castle_Jail"
+  },
+  {
+    "title": "Cry Havoc",
+    "tags": [
+      "music"
+    ],
+    "keys": [
+      "battle",
+      "drama",
+      "action",
+      "fight",
+      "clash",
+      "medieval",
+      "epic",
+      "heroic",
+      "combat"
+    ],
+    "description": "\"Cry Havoc and let slip the dogs of war\" - W. Shakespeare [Alternate version for Patreon Patrons]",
+    "file": "171_Cry_Havoc"
+  },
+  {
+    "title": "The Underdark",
+    "tags": [
+      "fantasy"
+    ],
+    "keys": [
+      "dungeon",
+      "underground",
+      "dark",
+      "drow",
+      "mysterious",
+      "dangerous"
+    ],
+    "description": "A vast subeterranean network of interconnected caverns.  [2 Alternate versions for Patreon Patrons]",
+    "file": "170_The_Underdark"
+  },
+  {
+    "title": "The Feywild",
+    "tags": [
+      "fantasy"
+    ],
+    "keys": [
+      "peaceful",
+      "forest",
+      "nature",
+      "trees",
+      "breeze",
+      "quiet",
+      "ethereal"
+    ],
+    "description": "An echo of the Prime Material Plane, where arcane energy flows like water. [Alternate version for Patreon Patrons]",
+    "file": "169_The_Feywild"
+  },
+  {
+    "title": "Neon Drive",
+    "tags": [
+      "music"
+    ],
+    "keys": [
+      "action",
+      "drama",
+      "synth",
+      "boss",
+      "fight",
+      "epic",
+      "battle",
+      "gothic",
+      "cyberpunk",
+      "Shadowrun",
+      "combat"
+    ],
+    "description": "Hi intensity cyberpunk action for highly modified people and cars. [Alternate version for Patreon Patrons]",
+    "file": "168_Neon_Drive"
+  },
+  {
+    "title": "Fishing Village",
+    "tags": [
+      "fantasy",
+      "historical"
+    ],
+    "keys": [
+      "ocean",
+      "sea",
+      "boats",
+      "town",
+      "medieval",
+      "Saltmarsh",
+      "docks",
+      "water",
+      "peaceful"
+    ],
+    "description": "A busy little village on the southern shore of somewhere. [2 Alternate versions for Patreon Patrons]",
+    "file": "167_Fishing_Village"
+  },
+  {
+    "title": "Quiet Cove",
+    "tags": [
+      "nature",
+      "fantasy"
+    ],
+    "keys": [
+      "ocean",
+      "sea",
+      "ships",
+      "sail",
+      "pirates",
+      "Saltmarsh",
+      "anchor",
+      "inlet",
+      "water",
+      "tropics",
+      "peaceful"
+    ],
+    "description": "A calm tropical inlet for ships to lay at anchor. [2 Alternate versions for Patreon Patrons]",
+    "file": "166_Quiet_Cove"
+  },
+  {
+    "title": "RMS Titanic",
+    "tags": [
+      "historical"
+    ],
+    "keys": [
+      "ocean",
+      "sea",
+      "ships",
+      "steamer",
+      "boats",
+      "luxury",
+      "travel",
+      "elegant"
+    ],
+    "description": "A postprandial stroll along the deck of the world's most luxurious ocean liner. [Alternate version for Patreon Patrons]",
+    "file": "165_RMS_Titanic"
+  },
+  {
+    "title": "Cistern",
+    "tags": [
+      "fantasy",
+      "historical"
+    ],
+    "keys": [
+      "dark",
+      "dank",
+      "dripping",
+      "tunnel",
+      "sewars",
+      "underground",
+      "water"
+    ],
+    "description": "A Castle's cistern was a functional necessity, but it could also be beautiful and mysterious.  [2 Alternate versions for Patreon Patrons]",
+    "file": "164_Cistern"
+  },
+  {
+    "title": "Medieval Fair",
+    "tags": [
+      "fantasy",
+      "historical"
+    ],
+    "keys": [
+      "festival",
+      "town",
+      "village",
+      "market",
+      "party",
+      "bazaar"
+    ],
+    "description": "An important economic event in medieval towns. Merchants and entertainers gathered from afar. [Alternate version for Patreon Patrons]",
+    "file": "163_Medieval_Fair"
+  },
+  {
+    "title": "Dark Angel",
+    "tags": [
+      "music",
+      "modern"
+    ],
+    "keys": [
+      "action",
+      "drama",
+      "synth",
+      "90s",
+      "boss",
+      "fight",
+      "epic",
+      "battle",
+      "gothic"
+    ],
+    "description": "A dark homage to the 90s. A great backdrop to brooding drama or full bore action.",
+    "file": "162_Dark_Angel"
+  },
+  {
+    "title": "Forest: Day",
+    "tags": [
+      "nature",
+      "fantasy"
+    ],
+    "keys": [
+      "quiet",
+      "breeze",
+      "trees",
+      "birds",
+      "wind",
+      "sleeping",
+      "productivty"
+    ],
+    "description": "A breezy, dense, daytime forest setting for adventure or relaxation. You choose. [Alternate version for Patreon Patrons]",
+    "file": "161_Forest_Day"
+  },
+  {
+    "title": "Shanghai 1930s",
+    "tags": [
+      "historical"
+    ],
+    "keys": [
+      "jazz",
+      "china",
+      "asia",
+      "asian",
+      "orient",
+      "cthulhu",
+      "city",
+      "urban",
+      "crime",
+      "1920",
+      "1940"
+    ],
+    "description": "Known as 'The Paris of the East, the New York of the West'.Anything was possible. [Alternate version for Patreon Patrons]",
+    "file": "160_Shanghai_1930s"
+  },
+  {
+    "title": "Stables",
+    "tags": [
+      "fantasy",
+      "historical"
+    ],
+    "keys": [
+      "medieval",
+      "horses",
+      "hitch",
+      "grooming",
+      "livestock",
+      "stalls",
+      "animals"
+    ],
+    "description": "In medieval times, horses were vital for trade, travel, and war. A well run stable was essential. [Alternate version for Patreon Patrons]",
+    "file": "159_Stables"
+  },
+  {
+    "title": "Waterkeep",
+    "tags": [
+      "music",
+      "fantasy"
+    ],
+    "keys": [
+      "medieval",
+      "city",
+      "town",
+      "Waterdeep",
+      "society"
+    ],
+    "description": "The fabled jeweled city of the north, a hub for trade, commerce and culture. [2 Alternate versions for Patreon Patrons]",
+    "file": "158_Waterkeep"
+  },
+  {
+    "title": "Field of Heroes",
+    "tags": [
+      "music"
+    ],
+    "keys": [
+      "battle",
+      "drama",
+      "action",
+      "fight",
+      "clash",
+      "medieval",
+      "epic",
+      "heroic",
+      "combat"
+    ],
+    "description": "On the field of battle, heroes are born.",
+    "file": "157_Field_of_Heroes"
+  },
+  {
+    "title": "Star Freighter",
+    "tags": [
+      "scifi"
+    ],
+    "keys": [
+      "cargo",
+      "space",
+      "spaceship",
+      "peaceful",
+      "aliens",
+      "salvage"
+    ],
+    "description": "A massive interstellar vessel used for long haul cargo runs. [Alternate version for Patreon Patrons]",
+    "file": "156_Star_Freighter"
+  },
+  {
+    "title": "Outpost 31",
+    "tags": [
+      "music",
+      "scifi",
+      "horror"
+    ],
+    "keys": [
+      "antarctica",
+      "arctic",
+      "snow",
+      "ice",
+      "synth",
+      "john carpenter",
+      "thing",
+      "the thing",
+      "morricone",
+      "cold",
+      "winter"
+    ],
+    "description": "Antarctica, 1982. An homage to the wonderful Carpenter/Morricone Score.",
+    "file": "155_Outpost_31"
+  },
+  {
+    "title": "Artist's Garret",
+    "tags": [
+      "historical"
+    ],
+    "keys": [
+      "attic",
+      "rain",
+      "writing",
+      "fireplace",
+      "solitude",
+      "peaceful",
+      "shack"
+    ],
+    "description": "In a tiny attic room, rain pattering against the window, fire in the grate, pen in hand.  [Alternate version for Patreon Patrons]",
+    "file": "154_Artists_Garret"
+  },
+  {
+    "title": "Secret Garden",
+    "tags": [
+      "fantasy",
+      "nature"
+    ],
+    "keys": [
+      "elves",
+      "elven",
+      "elf",
+      "forest",
+      "woods",
+      "spirits",
+      "tolkien",
+      "peaceful",
+      "magic",
+      "sleeping"
+    ],
+    "description": "A quiet, magical clearing in the forest. All gentle creatures welcome. [Alternate version for Patreon Patrons]",
+    "file": "153_Secret_Garden"
+  },
+  {
+    "title": "Nostromo",
+    "tags": [
+      "scifi",
+      "horror"
+    ],
+    "keys": [
+      "spaceship",
+      "salvage",
+      "aliens",
+      "reavers",
+      "halloween",
+      "space",
+      "hypersleep"
+    ],
+    "description": "While the crew prepares to emerge from hypersleep, the ship slowly awakens. Halloween 2018 [Alternate version for Patreon Patrons]",
+    "file": "152_Nostromo"
+  },
+  {
+    "title": "Metropolis Fanfare",
+    "tags": [
+      "music"
+    ],
+    "keys": [
+      "combat",
+      "battle",
+      "action",
+      "drama",
+      "steampunk"
+    ],
+    "description": "A Heroic introduction to the city of tomorrow.",
+    "file": "151_Metropolis_Fanfare"
+  },
+  {
+    "title": "Loop Tales",
+    "tags": [
+      "music",
+      "scifi"
+    ],
+    "keys": [
+      "technolgy",
+      "Tales from the Loop",
+      "cyberpunk",
+      "abstract",
+      "dystopia",
+      "80s",
+      "synth",
+      "tv",
+      "television"
+    ],
+    "description": "The sounds of Scandinavian, suburban futurism. [Alternate version for Patreon Patrons]",
+    "file": "150_Loop_Tales"
+  },
+  {
+    "title": "Lakeside Camp",
+    "tags": [
+      "nature"
+    ],
+    "keys": [
+      "river",
+      "stream",
+      "water",
+      "campsite",
+      "campfire",
+      "calm",
+      "peaceful",
+      "relaxing"
+    ],
+    "description": "A quiet spot, off the beaten track. [Alternate version for Patreon Patrons]",
+    "file": "149_Lakeside_Camp"
+  },
+  {
+    "title": "Barovian Castle",
+    "tags": [
+      "music",
+      "fantasy",
+      "horror"
+    ],
+    "keys": [
+      "Strahd",
+      "Dracula",
+      "vampire",
+      "wolf",
+      "scary",
+      "spooky",
+      "gothic",
+      "haunted",
+      "monster",
+      "Ravenloft"
+    ],
+    "description": "For a thousand years the castle has towered over the surrounding villages. People speak of it in hushed tones. [Alternate version for Patreon Patrons]",
+    "file": "148_Barovian_Castle"
+  },
+  {
+    "title": "Graveyard",
+    "tags": [
+      "fantasy",
+      "horror"
+    ],
+    "keys": [
+      "tomb",
+      "castle",
+      "strahd",
+      "Dracula",
+      "vampire",
+      "wolf",
+      "scary",
+      "spooky",
+      "gothic",
+      "haunted",
+      "monster",
+      "Ravenloft"
+    ],
+    "description": "The crooked headstones have been overgrown with vines and all manner of creatures commune in the darkness.",
+    "file": "147_Graveyard"
+  },
+  {
+    "title": "Floating Ice Castle",
+    "tags": [
+      "fantasy"
+    ],
+    "keys": [
+      "palace",
+      "frozen",
+      "fortress",
+      "clouds",
+      "giants",
+      "cold",
+      "flying",
+      "sky",
+      "skyreach"
+    ],
+    "description": "Kept aloft by an ancient spell, this gleaming fortress served as protection against an enemy no one remembers.",
+    "file": "146_Floating_Ice_Castle"
+  },
+  {
+    "title": "Cotton Club",
+    "tags": [
+      "historical"
+    ],
+    "keys": [
+      "jazz",
+      "harlem",
+      "club",
+      "bar",
+      "speakeasy",
+      "tavern",
+      "city",
+      "urban",
+      "1920",
+      "1930",
+      "1940",
+      "cthulhu"
+    ],
+    "description": "Harlem, 1920s. The Cotton Club was the epicenter of the African American social and artistic renaissance (contains Public Domain/1926 recordings).",
+    "file": "145_Cotton_Club_CLEAN"
+  },
+  {
+    "title": "War Zone",
+    "tags": [
+      "historical",
+      "modern"
+    ],
+    "keys": [
+      "warfare",
+      "helicopters",
+      "combat",
+      "huey",
+      "urban",
+      "shelling",
+      "city",
+      "airstrike"
+    ],
+    "description": "Incessant shelling of the city below as attack helicopters drone above.  [Alt. version for Patreon Patrons]",
+    "file": "144_War_Zone"
+  },
+  {
+    "title": "Elegant Dinner Party",
+    "tags": [
+      "historical"
+    ],
+    "keys": [
+      "supper",
+      "dining",
+      "jane austen",
+      "social",
+      "entertaining",
+      "downton abbey",
+      "society"
+    ],
+    "description": "The clothing and decorum of these elite gatherings often mask the undertones of intrigue and distrust. [Alternate version for Patreon Patrons]",
+    "file": "143_Elegant_Dinner_Party"
+  },
+  {
+    "title": "Mummy's Tomb",
+    "tags": [
+      "fantasy",
+      "historical",
+      "horror"
+    ],
+    "keys": [
+      "egypt",
+      "pharoah",
+      "pyramid",
+      "burial",
+      "undead",
+      "desert",
+      "sarcophagus"
+    ],
+    "description": "An ancient burial chamber is uncovered after a millenium. What treasures are held within? What terrors?",
+    "file": "142_Mummys_Tomb"
+  },
+  {
+    "title": "Hermit Hut",
+    "tags": [
+      "fantasy",
+      "historical"
+    ],
+    "keys": [
+      "wind",
+      "cabin",
+      "shack",
+      "hovel",
+      "house",
+      "witch",
+      "crone",
+      "lonely",
+      "woods"
+    ],
+    "description": "An old hermit lives a quiet life of routine, alone in an isolated stone hut. But is there something more? [Alternate version for Patreon Patrons]",
+    "file": "141_Hermit_Hut"
+  },
+  {
+    "title": "Dark Future",
+    "tags": [
+      "scifi",
+      "modern"
+    ],
+    "keys": [
+      "neon",
+      "cyberpunk",
+      "noir",
+      "space",
+      "gritty",
+      "metallic",
+      "urban"
+    ],
+    "description": "In a not too distant future, dense enclaves of humans eke out a living amid towers of twisting metal, glass and neon.",
+    "file": "140_Dark_Future"
+  },
+  {
+    "title": "Sunken Temple",
+    "tags": [
+      "nature",
+      "fantasy"
+    ],
+    "keys": [
+      "underwater",
+      "water",
+      "deep",
+      "sunken pyramid",
+      "ocean",
+      "sea",
+      "depths",
+      "dive",
+      "scuba",
+      "Aquasphere",
+      "church"
+    ],
+    "description": "Lost for millenia beneath the waves, an ancient edifice holds countless mysteries. [Alternate version for Patreon Patrons]",
+    "file": "139_Sunken_Temple"
+  },
+  {
+    "title": "Desert Winds",
+    "tags": [
+      "nature"
+    ],
+    "keys": [
+      "storm",
+      "sandstorm",
+      "sand",
+      "arabian",
+      "weather",
+      "dust",
+      "haboob",
+      "Tales of the Arabian Nights",
+      "egypt"
+    ],
+    "description": "With little warning, the serenity of the desert is transformed into a maelstrom of biting sand and vicious wind. [Alternate version for Patreon Patrons]",
+    "file": "138_Desert_Winds"
+  },
+  {
+    "title": "Mill Town",
+    "tags": [
+      "fantasy",
+      "historical"
+    ],
+    "keys": [
+      "river",
+      "stream",
+      "village",
+      "water"
+    ],
+    "description": "A busy little mill town on the banks of a river. [Alternate version for Patreon Patrons]",
+    "file": "137_Mill_Town_a"
+  },
+  {
+    "title": "Temple of Helm",
+    "tags": [
+      "fantasy",
+      "historical"
+    ],
+    "keys": [
+      "prayer",
+      "gods",
+      "religion",
+      "sanctuary",
+      "chants",
+      "ritual",
+      "rites",
+      "holy",
+      "church"
+    ],
+    "description": "May Helm protect you and absolve you of your curses and afflictions.",
+    "file": "136_Temple_Of_Helm"
+  },
+  {
+    "title": "Dark Matter",
+    "tags": [
+      "scifi",
+      "fantasy",
+      "horror"
+    ],
+    "keys": [
+      "infinity",
+      "cosmos",
+      "universe",
+      "celestial",
+      "cyberpunk",
+      "planets",
+      "computers",
+      "abstract"
+    ],
+    "description": "The sound of the cosmos, or an alternate dimension. Infinite and majestic.",
+    "file": "135_Dark_Matter"
+  },
+  {
+    "title": "Carriage Journey",
+    "tags": [
+      "fantasy",
+      "historical"
+    ],
+    "keys": [
+      "horses",
+      "traveling",
+      "buggy",
+      "cart",
+      "stagecoach",
+      "hansom",
+      "travel",
+      "coach",
+      "rain"
+    ],
+    "description": "A long, rainy journey in a horse drawn carriage. Plenty of time to look out the window and watch the world go by.  [Alt. version for Patreon Patrons]",
+    "file": "134_Carriage_Journey"
+  },
+  {
+    "title": "Halfling Festival",
+    "tags": [
+      "fantasy",
+      "music"
+    ],
+    "keys": [
+      "party",
+      "wedding",
+      "dance",
+      "hobbits",
+      "village",
+      "fair"
+    ],
+    "description": "Nobody parties like halflings. Nobody.",
+    "file": "133_Halfling_Festival"
+  },
+  {
+    "title": "Open Ocean",
+    "tags": [
+      "nature"
+    ],
+    "keys": [
+      "water",
+      "waves",
+      "sea",
+      "peaceful",
+      "productivty"
+    ],
+    "description": "Adrift on the waves. No land in sight, just the way you want it. Tranquility abounds.",
+    "file": "132_Open_Ocean"
+  },
+  {
+    "title": "The Bog Standard",
+    "tags": [
+      "fantasy",
+      "historical"
+    ],
+    "keys": [
+      "tavern",
+      "meeting",
+      "inn",
+      "hearth",
+      "food",
+      "drink"
+    ],
+    "description": "A run-of-the-mill medieval tavern. No music, just ambience. Think of it as open-mic night for your Bard.",
+    "file": "131_The_Bog_Standard"
+  },
+  {
+    "title": "Russian Winter",
+    "tags": [
+      "music",
+      "nature"
+    ],
+    "keys": [
+      "snow",
+      "ice",
+      "slavic",
+      "cold",
+      "wind",
+      "north",
+      "barren"
+    ],
+    "description": "\"People don't notice whether it's winter or summer when they're happy\" - Anton Chekhov",
+    "file": "130_Russian_Winter"
+  },
+  {
+    "title": "Weirder Things: 2",
+    "tags": [
+      "music"
+    ],
+    "keys": [
+      "80s",
+      "synth",
+      "tv",
+      "television"
+    ],
+    "description": "The sequel, to the homage that was the first Weirder Things track. This time, with more 80s.",
+    "file": "129_Weirder_Things_2"
+  },
+  {
+    "title": "Waiting Time",
+    "tags": [
+      "music"
+    ],
+    "keys": [
+      "clockwork",
+      "gnomes",
+      "gears",
+      "patience",
+      "funny",
+      "humor",
+      "creepy",
+      "crazy",
+      "building",
+      "work"
+    ],
+    "description": "Tick Tock, sometimes adventures need a little downtime music. Lighthearted or slightly sinister, it's up to you to decide.",
+    "file": "128_Waiting_Time"
+  },
+  {
+    "title": "Car Chase!",
+    "tags": [
+      "music",
+      "modern"
+    ],
+    "keys": [
+      "70s",
+      "cops",
+      "police",
+      "funk",
+      "tv",
+      "cars",
+      "highway",
+      "hotrods",
+      "race",
+      "speed",
+      "television"
+    ],
+    "description": "Big engines, big funk, big hair. Put on your shades and strap in for the ride! [2 Alternate versions for Patreon Patrons]",
+    "file": "127_Car_Chase_a"
+  },
+  {
+    "title": "Endless Voyage",
+    "tags": [
+      "music",
+      "scifi",
+      "modern"
+    ],
+    "keys": [
+      "synth",
+      "journey",
+      "space",
+      "exploration",
+      "wonder",
+      "planets",
+      "stars",
+      "nebula"
+    ],
+    "description": "Voyager is the first human-made object to enter interstellar space, traveling \"further than anyone, or anything in history.\"",
+    "file": "126_Endless_Voyage"
+  },
+  {
+    "title": "Existential Dread",
+    "tags": [
+      "horror"
+    ],
+    "keys": [
+      "125",
+      "Halloween",
+      "fear",
+      "buried",
+      "paranoid",
+      "paranoia",
+      "terror",
+      "scary"
+    ],
+    "description": "It starts as a tickle at the base of the ganglia, and spreads, slowly, into your consciousness. Happy Halloween 2017!",
+    "file": "125_Existential_Dread"
+  },
+  {
+    "title": "Spire: The Vermissian",
+    "tags": [
+      "fantasy",
+      "horror"
+    ],
+    "keys": [
+      "vibrations",
+      "machinery",
+      "wind",
+      "tunnels",
+      "train",
+      "unreality"
+    ],
+    "description": "A massive train network where trains have never really run. Decay and unreality pervade.",
+    "file": "124_Spire_The_Vermissian"
+  },
+  {
+    "title": "Spire: The Hatchery",
+    "tags": [
+      "fantasy",
+      "horror"
+    ],
+    "keys": [
+      "insects",
+      "spiders",
+      "creepy",
+      "skittering",
+      "nursery",
+      "dank",
+      "dark"
+    ],
+    "description": "Arachnid midwives tend to clutches of unborn with ministrations of blood. And yet, it is a safe, nurturing place.",
+    "file": "123_Spire_The_Hatchery"
+  },
+  {
+    "title": "Spire: The Ministry",
+    "tags": [
+      "fantasy",
+      "horror"
+    ],
+    "keys": [
+      "secrets",
+      "whispers",
+      "prayer",
+      "temple",
+      "religion",
+      "sanctuary",
+      "chants",
+      "ritual",
+      "rites",
+      "church"
+    ],
+    "description": "A secret, shadowy society devoted to the forbidden worship of a goddess. Piety, devotion and ritual.",
+    "file": "122_Spire_The_Ministry"
+  },
+  {
+    "title": "Spire: Derelictus",
+    "tags": [
+      "fantasy",
+      "horror"
+    ],
+    "keys": [
+      "dripping",
+      "dark",
+      "chants",
+      "drow",
+      "slum",
+      "poverty",
+      "decay",
+      "ruins",
+      "magic"
+    ],
+    "description": "Destitute. A run-down sump of a place, riddled with poverty and black magic. Undercity home to the downtrodden Dark Elves.",
+    "file": "121_Spire_Derelictus"
+  },
+  {
+    "title": "Spire: New Heaven",
+    "tags": [
+      "fantasy",
+      "horror"
+    ],
+    "keys": [
+      "wind",
+      "mourning",
+      "chants",
+      "priests",
+      "preachers",
+      "zealots",
+      "funeral",
+      "dirges",
+      "bells"
+    ],
+    "description": "Impossibly high burial grounds where hyenas prowl the streets, and preachers and zealots singing the praises of their gods.",
+    "file": "120_Spire_New_Heaven"
+  },
+  {
+    "title": "Spire: Amaranth",
+    "tags": [
+      "fantasy",
+      "horror"
+    ],
+    "keys": [
+      "ice",
+      "crystalline",
+      "frozen",
+      "cold",
+      "coins",
+      "cruel",
+      "winter"
+    ],
+    "description": "The crystalline, frozen home of the haughty, masked, high elves that rule Spire. Lit by stolen northern lights and chilled with imported ice.",
+    "file": "119_Spire_Amaranth_a"
+  },
+  {
+    "title": "Spire: The Heart",
+    "tags": [
+      "fantasy",
+      "horror"
+    ],
+    "keys": [
+      "decay",
+      "blood",
+      "insects",
+      "rotting",
+      "disease"
+    ],
+    "description": "A rotting hole in reality buried at the centre of the mile-high, ancient building that is Spire.",
+    "file": "118_Spire_The_Heart_a"
+  },
+  {
+    "title": "Crossroads",
+    "tags": [
+      "modern",
+      "historical"
+    ],
+    "keys": [
+      "southern",
+      "blues",
+      "guitar",
+      "bayou",
+      "south",
+      "rural",
+      "country",
+      "traffic"
+    ],
+    "description": "A dust filled, diesel tinged intersection of modernity and the past. Sit awhile.",
+    "file": "117_Crossroads"
+  },
+  {
+    "title": "RavenPuff Common",
+    "tags": [
+      "fantasy",
+      "historical"
+    ],
+    "keys": [
+      "Potter",
+      "Hogwarts",
+      "magic",
+      "victorian",
+      "fireplace",
+      "library",
+      "castle",
+      "house",
+      "wizard",
+      "school",
+      "witch"
+    ],
+    "description": "If you've ever been to a school for witchcraft and wizardry, you spent some time in one of these.",
+    "file": "116_RavenPuff_Common"
+  },
+  {
+    "title": "Antiquarian Study",
+    "tags": [
+      "historical",
+      "fantasy"
+    ],
+    "keys": [
+      "mystery",
+      "sleeping",
+      "suspense",
+      "victorian",
+      "office",
+      "library",
+      "rain",
+      "house"
+    ],
+    "description": "A cluttered, book-filled office in a creaky old house. Rain pattering at the window, and.. someone upstairs?",
+    "file": "115_Antiquarian_Study"
+  },
+  {
+    "title": "Dwarven City",
+    "tags": [
+      "fantasy"
+    ],
+    "keys": [
+      "underground",
+      "dark",
+      "dwarf",
+      "moria",
+      "khazad dum",
+      "forge"
+    ],
+    "description": "A towering, immense city, hewn from solid rock, where dwarves shape stone and iron into soaring monuments, and mighty weapons.",
+    "file": "114_Dwarven_City"
+  },
+  {
+    "title": "Astral Plane",
+    "tags": [
+      "scifi",
+      "fantasy"
+    ],
+    "keys": [
+      "ethereal",
+      "dark",
+      "abstract",
+      "swirl",
+      "heaven",
+      "projection"
+    ],
+    "description": "The realm of thought, memory and psychic energy. Where the silver cords of travelers drift on waves of pure magic.",
+    "file": "113_Astral_Plane"
+  },
+  {
+    "title": "Ethereal Plane",
+    "tags": [
+      "scifi",
+      "fantasy"
+    ],
+    "keys": [
+      "astral",
+      "peaceful",
+      "abstract",
+      "swirl",
+      "light",
+      "heaven"
+    ],
+    "description": "A radiant ocean spreads itself before you as winds of color and light whirl above.",
+    "file": "112_Ethereal_Plane"
+  },
+  {
+    "title": "Orbital Promenade",
+    "tags": [
+      "scifi",
+      "modern"
+    ],
+    "keys": [
+      "space station",
+      "star trek",
+      "star wars",
+      "future",
+      "commerce",
+      "shopping",
+      "mall",
+      "crowds"
+    ],
+    "description": "A galactic crossroads of commerce and society. The largest and most central ring of the habitat section.",
+    "file": "111_Orbital_Promenade"
+  },
+  {
+    "title": "Wild West Saloon",
+    "tags": [
+      "historical"
+    ],
+    "keys": [
+      "west",
+      "western",
+      "ragtime",
+      "music",
+      "inn",
+      "tavern",
+      "Deadlands",
+      "food",
+      "drink"
+    ],
+    "description": "The rootenest, tootenest, honky tonk this side of Deadwood.",
+    "file": "110_Wild_West_Saloon"
+  },
+  {
+    "title": "747 Interior",
+    "tags": [
+      "modern",
+      "historical"
+    ],
+    "keys": [
+      "aircraft",
+      "airplane",
+      "cabin",
+      "white noise"
+    ],
+    "description": "The timeless sound of a 747 cabin in flight.",
+    "file": "109_747_Interior"
+  },
+  {
+    "title": "Carnival",
+    "tags": [
+      "modern",
+      "historical"
+    ],
+    "keys": [
+      "fairground",
+      "fair",
+      "rides"
+    ],
+    "description": "It's the summer of an indiscriminate year. The carnival has come to town. Rides, cotton candy and food on sticks.",
+    "file": "108_Carnival"
+  },
+  {
+    "title": "Lonesome West",
+    "tags": [
+      "music",
+      "historical",
+      "fantasy"
+    ],
+    "keys": [
+      "west",
+      "western",
+      "horses",
+      "dusty",
+      "Deadlands",
+      "cowboys"
+    ],
+    "description": "Brooding skies, ominous horizons. An ode to dark westerns. [Alternate version for Patreon Patrons]",
+    "file": "107_Lonesome_West"
+  },
+  {
+    "title": "Lunar Outpost",
+    "tags": [
+      "scifi",
+      "modern",
+      "horror"
+    ],
+    "keys": [
+      "suspense",
+      "abandoned",
+      "machines",
+      "industrial",
+      "alien"
+    ],
+    "description": "There has been no contact with the team at Outpost 1138 for weeks. We have dispatched a recon unit to investigate.",
+    "file": "106_Lunar_Outpost"
+  },
+  {
+    "title": "Weirder Things",
+    "tags": [
+      "music"
+    ],
+    "keys": [
+      "80s",
+      "synth",
+      "tv",
+      "television"
+    ],
+    "description": "An homage to an era, and a show. With love.",
+    "file": "105_Weirder_Things_2"
+  },
+  {
+    "title": "River Town",
+    "tags": [
+      "fantasy",
+      "nature",
+      "music"
+    ],
+    "keys": [
+      "elves",
+      "elven",
+      "elf",
+      "water",
+      "stream",
+      "sleeping",
+      "village"
+    ],
+    "description": "Your journey takes you to a small, tidy village on the bank of a river. The people are kind and the tavern is warm.",
+    "file": "104_River_Town"
+  },
+  {
+    "title": "Testing Chamber",
+    "tags": [
+      "scifi",
+      "modern"
+    ],
+    "keys": [
+      "portal",
+      "factory",
+      "industrial",
+      "machines"
+    ],
+    "description": "An empty factory floor, towering spires of self-activated machines. One way out. Yes..this is what you think it is.",
+    "file": "103_Testing_Chamber"
+  },
+  {
+    "title": "Vampire's Castle",
+    "tags": [
+      "horror",
+      "fantasy"
+    ],
+    "keys": [
+      "vampire",
+      "gothic",
+      "castle",
+      "haunted",
+      "dracula",
+      "blood",
+      "undead",
+      "halloween",
+      "monster",
+      "strahd",
+      "Ravenloft"
+    ],
+    "description": "A sprawling gothic mansion at midnight. Centuries of art and artifacts line these halls, but beware! The Master is about. Halloween 2016",
+    "file": "102_Vampire_Castle"
+  },
+  {
+    "title": "Highway",
+    "tags": [
+      "modern"
+    ],
+    "keys": [
+      "road",
+      "cars",
+      "lynch",
+      "hitch",
+      "trip",
+      "tv",
+      "television"
+    ],
+    "description": "It's nighttime, you're walking on the side of a highway and you feel like you're in a David Lynch film. What could go wrong?",
+    "file": "101_Highway"
+  },
+  {
+    "title": "Volcano",
+    "tags": [
+      "nature"
+    ],
+    "keys": [
+      "hell",
+      "bubbling",
+      "sulphur",
+      "devil",
+      "inferno"
+    ],
+    "description": "The mouth of hell itself, a smoldering vista of rock and lava. Great tongues of fire and sulphur lick a darkening sky.",
+    "file": "100_Volcano"
+  },
+  {
+    "title": "Cavern of Lost Souls",
+    "tags": [
+      "fantasy",
+      "horror"
+    ],
+    "keys": [
+      "spirits",
+      "ghosts",
+      "wailing",
+      "danger",
+      "magic",
+      "moria",
+      "dungeon"
+    ],
+    "description": "A yawning, supulchral chamber filled with the departed spirits of fallen warriors.",
+    "file": "99_Cavern_of_Lost_Souls"
+  },
+  {
+    "title": "Lost Mine",
+    "tags": [
+      "music",
+      "fantasy"
+    ],
+    "keys": [
+      "adventure",
+      "tolkien",
+      "khazad dum",
+      "dwarf",
+      "dwarven",
+      "quest",
+      "cave",
+      "moria",
+      "dungeon"
+    ],
+    "description": "Hidden for years and only recently discovered, your party must go on a search...for the last party.",
+    "file": "98_Lost_Mine"
+  },
+  {
+    "title": "City Under Siege",
+    "tags": [
+      "modern",
+      "scifi"
+    ],
+    "keys": [
+      "battle",
+      "assault",
+      "urban",
+      "weapons",
+      "gunfire",
+      "military",
+      "fight",
+      "combat"
+    ],
+    "description": "Pinned down. Safe for now but chaos surrounds you. Move quickly, quietly, and with purpose.",
+    "file": "97_City_Under_Siege"
+  },
+  {
+    "title": "Windswept Plains",
+    "tags": [
+      "nature",
+      "historical"
+    ],
+    "keys": [
+      "indian",
+      "native",
+      "american",
+      "horses",
+      "prairie",
+      "western",
+      "cowboy"
+    ],
+    "description": "A small band of horsemen bivouac under a never ending sky.",
+    "file": "96_Windswept_Plains_b"
+  },
+  {
+    "title": "Arabesque",
+    "tags": [
+      "music",
+      "historical"
+    ],
+    "keys": [
+      "horses",
+      "desert",
+      "middle eastern",
+      "nomad",
+      "bedouin",
+      "exotic",
+      "warriors",
+      "sand",
+      "Tales of the Arabian Nights",
+      "egypt"
+    ],
+    "description": "Adrift on the sands of time, nomadic warriors celebrate a life of conquest and honor.",
+    "file": "95_Arabesque"
+  },
+  {
+    "title": "Noir Procedural",
+    "tags": [
+      "modern",
+      "music"
+    ],
+    "keys": [
+      "police",
+      "drama",
+      "television",
+      "tv",
+      "intrigue",
+      "investigation",
+      "detective",
+      "Deception"
+    ],
+    "description": "A TV inspired, urban noir backdrop for intrigue and investigation.",
+    "file": "94_Noir_Procedural"
+  },
+  {
+    "title": "Starship Medical",
+    "tags": [
+      "scifi"
+    ],
+    "keys": [
+      "trek",
+      "space",
+      "station",
+      "doctor",
+      "starfleet"
+    ],
+    "description": "The combined anatomical knowledge of the known galaxy. The best medical care in the fleet.",
+    "file": "93_Starship_Medical"
+  },
+  {
+    "title": "Skirmish",
+    "tags": [
+      "fantasy",
+      "music"
+    ],
+    "keys": [
+      "battle",
+      "drama",
+      "action",
+      "fight",
+      "clash",
+      "medieval",
+      "epic",
+      "combat"
+    ],
+    "description": "Oh, it's on. Roll for initiative...",
+    "file": "92_Skirmish"
+  },
+  {
+    "title": "Elven Glade",
+    "tags": [
+      "fantasy",
+      "nature",
+      "music"
+    ],
+    "keys": [
+      "elves",
+      "elf",
+      "forest",
+      "woods",
+      "spirits",
+      "tolkien",
+      "peaceful",
+      "magic",
+      "sleeping"
+    ],
+    "description": "Shrouded from human sight, elves of the forest have congregated here for centuries.",
+    "file": "91_Elven_Glade"
+  },
+  {
+    "title": "Dungeon II: Mechanical",
+    "tags": [
+      "fantasy",
+      "horror"
+    ],
+    "keys": [
+      "dwemer",
+      "dwarf",
+      "dwarven",
+      "gears",
+      "clockwork",
+      "underground",
+      "quest"
+    ],
+    "description": "Deep in the heart of the mountain, ancient machines groan and clank with deadly precision.",
+    "file": "90_Dungeon_II_Mechanical"
+  },
+  {
+    "title": "Winter Woods",
+    "tags": [
+      "nature"
+    ],
+    "keys": [
+      "peaceful",
+      "quiet",
+      "solitude",
+      "outdoors",
+      "cold"
+    ],
+    "description": "Cold wind, dry branches, hardy birds. A quiet meditation on winter's tranquility, or a stark backdrop to adventure.",
+    "file": "89_Winter_Woods"
+  },
+  {
+    "title": "Lively Cafe",
+    "tags": [
+      "modern"
+    ],
+    "keys": [
+      "coffee shop",
+      "starbucks",
+      "restaurant",
+      "tea",
+      "productivty",
+      "tavern"
+    ],
+    "description": "A cornerstone of 21st century culture, the humble coffee shop. A place to relax, read, caffinate. Come for the free wi-fi, stay for the lattes.",
+    "file": "88_Lively_Cafe"
+  },
+  {
+    "title": "Winter Festival",
+    "tags": [
+      "historical",
+      "modern"
+    ],
+    "keys": [
+      "christmas",
+      "xmas",
+      "festivus",
+      "holiday",
+      "frozen",
+      "ice",
+      "fair"
+    ],
+    "description": "Holiday celebrations in a small snowy town.",
+    "file": "87_Winter_Festival"
+  },
+  {
+    "title": "Dark City",
+    "tags": [
+      "music",
+      "modern"
+    ],
+    "keys": [
+      "action",
+      "mysterious",
+      "television",
+      "tv",
+      "cyberpunk"
+    ],
+    "description": "A slow burn action / suspense soundtrack for dark modern settings",
+    "file": "86_Dark_City"
+  },
+  {
+    "title": "Sewers",
+    "tags": [
+      "fantasy",
+      "modern",
+      "horror"
+    ],
+    "keys": [
+      "dark",
+      "dank",
+      "dripping",
+      "tunnel",
+      "sewars",
+      "quest",
+      "dungeon",
+      "water",
+      "underground"
+    ],
+    "description": "Dank and teeming with the foul and pestilent denizens of darkness. Bring extra torches.",
+    "file": "85_Sewers"
+  },
+  {
+    "title": "Lucha Libre!",
+    "tags": [
+      "modern"
+    ],
+    "keys": [
+      "mexican",
+      "wrestling",
+      "arena",
+      "crowds",
+      "wwe",
+      "wwf"
+    ],
+    "description": "Lucha Libre, the masked, high flying spectacle, is embedded deep in the very soul of Mexican culture.",
+    "file": "84_Lucha_Libre"
+  },
+  {
+    "title": "Haunted Ramparts",
+    "tags": [
+      "horror"
+    ],
+    "keys": [
+      "ghosts",
+      "spooky",
+      "scary",
+      "halloween",
+      "terror",
+      "fright",
+      "hamlet"
+    ],
+    "description": "\"I am thy father's spirit, Doom'd for a certain term to walk the night, And for the day confined to fast in fires\" - W.Shakespeare",
+    "file": "83_Haunted_Ramparts"
+  },
+  {
+    "title": "Nightmare",
+    "tags": [
+      "horror"
+    ],
+    "keys": [
+      "ghosts",
+      "spooky",
+      "scary",
+      "halloween",
+      "terror",
+      "fright"
+    ],
+    "description": "The darkness seethes and writhes about you as you gasp for air. Waking up is a matter of finding the right door. Halloween 2015.",
+    "file": "82_Nightmare"
+  },
+  {
+    "title": "1920s Speakeasy",
+    "tags": [
+      "historical"
+    ],
+    "keys": [
+      "jazz age",
+      "20s",
+      "30s",
+      "drink",
+      "twenties",
+      "flappers",
+      "food",
+      "bar",
+      "tavern",
+      "inn",
+      "gangsters",
+      "mobsters",
+      "Bootleggers"
+    ],
+    "description": "The joint is jumping and the gin is flowing so gussy yourself up and give the heavy at the door your password.",
+    "file": "81_1920s_Speakeasy"
+  },
+  {
+    "title": "Blacksmith Shoppe",
+    "tags": [
+      "fantasy",
+      "historical"
+    ],
+    "keys": [
+      "metal",
+      "anvil",
+      "horse",
+      "armor",
+      "iron",
+      "forge",
+      "Forge War",
+      "King's Forge",
+      "Kings Forge"
+    ],
+    "description": "A blacksmith's shoppe was crucial to the life of a village. From shoeing horses to making armor and weapons. Some even yanked the odd tooth",
+    "file": "80_Blacksmith_Shoppe"
+  },
+  {
+    "title": "Medieval Battle",
+    "tags": [
+      "fantasy",
+      "historical"
+    ],
+    "keys": [
+      "army",
+      "armies",
+      "horses",
+      "weapons",
+      "soldiers",
+      "fight",
+      "clash",
+      "combat"
+    ],
+    "description": "Two armies meet on the battlefield. Standards wave, drums pound. Steel, horses and bones clash in the fight for supremacy.",
+    "file": "79_Medieval_Battle"
+  },
+  {
+    "title": "Steampunk Airship",
+    "tags": [
+      "fantasy",
+      "scifi"
+    ],
+    "keys": [
+      "blimp",
+      "dirigible",
+      "victorian",
+      "jules verne",
+      "Kings of Air and Steam"
+    ],
+    "description": "Designed by the greatest watchmaker in Olde-Town, the airship \"Gulliver\" will ferry you above the fray in style!",
+    "file": "78_Steampunk_Airship"
+  },
+  {
+    "title": "Abandoned Fair",
+    "tags": [
+      "modern",
+      "horror"
+    ],
+    "keys": [
+      "apocalypse",
+      "post-apocalyptic",
+      "desolate",
+      "eerie",
+      "amusement park",
+      "dystopia"
+    ],
+    "description": "Twisting arcs of rusted steel rise, wavelike, over a ruined landscape. A windblown monument to happier times.",
+    "file": "77_Abandoned_Fair"
+  },
+  {
+    "title": "Alchemist's Lab",
+    "tags": [
+      "fantasy"
+    ],
+    "keys": [
+      "spells",
+      "potions",
+      "laborotory",
+      "bubbling",
+      "magic",
+      "Alchemists"
+    ],
+    "description": "Through the haze of bubbling flasks, cages of animals and reams of parchment, a hooded figure bends low over a table muttering strange words.",
+    "file": "76_Alchemists_Lab"
+  },
+  {
+    "title": "Docks District",
+    "tags": [
+      "fantasy",
+      "historical"
+    ],
+    "keys": [
+      "boats",
+      "harbor",
+      "shady",
+      "water",
+      "sea",
+      "ships",
+      "Le Havre",
+      "Francis Drake"
+    ],
+    "description": "The person you're supposed to meet is always somewhere in the docks district. Gather your party and venture forth!",
+    "file": "75_Docks_District"
+  },
+  {
+    "title": "Zombies!",
+    "tags": [
+      "horror",
+      "modern"
+    ],
+    "keys": [
+      "walking dead",
+      "undead",
+      "halloween",
+      "brains",
+      "flesh",
+      "monster",
+      "Dead of Winter",
+      "Zombicide",
+      "T.I.M.E. Stories",
+      "Time Stories"
+    ],
+    "description": "A shambling mass of former humans lurches through the snow, drawn to the scent of your flesh. Can you hold them off?",
+    "file": "74_Zombies!"
+  },
+  {
+    "title": "Medieval Library",
+    "tags": [
+      "historical",
+      "fantasy"
+    ],
+    "keys": [
+      "books",
+      "quills",
+      "scholars",
+      "study",
+      "peaceful",
+      "quiet",
+      "pages",
+      "arcane"
+    ],
+    "description": "Bearded men hunch over scrolls and books, quills scratching quietly. Outside the weather turns slightly and no one notices. Shhh!",
+    "file": "73_Medieval_Library"
+  },
+  {
+    "title": "Monster Attack!",
+    "tags": [
+      "modern",
+      "horror",
+      "scifi"
+    ],
+    "keys": [
+      "godzilla",
+      "tokyo",
+      "japan",
+      "king kong",
+      "destruction",
+      "chaos",
+      "city",
+      "urban",
+      "King of Tokyo",
+      "King of New York",
+      "Rampage"
+    ],
+    "description": "Panic! Offshore nuclear testing has resulted in  a wave of monster attacks throughout the city! Run for your lives!",
+    "file": "72_Monster_Attack"
+  },
+  {
+    "title": "Sleeping Dragon",
+    "tags": [
+      "fantasy"
+    ],
+    "keys": [
+      "smaug",
+      "treasure",
+      "gold",
+      "red dragon",
+      "tiamat",
+      "tolkien",
+      "Dragon Rampage",
+      "Dragon Run"
+    ],
+    "description": "Coiled and half buried on a towering mound of treasure, an ancient red dragon slumbers. You should probably let it be.",
+    "file": "71_Sleeping_Dragon"
+  },
+  {
+    "title": "The Age of Steam",
+    "tags": [
+      "historical"
+    ],
+    "keys": [
+      "trains",
+      "engines",
+      "locomotive",
+      "train station",
+      "train platform",
+      "Ticket to Ride",
+      "Railways of the World"
+    ],
+    "description": "A long hiss from a massive locomotive blankets the platform in thick white mist while porters scurry about with baggage carts. \"Tickets please!\"",
+    "file": "70_Age_of_Steam"
+  },
+  {
+    "title": "Forest: Night",
+    "tags": [
+      "nature"
+    ],
+    "keys": [
+      "quiet",
+      "breeze",
+      "trees",
+      "birds",
+      "wind",
+      "sleeping"
+    ],
+    "description": "Gentle breezes wafting through the trees overhead, the sounds of the night spill forth like jewels.",
+    "file": "69_Forest_Night"
+  },
+  {
+    "title": "1940's Office",
+    "tags": [
+      "historical"
+    ],
+    "keys": [
+      "40s",
+      "50s",
+      "30s",
+      "gangster",
+      "mobster",
+      "bogart",
+      "vintage",
+      "1940s",
+      "1930s"
+    ],
+    "description": "\"It ain't ritzy, and the pay is peanuts, but it's a decent place to get some shut-eye 'til knock-off time\".",
+    "file": "68_1940s_Office"
+  },
+  {
+    "title": "Asylum",
+    "tags": [
+      "modern",
+      "horror"
+    ],
+    "keys": [
+      "insane",
+      "crazy",
+      "spooky",
+      "madness",
+      "bedlam",
+      "arkham",
+      "straight jackets",
+      "T.I.M.E. Stories",
+      "TIME Stories"
+    ],
+    "description": "You don't belong here... You don't know how you got here... There's been a mistake...Yeah, that's what everybody says.",
+    "file": "67_Asylum"
+  },
+  {
+    "title": "Royal Salon",
+    "tags": [
+      "historical"
+    ],
+    "keys": [
+      "party",
+      "18th century",
+      "france",
+      "french",
+      "whispers",
+      "baroque",
+      "classical",
+      "wigs",
+      "parlor",
+      "court"
+    ],
+    "description": "The Royal Salon, France, early 18th Century: a minefield of verbal sparring, whispered plots and social combat. Tread carefully",
+    "file": "66_Royal_Salon"
+  },
+  {
+    "title": "Dungeon I",
+    "tags": [
+      "fantasy",
+      "horror"
+    ],
+    "keys": [
+      "adventure",
+      "treasure",
+      "underground",
+      "quest"
+    ],
+    "description": "You and your party creep along the twisting, torch-lit hallways of the abandoned mine. Pro tip: let the barbarian lead.",
+    "file": "65_Dungeon_I"
+  },
+  {
+    "title": "Mountain Pass",
+    "tags": [
+      "fantasy",
+      "nature"
+    ],
+    "keys": [
+      "journey",
+      "travel",
+      "wind",
+      "rain",
+      "snow",
+      "horses"
+    ],
+    "description": "A treacherous path through towering mountain peaks is the only way through. Pray your supplies don't run out, and your party stays together.",
+    "file": "64_Mountain_Pass"
+  },
+  {
+    "title": "Industrial Shipyard",
+    "tags": [
+      "modern"
+    ],
+    "keys": [
+      "boats",
+      "ships",
+      "industry",
+      "docks",
+      "harbor",
+      "freight",
+      "cargo",
+      "Shipyard"
+    ],
+    "description": "Massive derricks heave containers from cargo ships overhead, while all manner of human activity occurs down below.",
+    "file": "63_Industrial_Shipyard"
+  },
+  {
+    "title": "Middle Earth:Dawn",
+    "tags": [
+      "fantasy",
+      "music"
+    ],
+    "keys": [
+      "travel",
+      "adventure",
+      "peaceful",
+      "tolkien",
+      "birds",
+      "breeze",
+      "sleeping",
+      "elves",
+      "hobbits"
+    ],
+    "description": "When not being overrun by filthy orcses, Middle Earth can be a beautiful place.",
+    "file": "62_Middle_Earth_Dawn"
+  },
+  {
+    "title": "Orbital Platform",
+    "tags": [
+      "scifi"
+    ],
+    "keys": [
+      "space",
+      "future",
+      "stars",
+      "trek",
+      "starfleet"
+    ],
+    "description": "The massive viewports on this orbital platform allow for breathtaking views of this sectors' impressive stellar phenomena.",
+    "file": "61_Orbital_Platform"
+  },
+  {
+    "title": "Dark and Stormy",
+    "tags": [
+      "nature",
+      "horror"
+    ],
+    "keys": [
+      "rain",
+      "wind",
+      "spooky",
+      "weather",
+      "Betrayal at House on the Hill",
+      "sleeping",
+      "vampire"
+    ],
+    "description": "\"It was a dark and stormy night, the rain fell in torrents -- except at occasional intervals when it was checked by a violent gust of wind...\" E. Bulwer-Lytton",
+    "file": "60_Dark_and_Stormy"
+  },
+  {
+    "title": "Dinotopia",
+    "tags": [
+      "nature",
+      "fantasy"
+    ],
+    "keys": [
+      "dinosaurs",
+      "jungle",
+      "Evolution",
+      "Evo",
+      "Triassic Terror",
+      "Raptor"
+    ],
+    "description": "Across space and time, a verdant world has evolved without mankind. How can a planet be simultaneously peaceful and deadly?",
+    "file": "59_Dinotopia"
+  },
+  {
+    "title": "Terror",
+    "tags": [
+      "horror"
+    ],
+    "keys": [
+      "terror",
+      "halloween",
+      "scary"
+    ],
+    "description": "There are doors you should not open. Places you should never see. Turn back... Now. Halloween 2014",
+    "file": "58_Terror"
+  },
+  {
+    "title": "Colosseum",
+    "tags": [
+      "historical"
+    ],
+    "keys": [
+      "roman",
+      "rome",
+      "gladiators",
+      "combat",
+      "fight",
+      "arena",
+      "Spartacus"
+    ],
+    "description": "Equal parts blood sport, theater and ritual murder. The Roman gladiators entertained the populace for over 600 years.",
+    "file": "57_Colosseum"
+  },
+  {
+    "title": "Medieval Town",
+    "tags": [
+      "historical",
+      "fantasy"
+    ],
+    "keys": [
+      "medieval",
+      "town",
+      "city",
+      "Village"
+    ],
+    "description": "Life inside the walls, where commerce, struggle and celebration mingle with honor, chaos and crime.",
+    "file": "56_Medieval_Town"
+  },
+  {
+    "title": "Ice Cavern",
+    "tags": [
+      "nature",
+      "fantasy",
+      "horror"
+    ],
+    "keys": [
+      "cave",
+      "freezing",
+      "cold",
+      "snow",
+      "echo",
+      "frozen",
+      "winter"
+    ],
+    "description": "Soaring vaults of ice echo and groan, amplifying the freezing wind and hollow noises within.",
+    "file": "55_Ice_Cavern"
+  },
+  {
+    "title": "Mountain Tavern",
+    "tags": [
+      "historical",
+      "fantasy"
+    ],
+    "keys": [
+      "inn",
+      "hearth",
+      "food",
+      "drink"
+    ],
+    "description": "An oasis of warmth and hospitality in a harsh and unforgiving environment. Warm up in front of the fire, and share a mug of spiced wine.",
+    "file": "54_Mountain_Tavern"
+  },
+  {
+    "title": "Strangers on a Train",
+    "tags": [
+      "historical"
+    ],
+    "keys": [
+      "orient express",
+      "rail",
+      "railroad",
+      "mystery",
+      "dining",
+      "Ticket to Ride",
+      "Mystery Express"
+    ],
+    "description": "With its lush interiors, fine dining and finer passengers, the Orient Express was the most well-appointed overland transportation available.",
+    "file": "53_Strangers_on_a_Train"
+  },
+  {
+    "title": "Warehouse 13",
+    "tags": [
+      "modern",
+      "horror"
+    ],
+    "keys": [
+      "factory",
+      "industrial",
+      "abandoned"
+    ],
+    "description": "An old cement factory on the outskirts of town. Power still works. Sort of. The perfect spot to disappear - or make things disappear.",
+    "file": "52_Warehouse_13"
+  },
+  {
+    "title": "Woodland Campsite",
+    "tags": [
+      "fantasy",
+      "nature"
+    ],
+    "keys": [
+      "woods",
+      "campfire",
+      "fire",
+      "horses",
+      "forest"
+    ],
+    "description": "Every adventurer needs downtime. Here's a nice spot in the woods to rest the horses and enjoy a hot meal over a fire.",
+    "file": "51_Woodland_Campsite"
+  },
+  {
+    "title": "Super Hero",
+    "tags": [
+      "modern",
+      "music"
+    ],
+    "keys": [
+      "action",
+      "city",
+      "explosions",
+      "thriller"
+    ],
+    "description": "Like a Michael Bay movie in your head. Calling all heroes. The villainous tropes are on the loose!",
+    "file": "50_Super_Hero"
+  },
+  {
+    "title": "Goblin's Cave",
+    "tags": [
+      "fantasy"
+    ],
+    "keys": [
+      "dark",
+      "dripping",
+      "stream",
+      "cavern",
+      "monsters",
+      "kobolds"
+    ],
+    "description": "Journey up the winding path, follow the stream into the mouth of the cavern. Light your torches. Proceed...cautiously.",
+    "file": "49_Goblins_Cave"
+  },
+  {
+    "title": "Overland with Oxen",
+    "tags": [
+      "fantasy",
+      "nature"
+    ],
+    "keys": [
+      "ox",
+      "cart",
+      "wagon",
+      "travel",
+      "horses"
+    ],
+    "description": "Your party has assembled, your cart is loaded with supplies, your oxen are sturdy. Just keep your eyes peeled for trouble on the road.",
+    "file": "48_Overland_with_Oxen"
+  },
+  {
+    "title": "There be Dragons",
+    "tags": [
+      "fantasy",
+      "horror"
+    ],
+    "keys": [
+      "fight",
+      "battle",
+      "dragons",
+      "quest",
+      "Dragon Rampage",
+      "Dragon Run",
+      "combat"
+    ],
+    "description": "Wiping the last of the Kobold blood from your axe, you glare in the direction of the Cleric. \"Enough of this nonsense, let's go get us a real fight!\"",
+    "file": "47_There_be_Dragons"
+  },
+  {
+    "title": "Cathedral",
+    "tags": [
+      "fantasy",
+      "historical"
+    ],
+    "keys": [
+      "church",
+      "holy",
+      "paladin",
+      "ethereal",
+      "chant",
+      "monks",
+      "prayer",
+      "temple"
+    ],
+    "description": "Cavernous, cold and quiet. Ethereal chants and muted footsteps. Paladins welcome.",
+    "file": "46_Cathedral"
+  },
+  {
+    "title": "Samurai HQ",
+    "tags": [
+      "historical"
+    ],
+    "keys": [
+      "horses",
+      "japanese",
+      "army",
+      "bivouac",
+      "camp",
+      "feudalism",
+      "warlords",
+      "mongol",
+      "asia",
+      "asian",
+      "Yedo",
+      "Shogun"
+    ],
+    "description": "Wealthy Japanese feudal lords used Samurai as their private armies.",
+    "file": "45_Samurai_HQ"
+  },
+  {
+    "title": "Victorian London",
+    "tags": [
+      "historical",
+      "horror"
+    ],
+    "keys": [
+      "jack the ripper",
+      "Sherlock Holmes",
+      "city",
+      "streets",
+      "urban",
+      "19th century"
+    ],
+    "description": "London, 1851. Streets awash in noise - Merchants, organ grinders, Hansom cabs and the ever present din of humanity. Thank god for the rain.",
+    "file": "44_Victorian_London"
+  },
+  {
+    "title": "Dome City Center",
+    "tags": [
+      "scifi",
+      "modern"
+    ],
+    "keys": [
+      "urban",
+      "future",
+      "futuristic"
+    ],
+    "description": "Amid the bustle of commerce, life under the dome runs smoothly. It almost makes one forget the hostile environment beyond.",
+    "file": "43_Dome_City_Center"
+  },
+  {
+    "title": "Rise of the Ancients",
+    "tags": [
+      "fantasy",
+      "horror"
+    ],
+    "keys": [
+      "cthulhu",
+      "cult",
+      "lovecraft",
+      "demon",
+      "monster",
+      "Arkham",
+      "Eldritch",
+      "Elder Scrolls"
+    ],
+    "description": "“The oldest and strongest emotion of mankind is fear, and the oldest and strongest kind of fear is fear of the unknown”  - H.P. Lovecraft",
+    "file": "42_Rise_of_the_Ancients"
+  },
+  {
+    "title": "Starship Bridge",
+    "tags": [
+      "scifi"
+    ],
+    "keys": [
+      "deck",
+      "space",
+      "spaceship",
+      "enterprise",
+      "star trek",
+      "Space Cadets"
+    ],
+    "description": "The hum of engines, the vibrations of deck plates - as familiar to you as a childhood lullaby.  Order, duty and experience keeps ships in the sky.",
+    "file": "41_Starship_Bridge"
+  },
+  {
+    "title": "The Long Rain",
+    "tags": [
+      "nature",
+      "modern"
+    ],
+    "keys": [
+      "downpour",
+      "storm",
+      "monsoon",
+      "water",
+      "productivty"
+    ],
+    "description": "\"It was a hard rain, a perpetual rain, a sweating and steaming rain; it was a mizzle, a downpour, a fountain . . .\" - Ray Bradbury",
+    "file": "40_The_Long_Rain"
+  },
+  {
+    "title": "Temple of the Eye",
+    "tags": [
+      "fantasy",
+      "horror"
+    ],
+    "keys": [
+      "cult",
+      "chant",
+      "ritual",
+      "dark energy",
+      "doomsday",
+      "church"
+    ],
+    "description": "Hooded figures gather around a gleaming eye, smoke wriggles like serpents to the ceiling. What dark energies have these voices awakened?",
+    "file": "39_Temple_of_the_Eye"
+  },
+  {
+    "title": "Into the Deep",
+    "tags": [
+      "modern",
+      "nature"
+    ],
+    "keys": [
+      "underwater",
+      "water",
+      "deep",
+      "dive",
+      "scuba",
+      "darkness",
+      "ocean floor",
+      "diver",
+      "drown",
+      "Aquasphere"
+    ],
+    "description": "If the darkness, pressure and isolation don't get you, the shadows in the trench just might. This kind of work isn't for everyone.",
+    "file": "38_Into_the_Deep"
+  },
+  {
+    "title": "Clash of Kings",
+    "tags": [
+      "fantasy",
+      "music"
+    ],
+    "keys": [
+      "battle",
+      "weapons",
+      "armor",
+      "marching",
+      "army",
+      "armies",
+      "battlefield",
+      "combat"
+    ],
+    "description": "Two great armies lumber toward each other like centipedes of metal, flesh and bone. The ensuing conflict fuels song, poetry and legend for centuries.",
+    "file": "34_Clash_of_Kings"
+  },
+  {
+    "title": "Down by the Sea",
+    "tags": [
+      "nature"
+    ],
+    "keys": [
+      "water",
+      "ocean",
+      "beach",
+      "gulls",
+      "birds",
+      "sand",
+      "dunes",
+      "surf",
+      "wind",
+      "breeze"
+    ],
+    "description": "Vast expanses of sand, hypnotic surf and the cries of gulls on the wing. Now there's that small issue of getting off this island paradise alive...",
+    "file": "36_Down_by_the_Sea"
+  },
+  {
+    "title": "Catacombs",
+    "tags": [
+      "fantasy",
+      "horror"
+    ],
+    "keys": [
+      "underground",
+      "dark",
+      "grave",
+      "tomb",
+      "skeletons",
+      "skulls",
+      "burial",
+      "sarcophagus"
+    ],
+    "description": "Dimly lit and twisting. The passages lead deeper and deeper under the city. The skulls of heroes past look on with blank anticipation.",
+    "file": "37_Catacombs"
+  },
+  {
+    "title": "Los Vangeles 3030",
+    "tags": [
+      "scifi",
+      "modern",
+      "music"
+    ],
+    "keys": [
+      "synthesizer",
+      "blade runner",
+      "future",
+      "city",
+      "urban",
+      "City of Remnants",
+      "cyberpunk"
+    ],
+    "description": "Towering spires of glass, neon and steel - dense air traffic and a constant rain that never cleanses. (Apologies to the Greek.)",
+    "file": "30_Los_Vangeles_3030"
+  },
+  {
+    "title": "Swamplandia",
+    "tags": [
+      "nature"
+    ],
+    "keys": [
+      "swamp",
+      "jungle",
+      "insects",
+      "water",
+      "humid",
+      "sticky"
+    ],
+    "description": "Hot, humid and swarming with insects of every kind. You'd go around if you could, but you know the only path is through.",
+    "file": "35_Swamplandia"
+  },
+  {
+    "title": "Far Above the World",
+    "tags": [
+      "scifi"
+    ],
+    "keys": [
+      "space",
+      "outerspace",
+      "quiet",
+      "dark",
+      "astronaut",
+      "spacewalk"
+    ],
+    "description": "\"Here am I, floating round my tin can\". Or if you prefer -  \"That's funny. The damage doesn't look as bad from out here.\"",
+    "file": "33_Far_Above_the_World"
+  },
+  {
+    "title": "City and the City",
+    "tags": [
+      "modern"
+    ],
+    "keys": [
+      "urban",
+      "streets",
+      "traffic",
+      "nightlife",
+      "Police Precinct"
+    ],
+    "description": "Where else can you get a roll of toilet paper, a falafel and a bootleg DVD at 3am?",
+    "file": "32_City_and_the_City"
+  },
+  {
+    "title": "Kaltoran Craft FE",
+    "tags": [
+      "scifi"
+    ],
+    "keys": [
+      "fragged empire",
+      "spaceship",
+      "starship",
+      "space opera"
+    ],
+    "description": "Find out more at FraggedEmpire.com",
+    "file": "29_Kaltoran_Craft_FE"
+  },
+  {
+    "title": "Nephilim Labs FE",
+    "tags": [
+      "scifi",
+      "horror"
+    ],
+    "keys": [
+      "fragged empire",
+      "laboratory",
+      "genetics",
+      "experiments",
+      "Level 7",
+      "Theseus",
+      "Legendary Encounters"
+    ],
+    "description": "Find out more at FraggedEmpire.com",
+    "file": "28_Nephilim_Labs_FE"
+  },
+  {
+    "title": "Frozen Wastes",
+    "tags": [
+      "nature"
+    ],
+    "keys": [
+      "ice",
+      "arctic",
+      "tundra",
+      "wind",
+      "snow",
+      "cold",
+      "Arctic Scavengers",
+      "Dead of Winter"
+    ],
+    "description": "Visibility and temperatures plummeting by the second, your only thought is survival. But in your heart you know - you've been through worse.",
+    "file": "31_Frozen_Wastes"
+  },
+  {
+    "title": "Uncommon Valor",
+    "tags": [
+      "historical"
+    ],
+    "keys": [
+      "war",
+      "combat",
+      "wwii",
+      "wwi",
+      "tanks",
+      "infantry",
+      "trenches",
+      "Memoir 44",
+      "Heroes of Normandie"
+    ],
+    "description": "Bullets buzz overhead like wasps defending a hive. One last look at the girl in the torn photo. Breathe deep, keep your head down. This is for freedom!",
+    "file": "26_Uncommon_Valor_a"
+  },
+  {
+    "title": "Xingu Nights",
+    "tags": [
+      "nature"
+    ],
+    "keys": [
+      "jungle",
+      "birds",
+      "insects",
+      "trees",
+      "forest",
+      "Cacao",
+      "Relic Runners"
+    ],
+    "description": "Dense, rich and verdant, the forest floor oozes with life and decay. Overhead, the canopy has hidden the sky for millennia.",
+    "file": "27_Xingu_Nights"
+  },
+  {
+    "title": "Deep Space EVA",
+    "tags": [
+      "scifi",
+      "horror"
+    ],
+    "keys": [
+      "spacewalk",
+      "asteroids"
+    ],
+    "description": "The deal was simple: 4 years working on a deep space mining operation and you could return to earth a free man. That is, if you survived.",
+    "file": "25_Deep_Space_EVA"
+  },
+  {
+    "title": "Forbidden Galaxy!",
+    "tags": [
+      "scifi"
+    ],
+    "keys": [
+      "space",
+      "weapons",
+      "vintage",
+      "planet",
+      "Alien Frontiers"
+    ],
+    "description": "Hurtle through the cosmos! Explore unknown worlds! Face fearsome foes from beyond! Set ray-guns to ADVENTURE!",
+    "file": "24_Forbidden_Galaxy"
+  },
+  {
+    "title": "The Slaughtered Ox",
+    "tags": [
+      "fantasy",
+      "historical"
+    ],
+    "keys": [
+      "inn",
+      "tavern",
+      "hearth",
+      "food",
+      "drink"
+    ],
+    "description": "A horn of mead, a bowl of stew and a hook to hang your 50 feet of rope,  The Slaughtered Ox has been catering to the adventuring class for eons.",
+    "file": "23_The_Slaughtered_Ox"
+  },
+  {
+    "title": "Derelict Freighter",
+    "tags": [
+      "scifi",
+      "horror"
+    ],
+    "keys": [
+      "spaceship",
+      "salvage",
+      "space opera",
+      "reavers",
+      "Level 7",
+      "Theseus",
+      "Legendary Encounters"
+    ],
+    "description": "The listing hulk of a derelict space craft makes a tempting salvage target. But what happened to her crew? Something is not quite right here.",
+    "file": "21_Derelict_Freighter"
+  },
+  {
+    "title": "True West",
+    "tags": [
+      "historical"
+    ],
+    "keys": [
+      "horses",
+      "western",
+      "cowboys",
+      "dusty",
+      "town",
+      "Carson City",
+      "Bang",
+      "Spurs"
+    ],
+    "description": "Sometimes having a price on your head isn't enough to keep you out of town. As long as there's whisky, cards, and the possibility of a payday.",
+    "file": "22_True_West_a"
+  },
+  {
+    "title": "Dark Continent",
+    "tags": [
+      "fantasy",
+      "historical",
+      "horror",
+      "music"
+    ],
+    "keys": [
+      "rhythm",
+      "drums",
+      "chant",
+      "tribal"
+    ],
+    "description": "In another timeline, in another universe, it was the ancient city-states of Africa which eclipsed Rome as a beacon of civilization, culture . . . and war.",
+    "file": "20_Dark_Continent_aa"
+  },
+  {
+    "title": "The Age of Sail",
+    "tags": [
+      "historical"
+    ],
+    "keys": [
+      "ships",
+      "ocean",
+      "navy",
+      "naval",
+      "wind",
+      "waves",
+      "seven seas",
+      "50 fathoms"
+    ],
+    "description": "Fear not the mountainous waves and perilous winds! For who among us, will journey upon the sea and not gaze, ultimately, upon himself?",
+    "file": "19_Age_of_Sail"
+  },
+  {
+    "title": "House on the Hill",
+    "tags": [
+      "historical",
+      "horror"
+    ],
+    "keys": [
+      "lovecraft",
+      "betrayal",
+      "creepy",
+      "haunted",
+      "abandoned",
+      "ghosts",
+      "Betrayal at House on the Hill",
+      "vampire"
+    ],
+    "description": "You've heard the stories all your life. 50 years ago this night, an entire family killed after church one Sunday. Only one survived. 'The baby' still lives there.",
+    "file": "18_House_on_the_Hill"
+  },
+  {
+    "title": "Alien Night Club",
+    "tags": [
+      "scifi"
+    ],
+    "keys": [
+      "cantina",
+      "bar",
+      "music",
+      "scum",
+      "underworld",
+      "star wars",
+      "City of Remnants"
+    ],
+    "description": "It's hot, crowded, and swarming with species from every corner of the galaxy. The perfect spot to blend in, fade away or meet the perfect wingman.",
+    "file": "17_Alien_Night_Club"
+  },
+  {
+    "title": "Alien Machine Shop",
+    "tags": [
+      "scifi"
+    ],
+    "keys": [
+      "spaceship",
+      "repair",
+      "mechanic"
+    ],
+    "description": "You want the latest modifications? You want to squeeze a few more years out of those ancient matter displacers? It's gonna cost you.",
+    "file": "15_Alien_Machine_Shop"
+  },
+  {
+    "title": "Busy Space Port",
+    "tags": [
+      "scifi"
+    ],
+    "keys": [
+      "spaceship",
+      "travel",
+      "alien",
+      "outpost",
+      "spacestation",
+      "Among the Stars"
+    ],
+    "description": "The gleaming heart of any worthwhile planet. You can get transport here to just about any place.  It's a good spot to meet a pilot, a smuggler, or your next mark. Keep your head down.",
+    "file": "16_Busy_Space_Port"
+  },
+  {
+    "title": "Solemn Vow",
+    "tags": [
+      "fantasy",
+      "music"
+    ],
+    "keys": [
+      "brooding",
+      "sad",
+      "brave",
+      "uplifting"
+    ],
+    "description": "When death is near, and retreat is not an option. Only the bravest have any purchase on the word \"honor\".",
+    "file": "4_Solemn_Vow-a"
+  },
+  {
+    "title": "Abyssal Gaze",
+    "tags": [
+      "scifi",
+      "fantasy"
+    ],
+    "keys": [
+      "dark",
+      "void",
+      "lonely"
+    ],
+    "description": "The blackness of space, the silence of the open sea, the depths of a cave. When you stare into the abyss...you know the rest.",
+    "file": "6_Abyssal_Gaze"
+  },
+  {
+    "title": "The Desert Awaits",
+    "tags": [
+      "fantasy"
+    ],
+    "keys": [
+      "sand",
+      "ethnic",
+      "tribal",
+      "wind",
+      "Forbidden Desert"
+    ],
+    "description": "The air before you distorts in the heat. The sun has baked the world into an impenetrable crust. Nothing can survive out there for long. Yet out there is where you must go.",
+    "file": "7_The_Desert_Awaits"
+  },
+  {
+    "title": "Dust to Dust",
+    "tags": [
+      "fantasy"
+    ],
+    "keys": [
+      "ethereal",
+      "deep",
+      "brooding",
+      "abstract",
+      "music"
+    ],
+    "description": "Sometimes the only sure thing is the end. Beyond the adventure, beyond the riches, beyond the fame. Everyone dies.",
+    "file": "8_New_Dust_to_Dust"
+  },
+  {
+    "title": "Before the Storm",
+    "tags": [
+      "fantasy",
+      "music"
+    ],
+    "keys": [
+      "calm",
+      "rain",
+      "mourning"
+    ],
+    "description": "Sharpen those swords, check the perimeter defences and pray to whatever gods you hold dear. Tomorrow's going to be a big day.",
+    "file": "9_Before_The_Storm"
+  },
+  {
+    "title": "In the Shadows",
+    "tags": [
+      "scifi",
+      "horror"
+    ],
+    "keys": [
+      "abstract",
+      "void",
+      "wind",
+      "music"
+    ],
+    "description": "This seemed like a pretty good place to hide, but now, you're not so sure. There's something familiar about this place. There's also something moving",
+    "file": "10_In_The_Shadows"
+  },
+  {
+    "title": "Shelter from the Storm",
+    "tags": [
+      "horror",
+      "scifi"
+    ],
+    "keys": [
+      "brooding",
+      "abstract",
+      "music",
+      "menacing",
+      "whispers",
+      "strange",
+      "ethereal"
+    ],
+    "description": "Admittedly, it may not be the perfect spot. But it's a hell of a lot better than out there. At least it's warm and we'll get a chance to rest.",
+    "file": "11_Shelter_from_the_Storm"
+  },
+  {
+    "title": "Disembodied Spirits",
+    "tags": [
+      "fantasy"
+    ],
+    "keys": [
+      "ghosts",
+      "dark",
+      "abstract",
+      "music",
+      "ethereal",
+      "menacing",
+      "strange",
+      "sarcophagus"
+    ],
+    "description": "The night is alive with a thousand tiny voices. It's hard to make out what they're saying. Are they the welcoming committee? Or a warning klaxon.",
+    "file": "12_Disembodied_Spirits"
+  },
+  {
+    "title": "Cave of Time",
+    "tags": [
+      "fantasy",
+      "nature"
+    ],
+    "keys": [
+      "dripping",
+      "bats",
+      "underground",
+      "wind",
+      "dungeon",
+      "music",
+      "suspense"
+    ],
+    "description": "Deep underground an ancient cavern yawns before you and welcomes you, it's first visitors in a thousand years. The denizens of this place may not agree.",
+    "file": "13_Cave_of_Time"
+  },
+  {
+    "title": "Protean Fields",
+    "tags": [
+      "fantasy",
+      "scifi",
+      "modern",
+      "music"
+    ],
+    "keys": [
+      "suspense",
+      "ethereal",
+      "astral",
+      "drone"
+    ],
+    "description": "A plane beyond your own, filled with darkening swirls of color and mist. A low, pulsing energy embraces your mind and dulls your thoughts.",
+    "file": "14_Protean_Fields"
+  },
+  {
+    "title": "The Inner Core",
+    "tags": [
+      "scifi",
+      "modern"
+    ],
+    "keys": [
+      "deep",
+      "technology",
+      "alien",
+      "computers",
+      "reactor"
+    ],
+    "description": "You're deep into it this time. The center of everything. The world around you thrums with energy and portent...",
+    "file": "1_The_Inner_Core"
+  },
+  {
+    "title": "Bubbling Pools",
+    "tags": [
+      "nature",
+      "fantasy"
+    ],
+    "keys": [
+      "bubbles",
+      "music",
+      "ethereal",
+      "mystical",
+      "sand",
+      "magic",
+      "Alchemists"
+    ],
+    "description": "The stench of life fills the air. Viscous fluid bubbles to the surface in great exhortations of gas and moisture. Something about these pools is familiar..",
+    "file": "2_Bubbling_Pools"
+  },
+  {
+    "title": "Desert Bazaar",
+    "tags": [
+      "fantasy"
+    ],
+    "keys": [
+      "arabian",
+      "dune",
+      "market",
+      "suspense",
+      "alien",
+      "magic",
+      "Voyages of Marco Polo"
+    ],
+    "description": "Everything about this desert planet is familiar, but different at the same time. The pungent aroma of spice fills you with the thrill of adventure.",
+    "file": "5_Desert_Bazaar"
+  },
+  {
+    "title": "March of Faith",
+    "tags": [
+      "fantasy"
+    ],
+    "keys": [
+      "music",
+      "brooding",
+      "dark",
+      "sad",
+      "suspense",
+      "drums",
+      "abstract"
+    ],
+    "description": "The devoted stream into the distance. The dust from their sandaled feet blocks out the sun for miles around. There's no stopping them. They believe.",
+    "file": "3_The_March_of_the_Faithful"
+  }
+]
