@@ -2,7 +2,7 @@
 An unofficial Chrome extension for Friends & Fables.
 
 For Text-To-Speech, get an API key from https://www.cartesia.ai
-They have a free plan for testing purposes. Cost ends up around $2.4-$3.0 per hour of audio generated
+They have a free plan for testing purposes. Cost ends up around $2.4-$3.0 per hour of audio generated.
 
 Please see the Cartesia's [acceptable use policies](https://cartesia.ai/legal/acceptable-use.html) and OpenAI's [usage policies](https://openai.com/policies/usage-policies/) before using this addon.
 
