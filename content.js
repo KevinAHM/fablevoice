@@ -1871,6 +1871,51 @@ class MusicManager {
         const match = window.location.href.match(/\/([^\/]+)\/play/);
         return match ? match[1] : '';
     }
+
+    async queueSuggestion(chosenTrack) {
+        return new Promise((resolve, reject) => {
+            const timeout = 5000; // 5 seconds
+            let timer;
+
+            const toast = butterup.toast({
+                title: 'New Music Suggestion',
+                message: `"${chosenTrack}" will play in 5 seconds.`,
+                location: 'bottom-center',
+                icon: 'music',
+                dismissable: true,
+                type: 'info',
+                primaryButton: {
+                    text: 'Play Now',
+                    onClick: () => {
+                        clearTimeout(timer);
+                        MUSIC.play(chosenTrack);
+                        const toastElement = document.querySelector('#butterupRack li');
+                        if (toastElement) { toastElement.click(); }
+                        resolve();
+                    }
+                },
+                secondaryButton: {
+                    text: 'Cancel',
+                    onClick: () => {
+                        clearTimeout(timer);
+                        const toastElement = document.querySelector('#butterupRack li');
+                        if (toastElement) { toastElement.click(); }
+                        reject('User cancelled the suggestion');
+                    }
+                },
+                onDismiss: () => {
+                    reject('Toast was dismissed');
+                }
+            });
+
+            timer = setTimeout(() => {
+                const toastElement = document.querySelector('#butterupRack li');
+                if (toastElement) { toastElement.click(); }
+                MUSIC.play(chosenTrack);
+                resolve();
+            }, timeout);
+        });
+    }
 }
 
 // OBSERVERS
@@ -2016,8 +2061,7 @@ class ObserverManager {
     
             console.log('Message type:', isPlayerMessage ? 'own' : 'not own', 'ownMessageCount:', ownMessageCount);
     
-            const encounterButton = Array.from(document.querySelectorAll('button')).find(button => button.textContent.includes('Edit Encounter'));
-            if (!isPlayerMessage && openaiApiKey && enableStoryEditor && disallowedElements && revisions < maxRevisions && !encounterButton) {
+            if (!isPlayerMessage && openaiApiKey && enableStoryEditor && disallowedElements && revisions < maxRevisions && !CAMPAIGN.isEncounter()) {
                 console.log('Story editor is enabled, halting auto-play');
                 const container = node.querySelector('.rounded-md');
                 if (container) {
@@ -2049,7 +2093,7 @@ class ObserverManager {
                 }
             }
 
-            if (cartesiaConnected && ((!isPlayerMessage && autoPlayNew) || (isPlayerMessage && autoPlayOwn && ownMessageCount >= 2))) {
+            if (cartesiaConnected && !CAMPAIGN.isEncounter() && ((!isPlayerMessage && autoPlayNew) || (isPlayerMessage && autoPlayOwn && ownMessageCount >= 2))) {
                 if (currentlyPlaying) {
                     console.log('Queueing message');
                     TTS.queueMessage(node);
@@ -2512,8 +2556,12 @@ Please provide your answer within <answer> tags.`;
         console.log('currentTrack', currentTrack);
         
         if (trackFile && chosenTrack != currentTrack) {
-            console.log('playing track', trackFile);
-            MUSIC.play(chosenTrack);
+            if (currentTrack != 'None') {
+                MUSIC.queueSuggestion(chosenTrack);
+            } else {
+                console.log('playing track', trackFile);
+                MUSIC.play(chosenTrack);
+            }
         }
         
         return [chosenTrack, trackFile];
@@ -2727,6 +2775,11 @@ class CampaignManager {
         .catch(error => {
             console.error('Error fetching characters:', error);
         });
+    }
+
+    isEncounter() {
+        const encounterButton = Array.from(document.querySelectorAll('button')).find(button => button.textContent.includes('Edit Encounter'));
+        return encounterButton !== null;
     }
 }
 
@@ -3221,8 +3274,6 @@ function updateSettings() {
         autoPlayNew = data.autoPlayNew !== undefined ? data.autoPlayNew : true;
         autoPlayOwn = data.autoPlayOwn || false;
         autoSendAfterSpeaking = data.autoSendAfterSpeaking || false;
-        //leaveMicOn = data.leaveMicOn || false;
-        //deepgramApiKey = data.deepgramApiKey || '';
         apiKey = data.apiKey || '';
         voiceId = data.voiceId || '';
         speed = data.speed || 'normal';
@@ -3273,16 +3324,54 @@ waitPageLoad().then(() => {
     updateSettings();
 
     const targetElement = document.querySelector('div.overflow-hidden');
-    console.log('Target element:', targetElement);
-    if (targetElement) {
-        OBS.observeOverflowHidden();
+  apiKey = data.apiKey || '';
+        voiceId = data.voiceId || '';
+        speed = data.speed || 'normal';
+        if (data.locationBackground !== 'off' && data.locationBackground !== locationBackground) {
+            UI.lastLocation = null;
+        }
+        locationBackground = data.locationBackground || 'off';
+        openaiApiKey = data.openaiApiKey || '';
+        openaiModel = data.openaiModel || 'gpt-4o-mini';
+        autoSelectMusic = data.autoSelectMusic || false;
+        musicAiNotes = data.musicAiNotes || '';
+        enableStoryEditor = data.enableStoryEditor || false;
+        disallowedElements = data.disallowedElements || '';
+        disallowedRelaxed = data.disallowedRelaxed || '';
+        cachedVoices = data.cachedVoices || [];
+        characterVoices = data.characterVoices || {};
+        useNpcVoices = data.useNpcVoices || false;
+        maxRevisions = data.maxRevisions || 3;
+        if (ttsEnabled) {
+            const targetDiv = document.querySelector('.flex.flex-row.items-center.overflow-hidden');
+            if (targetDiv) {
+                UI.addTTSToggleButton();
+            }
+        }
+        UI.updateBackgroundImage();
+    });
+}
+
+// Listen for messages from the popup
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    if (message.type === 'update_settings') {
+        // Update settings
+        updateSettings();
+
+        // Show a toast notification
+        butterup.toast({
+            title: 'Settings Updated',
+            message: 'Your settings have been updated successfully.',
+            location: 'bottom-left',
+            icon: false,
+            dismissable: true,
+            type: 'success',
+        });
     }
-    OBS.observeBackgroundImage();
-    OBS.observeNewMessages();
-    OBS.observeURLChanges();
-    UI.addMicToggle();
-    UI.initialize();
-    MUSIC.createUI();
-    UTILITY.createUI();
-    CAMPAIGN.loadCharacters();
 });
+
+waitPageLoad().then(() => {
+    updateSettings();
+
+    const targetElement = document.querySelector('div.overflow-hidden');
+    console.log('Target element:', targetElement);
