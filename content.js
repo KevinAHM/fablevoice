@@ -21,6 +21,7 @@ let cachedVoices = [];
 let characterVoices = {};
 let useNpcVoices = false;
 let maxRevisions = 3;
+let improvedLocationDetection = false;
 
 const shortAudioThreshold = 2 * 44100; // 2 seconds at 44100 Hz
 //const delayBetweenReading = 2000;
@@ -550,6 +551,71 @@ class UIManager {
         }, 1000);
     }
 
+    // LOCATION SUGGESTION
+    
+    addLocationSuggestion() {
+        if (document.getElementById('location-suggestion-button')) {
+            return;
+        }
+
+        const locationButton = document.createElement('button');
+        locationButton.id = 'location-suggestion-button';
+        locationButton.className = 'inline-flex items-center justify-center whitespace-nowrap font-medium ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 group bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-20 border border-gray-500 hover:border-primary text-gray-300 h-9 rounded-md px-3';
+        locationButton.style.fontSize = '14px';
+        locationButton.style.display = 'flex';
+        locationButton.style.alignItems = 'center';
+        locationButton.style.marginBottom = '10px';
+        locationButton.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin mr-2 h-4 w-4" style="margin-bottom: 2px;">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+            </svg>
+            <span style="line-height: 1; margin-top: 1px;">Location</span>
+        `;
+
+        const inviteButton = Array.from(document.querySelectorAll('button')).find(button => button.textContent.includes('Invite') || button.textContent.includes('Party Full'));
+        if (inviteButton && inviteButton.parentNode) {
+            inviteButton.parentNode.insertBefore(locationButton, inviteButton);
+        }
+
+        locationButton.addEventListener('click', async () => {
+            locationButton.disabled = true;
+            await AI.locationSuggestion();
+            locationButton.disabled = false;
+        });
+    }
+
+    // TIPPY
+    addTippy(element, content) {
+        // Remove existing tippy instance if it exists
+        if (element._tippy) {
+            element._tippy.destroy();
+        }
+
+        element._tippy = tippy(element, {
+            content: content,
+            theme: 'fablevoice',
+            allowHTML: true,
+            interactive: true,
+            placement: 'right'
+        });
+
+        // Show the tippy immediately and keep it visible
+        element._tippy.show();
+
+        console.log('tippy added', element._tippy);
+
+        setTimeout(() => {
+            element._tippy.show();
+        }, 500);
+
+        // Hide the tippy after 5 seconds
+        setTimeout(() => {
+            if (element._tippy) {
+                element._tippy.hide();
+            }
+        }, 5000);
+    }
 }
 
 // CAPTIONS
@@ -2096,20 +2162,23 @@ class ObserverManager {
             }
 
             revisions = 0; // Reset revisions count for new messages
+            let setMusic = false;
 
             if (!isPlayerMessage) {
                 lastRevised = false;
                 //console.log('Debounce triggered: All messages have stopped coming in', autoSelectMusic, MUSIC.manuallyStopped);
-                if (autoSelectMusic && openaiApiKey && !MUSIC.manuallyStopped && !musicLocked) {
+                if (autoSelectMusic && openaiApiKey && !MUSIC.manuallyStopped && !musicLocked && !CAMPAIGN.isEncounter()) {
                     AI.musicSuggestion();
+                    setMusic = true;
                 }
             }
 
-            console.log('CAMPAIGN.isEncounter()',CAMPAIGN.isEncounter());
-            console.log('cartesiaConnected',cartesiaConnected);
-            console.log('autoPlayNew',autoPlayNew);
-            console.log('autoPlayOwn',autoPlayOwn);
-            console.log('ownMessageCount',ownMessageCount);
+            console.log('setMusic',setMusic, 'improvedLocationDetection',improvedLocationDetection);
+            if (improvedLocationDetection && openaiApiKey && !setMusic && !CAMPAIGN.isEncounter()) {
+                console.log('Improved location detection');
+                AI.locationSuggestion();
+            }
+
             if (cartesiaConnected && !CAMPAIGN.isEncounter() && ((!isPlayerMessage && autoPlayNew) || (isPlayerMessage && autoPlayOwn && ownMessageCount >= 2))) {
                 if (currentlyPlaying) {
                     console.log('Queueing message');
@@ -2173,6 +2242,11 @@ The current track (if any) started playing this long ago:
 {{CURRENT_TRACK_START}}
 </current_track_start>
 
+The list of locations in the story so far is:
+<locations>
+{{LOCATIONS}}
+</locations>
+
 To select the appropriate background music, follow these steps:
 
 1. Analyze the current scene:
@@ -2216,6 +2290,13 @@ To select the appropriate background music, follow these steps:
    - Remember that consistency in background music is often more important than perfect thematic matching
    - Double-check that the chosen track (whether new or current) fits the world's theme and doesn't create anachronisms or thematic inconsistencies
 
+8. Determine the most likely current location:
+   - Review the list of locations provided
+   - Based on the latest message and overall context, identify the location where the current scene takes place
+   - Pay special attention to any location changes mentioned in the latest message, as scenes can sometimes shift locations
+   - Use "Uncertain" if you are not 100% sure or if they are not in the list
+   - Only provide a location if you are completely sure of the location
+
 Provide your response in the following format:
 <music_selection>
 <reasoning>
@@ -2223,9 +2304,10 @@ Provide your response in the following format:
 </reasoning>
 <decision>[Keep current track/Change track]</decision>
 <chosen_track>[Title of chosen track, or "None" if keeping current track]</chosen_track>
+<current_location>[The location from the provided <locations> list where the latest scene takes place or ends at - use "Uncertain" if not 100% sure or if they are not in the list]</current_location>
 </music_selection>
 
-Remember, your goal is to enhance the roleplay experience by selecting music that complements the scene. Make your decision based on the scene description, the current track (if any), and the available options in the music library.`;
+Remember, your goal is to enhance the roleplay experience by selecting music that complements the scene. Make your decision based on the scene description, the current track (if any), and the available options in the music library. Additionally, provide the most likely current location to help set the scene accurately.`;
         this.editorPrompt = `You are a story editor tasked with identifying disallowed elements in a story excerpt. Follow these instructions carefully:
 
 1. First, review the list of disallowed tropes, events, objects, and other story elements:
@@ -2368,6 +2450,47 @@ These are examples for your learning how to respond, you will be tasked with fil
 ## This is very important. All your dialog needs to exactly match the original text without abridging, joining together, or changing any punctuation or capitalization.
 
 Please provide your answer within <answer> tags.`;
+        this.locationPrompt = `You are an AI assistant tasked with determining the current location in a roleplay scene. You will be provided with a description of the current scene and a list of known locations.
+
+Now, here is a message history to help determine the current location in the roleplay:
+<message_history>
+{{MESSAGE_HISTORY}}
+</message_history>
+
+This is the latest message, which is most relevant to the current scene:
+<current_message>
+{{CURRENT_MESSAGE}}
+</current_message>
+
+The list of locations in the story so far is:
+<locations>
+{{LOCATIONS}}
+</locations>
+
+To determine the current location, follow these steps:
+
+1. Analyze the current scene:
+   - Identify any mentions of specific locations or environmental details
+   - Consider the context of the conversation and actions taking place
+
+2. Review the list of known locations:
+   - Check if any of the locations in the list match the details from the current scene
+   - Consider if the characters might still be in a previously mentioned location
+
+3. Make your decision:
+   - Choose the most likely location from the provided list
+   - If unsure or if the location is not in the list, use "Uncertain"
+
+4. Final check:
+   - Ensure your chosen location aligns with the latest message and overall context
+   - Only provide a location if you are completely sure
+
+Provide your response in the following format:
+<music_selection>
+<current_location>[The location from the provided <locations> list where the latest scene takes place or ends at - use "Uncertain" if not 100% sure or if they are not in the list]</current_location>
+</music_selection>
+
+Remember, your goal is to accurately determine the current location to help set the scene. Only provide a location if you are completely sure it matches one from the given list.`;
     }
     
     async runAI(systemMessage, userMessage) {
@@ -2498,9 +2621,10 @@ Please provide your answer within <answer> tags.`;
         let messageList = [];
         let messageCount = 8;
         for (let i = messageDivs.length - 1; i >= 0 && messageCount > 0; i--) {
-            const message = messageDivs[i].querySelector('p.text-base');
-            if (message) {
-                messageList.unshift('Message #' + messageCount + ': ' + message.textContent);
+            const messages = messageDivs[i].querySelectorAll('p.text-base');
+            if (messages.length > 0) {
+                let messageText = Array.from(messages).map(p => p.textContent).join(' ');
+                messageList.unshift('Message #' + messageCount + ': ' + messageText);
                 messageCount--;
             }
         }
@@ -2521,7 +2645,7 @@ Please provide your answer within <answer> tags.`;
         systemMessage = systemMessage.replace('{{MESSAGE_HISTORY}}', messages);
         systemMessage = systemMessage.replace('{{CURRENT_MESSAGE}}', messageList[messageList.length - 1]);
         systemMessage = systemMessage.replace('{{CURRENT_TRACK}}', MUSIC.currentTrack ? MUSIC.currentTrack.name : 'None');
-        
+        systemMessage = systemMessage.replace('{{LOCATIONS}}', CAMPAIGN.formatLocations('name',"\n",'poi'));
         const formatTime = (seconds) => {
             if (seconds < 60) return `${Math.floor(seconds)} seconds ago`;
             const minutes = Math.floor(seconds / 60);
@@ -2550,6 +2674,7 @@ Please provide your answer within <answer> tags.`;
 
         let chosenTrack = '';
         let trackFile = '';
+        let location = '';
         const match = suggestion.match(/<chosen_track>(.*?)<\/chosen_track>/);
         if (match) {
             chosenTrack = match[1].trim();
@@ -2585,8 +2710,64 @@ Please provide your answer within <answer> tags.`;
                 MUSIC.play(chosenTrack);
             }
         }
+
         
-        return [chosenTrack, trackFile];
+        const locationMatch = suggestion.match(/<current_location>(.*?)<\/current_location>/);
+        if (locationMatch) {
+            location = locationMatch[1].trim();
+            console.log('Extracted location:', location);
+            if (CAMPAIGN.locations.some(loc => loc.name === location)) {
+                console.log('Location found in the campaign');
+                if (improvedLocationDetection) { CAMPAIGN.requestLocation(location); }
+            } else {
+                console.log('Location not found in the campaign');
+            }
+        }
+        
+        return [chosenTrack, trackFile, location];
+    }
+
+    async locationSuggestion() {
+        let systemMessage = this.locationPrompt;
+
+        // get current world context
+        const messageDivs = document.querySelectorAll('div.grid.grid-cols-\\[25px_1fr_10px\\].md\\:grid-cols-\\[40px_1fr_30px\\].pb-4.relative');
+        let messageList = [];
+        let messageCount = 8;
+        for (let i = messageDivs.length - 1; i >= 0 && messageCount > 0; i--) {
+            const messages = messageDivs[i].querySelectorAll('p.text-base');
+            if (messages.length > 0) {
+                let messageText = Array.from(messages).map(p => p.textContent).join(' ');
+                messageList.unshift('Message #' + messageCount + ': ' + messageText);
+                messageCount--;
+            }
+        }
+        const messages = messageList.join('\n');
+        systemMessage = systemMessage.replace('{{MESSAGE_HISTORY}}', messages);
+        systemMessage = systemMessage.replace('{{CURRENT_MESSAGE}}', messageList[messageList.length - 1]);
+        systemMessage = systemMessage.replace('{{LOCATIONS}}', CAMPAIGN.formatLocations('name',"\n",'poi'));
+
+        console.log('systemMessage', systemMessage);
+
+        const userMessage = 'Please determine the current location that the scene is taking place in, prioritizing the most recent location.';
+        console.log('userMessage', userMessage);
+        const suggestion = await this.runAI(systemMessage, userMessage);
+        console.log('suggestion', suggestion);
+
+        let location = '';
+        const locationMatch = suggestion.match(/<current_location>(.*?)<\/current_location>/);
+        if (locationMatch && locationMatch[1] && locationMatch[1].trim() != 'Uncertain') {
+            location = locationMatch[1].trim();
+            console.log('Extracted location:', location);
+            if (CAMPAIGN.locations.some(loc => loc.name === location)) {
+                console.log('Location found in the campaign');
+                CAMPAIGN.requestLocation(location);
+            } else {
+                console.log('Location not found in the campaign');
+            }
+        }
+
+        return location;
     }
 
 }
@@ -2700,7 +2881,11 @@ class CampaignManager {
         this.apiKey = '';
         this.authToken = '';
         this.characters = [];
+        this.areas = [];
+        this.pointsOfInterest = [];
+        this.locations = []; // areas + points of interest
         this.loadCharacters();
+        this.loadLocations();
     }
 
     getCampaignId() {
@@ -2724,6 +2909,21 @@ class CampaignManager {
                 this.getCharactersLegacy();
             } else {
                 this.getCharactersLegacy();
+            }
+        });
+    }
+
+    loadLocations() {
+        chrome.storage.local.get(`locations_${this.campaignId}`, (result) => {
+            if (result[`locations_${this.campaignId}`]) {
+                this.locations = result[`locations_${this.campaignId}`];
+                console.log('Locations loaded from cache:', this.locations);
+                //VOICE.createUI();
+                //CAPTION.prepareAllTexts();
+                this.getLocationsLegacy();
+            } else {
+                console.log('Locations not found in cache, fetching from Fables');
+                this.getLocationsLegacy();
             }
         });
     }
@@ -2775,6 +2975,201 @@ class CampaignManager {
         chrome.storage.local.set({ [`characters_${this.campaignId}`]: this.characters }, () => {
             console.log('Characters cached for campaign:', this.campaignId);
         });
+    }
+
+    getLocationsLegacy() {
+        const url = 'https://play.fables.gg/' + this.campaignId + '/play/world';
+        
+        const iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        document.body.appendChild(iframe);
+
+        iframe.src = url;
+        iframe.onload = () => {
+            setTimeout(() => {
+                // get areas
+                // then switch to points of interest
+                const areas = Array.from(iframe.contentDocument.querySelectorAll('div.p-4.rounded-md.bg-card'))
+                    .map(card => {
+                        const divs = card.querySelectorAll('div');
+                        let nameElement;
+                        let typeElement = 'N/A';
+                        let descriptionElement;
+                        let coordinatesElement;
+                        if (divs.length < 4) {
+                            nameElement = divs[0];
+                            descriptionElement = divs[1];
+                            coordinatesElement = divs[2];
+                        } else {
+                            nameElement = divs[0];
+                            typeElement = divs[1];
+                            descriptionElement = divs[2];
+                            coordinatesElement = divs[3];
+                        }
+                        
+                        const name = nameElement ? nameElement.textContent.trim() : 'Unknown';
+                        
+                        if (name === 'Unknown') {
+                            return null;
+                        }
+                        
+                        return {
+                            name: name,
+                            type: (typeof typeElement === 'string' ? typeElement : (typeElement && typeElement.textContent ? typeElement.textContent.trim() : '')),
+                            description: descriptionElement ? descriptionElement.textContent && descriptionElement.textContent.trim() : '',
+                            coordinates: coordinatesElement ? coordinatesElement.textContent.trim() : ''
+                        };
+                    })
+                    .filter(location => location !== null);
+
+                console.log('Areas found:', areas);
+                this.areas = areas ? areas : self.areas;
+                
+                const pointsOfInterestButton = Array.from(iframe.contentDocument.querySelectorAll('button')).filter(button => button.textContent.includes('Points of Interest'));
+                if (pointsOfInterestButton.length > 0) {
+                    console.log('Points of Interest button found');
+                    pointsOfInterestButton[0].focus();
+                    pointsOfInterestButton[0].dispatchEvent(new KeyboardEvent('keydown', {
+                        key: 'Enter',
+                        bubbles: true,
+                        cancelable: true
+                    }));
+                    setTimeout(() => {
+                        const pointsOfInterest = Array.from(iframe.contentDocument.querySelectorAll('div.p-4.rounded-md.bg-card'))
+                        .map(card => {
+                            const nameElement = card.querySelector('.text-2xl');
+                            const descriptionElement = card.querySelector('div:nth-child(2)');
+                            const coordinatesElement = card.querySelector('div.mt-4');
+                            
+                            const name = nameElement ? nameElement.textContent.trim() : 'Unknown';
+                            
+                            if (name === 'Unknown') {
+                                return null;
+                            }
+                            
+                            return {
+                                name: name,
+                                type: 'POI',
+                                description: descriptionElement ? descriptionElement.textContent.trim() : '',
+                                coordinates: coordinatesElement ? coordinatesElement.textContent.trim() : ''
+                            };
+                        })
+                        .filter(location => location !== null);
+
+                        this.pointsOfInterest = pointsOfInterest ? pointsOfInterest : self.pointsOfInterest;
+                        console.log('Points of Interest:', this.pointsOfInterest);
+
+                        this.locations = [...this.areas, ...this.pointsOfInterest];
+                        this.cacheLocations();
+                        //CAPTION.prepareAllTexts();
+                
+                        document.body.removeChild(iframe);
+                    }, 1500);
+                }
+            }, 3000);
+        };
+    }
+
+    cacheLocations() {
+        chrome.storage.local.set({ [`locations_${this.campaignId}`]: this.locations }, () => {
+            console.log('Locations cached for campaign:', this.campaignId);
+        });
+    }
+
+    formatLocations(fields = [], join = "\n", type = null) {
+        if (typeof fields === 'string') {
+            fields = [fields];
+        }
+        return this.locations.filter(location => {
+            if (type === null) return true;
+            if (type.toLowerCase() === 'poi') return location.type === 'POI';
+            if (type.toLowerCase() === 'area') return location.type !== 'POI';
+            return true;
+        }).map(location => {
+            if (fields.length === 0) {
+                return `${location.name}`;
+            } else {
+                return fields.map(field => location[field]).join(' ');
+            }
+        }).join(join);
+    }
+
+    async requestLocation(location) {
+        console.log('Requesting location:', location);
+        
+        UI.addTippy(document.getElementById('location-suggestion-button'), 'Location: ' + location);
+
+        // Check if we're already at the requested location
+        const currentLocationElements = document.querySelectorAll('h3.text-lg');
+        const isAlreadyAtLocation = Array.from(currentLocationElements).some(element => 
+            element.textContent.trim() === location
+        );
+        
+        if (isAlreadyAtLocation) {
+            console.log('Already at the requested location:', location);
+            return;
+        }
+
+        const waitForButton = async (text, timeout = 5000) => {
+            const start = Date.now();
+            while (Date.now() - start < timeout) {
+                const button = Array.from(document.querySelectorAll('button')).find(
+                    button => button.textContent.includes(text)
+                );
+                if (button) return button;
+                await new Promise(resolve => setTimeout(resolve, 100));
+            }
+            return null;
+        };
+
+        const waitForElement = async (selector, timeout = 5000) => {
+            const start = Date.now();
+            while (Date.now() - start < timeout) {
+                const element = document.querySelector(selector);
+                if (element) return element;
+                await new Promise(resolve => setTimeout(resolve, 100));
+            }
+            return null;
+        };
+
+        // Find and click the "Change location" button
+        const changeLocationButton = await waitForButton('Change location');
+        if (!changeLocationButton) {
+            console.log('Change location button not found');
+            //return;
+        } else {
+            changeLocationButton.click();
+            console.log('Clicked "Change location" button');
+        }
+
+        // If location not found, click "Select a Location" button
+        const selectLocationButton = await waitForButton('Select a Location');
+        if (!selectLocationButton) {
+            console.log('"Select a Location" button not found');
+            return;
+        }
+        selectLocationButton.click();
+        console.log('Clicked "Select a Location" button');
+
+        // Find and click the location in the list
+        const locationElement = await waitForElement(`div[data-value="${location}"]`, 500);
+        if (!locationElement) {
+            console.log(`Location "${location}" not found in the list of available locations`);
+            changeLocationButton.click();
+            return;
+        }
+
+        locationElement.click();
+        console.log(`Selected location: ${location}`);
+
+        // Click the "Update Location" button
+        const updateLocationButton = await waitForButton('Update Location');
+        if (!updateLocationButton) {
+            console.log('"Update Location" button not found');
+            return;
+        }
+        updateLocationButton.click();
+        console.log('Clicked "Update Location" button');
     }
 
     getCharacters() {
@@ -3290,7 +3685,7 @@ function waitPageLoad() {
 // INITIALIZE
 
 function updateSettings() {
-    chrome.storage.local.get(['ttsEnabled', 'autoPlayNew', 'autoPlayOwn', 'autoSendAfterSpeaking', 'apiKey', 'voiceId', 'speed', 'locationBackground', 'openaiApiKey', 'autoSelectMusic', 'musicAiNotes', 'enableStoryEditor', 'disallowedElements', 'disallowedRelaxed', 'cachedVoices', 'characterVoices', 'useNpcVoices', 'maxRevisions'], function(data) {
+    chrome.storage.local.get(['ttsEnabled', 'autoPlayNew', 'autoPlayOwn', 'autoSendAfterSpeaking', 'apiKey', 'voiceId', 'speed', 'locationBackground', 'openaiApiKey', 'autoSelectMusic', 'musicAiNotes', 'enableStoryEditor', 'disallowedElements', 'disallowedRelaxed', 'cachedVoices', 'characterVoices', 'useNpcVoices', 'maxRevisions', 'improvedLocationDetection'], function(data) {
         ttsEnabled = data.ttsEnabled || false;
         autoPlayNew = data.autoPlayNew !== undefined ? data.autoPlayNew : true;
         autoPlayOwn = data.autoPlayOwn || false;
@@ -3313,6 +3708,8 @@ function updateSettings() {
         characterVoices = data.characterVoices || {};
         useNpcVoices = data.useNpcVoices || false;
         maxRevisions = data.maxRevisions || 3;
+        improvedLocationDetection = data.improvedLocationDetection || false;
+        console.log('improvedLocationDetection',improvedLocationDetection);
         if (ttsEnabled) {
             const targetDiv = document.querySelector('.flex.flex-row.items-center.overflow-hidden');
             if (targetDiv) {
@@ -3339,56 +3736,13 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
             type: 'success',
         });
     }
-});
-
-// INITIALIZE
-
-function updateSettings() {
-    chrome.storage.local.get(['ttsEnabled', 'autoPlayNew', 'autoPlayOwn', 'autoSendAfterSpeaking', 'apiKey', 'voiceId', 'speed', 'locationBackground', 'openaiApiKey', 'autoSelectMusic', 'musicAiNotes', 'enableStoryEditor', 'disallowedElements', 'disallowedRelaxed', 'cachedVoices', 'characterVoices', 'useNpcVoices', 'maxRevisions'], function(data) {
-        ttsEnabled = data.ttsEnabled || false;
-        autoPlayNew = data.autoPlayNew !== undefined ? data.autoPlayNew : true;
-        autoPlayOwn = data.autoPlayOwn || false;
-        autoSendAfterSpeaking = data.autoSendAfterSpeaking || false;
-        //leaveMicOn = data.leaveMicOn || false;
-        //deepgramApiKey = data.deepgramApiKey || '';
-        apiKey = data.apiKey || '';
-        voiceId = data.voiceId || '';
-        speed = data.speed || 'normal';
-        if (data.locationBackground !== 'off' && data.locationBackground !== locationBackground) {
-            UI.lastLocation = null;
-        }
-        locationBackground = data.locationBackground || 'off';
-        openaiApiKey = data.openaiApiKey || '';
-        openaiModel = data.openaiModel || 'gpt-4o-mini';
-        autoSelectMusic = data.autoSelectMusic || false;
-        musicAiNotes = data.musicAiNotes || '';
-        enableStoryEditor = data.enableStoryEditor || false;
-        disallowedElements = data.disallowedElements || '';
-        disallowedRelaxed = data.disallowedRelaxed || '';
-        cachedVoices = data.cachedVoices || [];
-        characterVoices = data.characterVoices || {};
-        useNpcVoices = data.useNpcVoices || false;
-        maxRevisions = data.maxRevisions || 3;
-        if (ttsEnabled) {
-            const targetDiv = document.querySelector('.flex.flex-row.items-center.overflow-hidden');
-            if (targetDiv) {
-                UI.addTTSToggleButton();
-            }
-        }
-        UI.updateBackgroundImage();
-    });
-}
-
-// Listen for messages from the popup
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    if (message.type === 'update_settings') {
-        // Update settings
-        updateSettings();
+    if (message.type === 'voices_loaded') {
+        console.log('Voices loaded');
 
         // Show a toast notification
         butterup.toast({
-            title: 'Settings Updated',
-            message: 'Your settings have been updated successfully.',
+            title: 'Voices Loaded',
+            message: 'Your voices have been loaded successfully.',
             location: 'bottom-left',
             icon: false,
             dismissable: true,
@@ -3409,6 +3763,7 @@ waitPageLoad().then(() => {
     OBS.observeNewMessages();
     OBS.observeURLChanges();
     UI.addMicToggle();
+    UI.addLocationSuggestion();
     UI.initialize();
     MUSIC.createUI();
     UTILITY.createUI();

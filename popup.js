@@ -20,11 +20,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const useNpcVoicesCheckbox = document.getElementById('useNpcVoices');
     const disallowedRelaxedTextarea = document.getElementById('disallowedRelaxed');
     const maxRevisionsInput = document.getElementById('maxRevisions');
+    const improvedLocationDetectionCheckbox = document.getElementById('improvedLocationDetection');
 
     let cachedVoices = null;
 
     // Load saved settings
-    chrome.storage.local.get(['ttsEnabled', 'apiKey', 'openaiApiKey', 'voiceId', 'cachedVoices', 'speed', 'autoPlayNew', 'autoPlayOwn', 'autoSendAfterSpeaking', 'locationBackground', 'autoSelectMusic', 'musicAiNotes', 'enableStoryEditor', 'disallowedElements', 'useNpcVoices', 'disallowedRelaxed', 'maxRevisions'], function(data) {
+    chrome.storage.local.get(['ttsEnabled', 'apiKey', 'openaiApiKey', 'voiceId', 'cachedVoices', 'speed', 'autoPlayNew', 'autoPlayOwn', 'autoSendAfterSpeaking', 'locationBackground', 'autoSelectMusic', 'musicAiNotes', 'enableStoryEditor', 'disallowedElements', 'useNpcVoices', 'disallowedRelaxed', 'maxRevisions', 'improvedLocationDetection'], function(data) {
         const ttsEnabled = data.ttsEnabled || false;
         updateUI(ttsEnabled);
         apiKeyInput.value = data.apiKey || '';
@@ -47,6 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
         useNpcVoicesCheckbox.checked = data.useNpcVoices || false;
         disallowedRelaxedTextarea.value = data.disallowedRelaxed || '';
         maxRevisionsInput.value = data.maxRevisions || 3;
+        improvedLocationDetectionCheckbox.checked = data.improvedLocationDetection || false;
         updateVoiceSelectStatus();
     });
 
@@ -82,6 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const useNpcVoices = useNpcVoicesCheckbox.checked;
         const disallowedRelaxed = disallowedRelaxedTextarea.value.trim();
         const maxRevisions = parseInt(maxRevisionsInput.value, 10);
+        const improvedLocationDetection = improvedLocationDetectionCheckbox.checked;
 
         chrome.storage.local.get(['voiceId', 'speed', 'cachedVoices'], function(data) {
             const oldVoiceId = data.voiceId;
@@ -104,7 +107,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 disallowedElements: disallowedElements,
                 useNpcVoices: useNpcVoices,
                 disallowedRelaxed: disallowedRelaxed,
-                maxRevisions: maxRevisions
+                maxRevisions: maxRevisions,
+                improvedLocationDetection: improvedLocationDetection
             }, function() {
                 if (oldVoiceId !== voiceId || oldSpeed !== speed) {
                     // Clear voice cache if voice or speed has changed
@@ -162,6 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     console.log('Voices cached');
                 });
                 populateVoiceSelect(data);
+                chrome.runtime.sendMessage({type: 'voices_loaded'});
             })
             .catch(error => {
                 console.error('Error fetching voices:', error);

@@ -9,6 +9,12 @@ Please see the Cartesia's [acceptable use policies](https://cartesia.ai/legal/ac
 For AI Music suggestions, AI-assisted story editing, and NPC voice segmented dialog, get an API key from https://platform.openai.com/account/api-keys
 These features use gpt-4o-mini and cost a fraction of a penny per message.
 
+# Changelog
+
+## v0.5
+- Automatic location detection that improves upon the native Fables.gg location detection
+- Misc. fixes and improvements
+
 # Features
 
 ## Text-To-Speech (Cartesia)
@@ -32,6 +38,12 @@ These features use gpt-4o-mini and cost a fraction of a penny per message.
 - Please visit https://tabletopaudio.com/ for more information, and to donate to their Patreon if you enjoy their music
 - Manual or Automatic mode with ability to lock the current track
 - Optional notes for the AI to consider when generating music
+
+## Automatic Location Detection
+- Requires OpenAI Key
+- Manual "Location" button works even when automatic option is disabled
+- Improves upon the native Fables.gg location detection which seems to calculate based on distance travelled which is not accurate (yet)
+- Uses few extra tokens if music suggestion is on as the prompt is embedded in the music generation request
 
 ## Chat Background
 - Background of chat has an image of the current location
@@ -92,7 +104,6 @@ After enabling it..
 - No emotion parameters are applied to player messages, they are read aloud as-is (except parenthesis)
 
 # Known Issues
-
 - Playing TTS on a reply, pausing it while it's still generating, then attempting to play another before the previous generation from Cartesia is finished can cause sound glitches
   - The solution is to wait for the TTS to finish generting, and then play the next message
 - Sometimes the page requires a refresh if you navigate away and then back to the campaign chat
