@@ -27,13 +27,13 @@ These features use gpt-4o-mini and cost a fraction of a penny per message.
 - Built in to Chrome, free
 - Use in any text entry area
 
-## AI-assisted story editing
+## AI-assisted Story Editing
 - You can specify elements you do not want in the story, and the AI will analyze the story and suggest changes to Franz
 
-## Active/Relaxed mode toggle
+## Active/Relaxed Mode Toggle
 - Similar to AI-assisted story editing, but has a list of items specific to the "relaxed" mode that you can specify such as combat, questing, etc.
 
-## AI-generated music suggestions
+## AI Music Suggestions
 - 400+ tracks of DnD music and ambiences provided by Table Top Audio, hosted on my server and streamed through the extension
 - Please visit https://tabletopaudio.com/ for more information, and to donate to their Patreon if you enjoy their music
 - Manual or Automatic mode with ability to lock the current track
