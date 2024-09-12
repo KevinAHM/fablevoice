@@ -38,7 +38,7 @@ These features use gpt-4o-mini and cost a fraction of a penny per message.
 - Normal and Dark mode options
 
 ## Character Information
-- Automatic insertion of character names and images when hovering over their names in the chat
+- Automatic display of full character names and their avatars when hovering over their names in the chat
 
 # Installation
 The addon isn't yet in the official Chrome store, so you must use developer method of loading unpacked extensions
@@ -77,31 +77,29 @@ After enabling it..
 - Text-To-Speech and AI Story Editing are disabled during combat. This is both to help compliance with Cartesia's and OpenAI's acceptable use policies, and to not interfere with the combat encounter mechanics and pacing
 - Cost of Text-To-Speech averages around $2.40 - $3.00 per hour of audio generated
 - Cost of other features (AI story editing, NPC voice diarization) is minimal, less than a fraction of a penny per message, with AI music using the most at around $0.0025 to $0.005 (half a penny) per message
--- While a track is locked or suggestions are set to manual, no AI music suggestion cost is incurred
+  - While a track is locked or suggestions are set to manual, no AI music suggestion cost is incurred
 - Not tested on Mac devices
 - There's a chance OpenAI may refuse to generate NPC segmented dialog if it's in violation of their content blocking policies
 - Likewise, please read Cartesia's [acceptable use policies](https://cartesia.ai/legal/acceptable-use.html) and don't include any text that's in violation of their policies
--- If you are not going over the top, you should be fine
+  - If you are not going over the top, you should be fine
 
 # Limitations
 
-- The AI story editing depends on Franz to listen to the feedback. It's limited to the capabilities of Franz's AI to listen to instructions
+- The AI story editing depends on Franz to listen to the feedback - it's limited to the capabilities of Franz's AI to listen to instructions
 - There may be unintended consequences of blocking certain elements from the story, such as blocking types of loot which may reduce overall loot if Franz does not listen to the request to come up with suitable alternatives
 - Cartesia text-to-speech is amazing, but has some shortcomings which they are working on (as of September 2024.) There may be clicks and pops in the audio, or rarely, words get repeated or mispronounced
 - "Base Emotion" settings are not used in the story text-to-speech generations, they're for previewing only at the moment. Emotions are detected and applied in the NPC voice segmentation for each voice based on the dialog, unless "Disable Emotion" is selected for a character
-- Player voices are not used in Franz's dialog, only NPC voices are
--- Player voices are used in the players' own messages and use the entire text except parentheses
--- No emotion parameters are applied to player voices
+- No emotion parameters are applied to player messages, they are read aloud as-is (except parenthesis)
 
 # Known Issues
 
 - Playing TTS on a reply, pausing it while it's still generating, then attempting to play another before the previous generation from Cartesia is finished can cause sound glitches
--- The solution is to wait for the TTS to finish generting, and then play the next message
+  - The solution is to wait for the TTS to finish generting, and then play the next message
 - Sometimes the page requires a refresh if you navigate away and then back to the campaign chat
 - The AI may suggest music changes too frequently or occasionally, to inappropriate tracks. You can accept/deny a suggestion within 5 seconds using the toast notification
--- You can also click the AI button next to music player to request a new track, or toggle "Lock" to lock in a track you like
+  - You can also click the AI button next to music player to request a new track, or toggle "Lock" to lock in a track you like
 - When the editor suggests changes to Franz, item pickups and such are cleared by off the screen by Franz, which is ideal, but may cause some confusion if the items are not actually gone, and are just off the screen
--- This is a Fables.gg bug and not an addon bug
+  - This is a Fables.gg bug and not an addon bug
 
 # To-Do
 

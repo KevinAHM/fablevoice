@@ -1135,6 +1135,7 @@ class TTSManager {
             currentText = text;
             let modifiedText = text;
 
+
             console.log('isPlayerMessage', isPlayerMessage, 'useNpcVoices', useNpcVoices, 'openaiApiKey', openaiApiKey, 'characterVoices', characterVoices);
             if (!isPlayerMessage && useNpcVoices && openaiApiKey) {
 
@@ -1156,11 +1157,19 @@ class TTSManager {
                             
                             // Extract speaker name and emotions
                             let [speakerName, ...emotions] = speakerInfo.split(',').map(item => item.trim());
+
+                            if (speakerName === "The Narrator/Game Master" || speakerName === "The Narrator" || speakerName === "Game Master") {
+                                continue;
+                            }
                             
                             // Find the exact position of the dialog in the remaining text
                             let dialogIndex = modifiedText.indexOf(dialogText);
                             if (dialogIndex === -1) {
                                 dialogIndex = modifiedText.indexOf(dialogText.slice(0, -2));
+                                if (dialogIndex === -1) {
+                                    console.log('Still not found, assuming mistake in AI diarization');
+                                    continue;
+                                }
                             }
                             console.log('remaining text', modifiedText, 'index', dialogIndex, 'of', dialogText);
                             
@@ -1543,6 +1552,7 @@ class MusicManager {
                 this.selectTrack.value = selectedTrack;
                 // Save the current selection to local storage
                 const currentWorldId = this.getCurrentWorldId();
+                console.log('Saving last selected track', selectedTrack, 'for', currentWorldId);
                 chrome.storage.local.set({ [`lastSelectedTrack_${currentWorldId}`]: selectedTrack });
             }
         });
@@ -1691,6 +1701,7 @@ class MusicManager {
 
             // Save the current selection to local storage
             const currentWorldId = this.getCurrentWorldId();
+            console.log('Saving last selected track', name, 'for', currentWorldId);
             chrome.storage.local.set({ [`lastSelectedTrack_${currentWorldId}`]: name });
         } catch (error) {
             console.error(`Failed to play track "${name}":`, error);
@@ -1785,6 +1796,7 @@ class MusicManager {
             // Get the last selected track for this world from local storage
             chrome.storage.local.get(`lastSelectedTrack_${currentWorldId}`, (result) => {
                 const lastSelectedTrack = result[`lastSelectedTrack_${currentWorldId}`];
+                console.log('lastSelectedTrack', lastSelectedTrack, 'for', currentWorldId);
                 
                 // Set the track selection
                 if (this.trackList.has(currentlySelectedTrack)) {
@@ -2087,12 +2099,17 @@ class ObserverManager {
 
             if (!isPlayerMessage) {
                 lastRevised = false;
-                console.log('Debounce triggered: All messages have stopped coming in', autoSelectMusic, MUSIC.manuallyStopped);
+                //console.log('Debounce triggered: All messages have stopped coming in', autoSelectMusic, MUSIC.manuallyStopped);
                 if (autoSelectMusic && openaiApiKey && !MUSIC.manuallyStopped && !musicLocked) {
                     AI.musicSuggestion();
                 }
             }
 
+            console.log('CAMPAIGN.isEncounter()',CAMPAIGN.isEncounter());
+            console.log('cartesiaConnected',cartesiaConnected);
+            console.log('autoPlayNew',autoPlayNew);
+            console.log('autoPlayOwn',autoPlayOwn);
+            console.log('ownMessageCount',ownMessageCount);
             if (cartesiaConnected && !CAMPAIGN.isEncounter() && ((!isPlayerMessage && autoPlayNew) || (isPlayerMessage && autoPlayOwn && ownMessageCount >= 2))) {
                 if (currentlyPlaying) {
                     console.log('Queueing message');
@@ -2205,7 +2222,7 @@ Provide your response in the following format:
 [Explain your decision, including why the chosen track (or current track, if kept) is appropriate for the scene. If changing tracks, explain why the current track was not suitable.]
 </reasoning>
 <decision>[Keep current track/Change track]</decision>
-<chosen_track>[File name of chosen track, or "None" if keeping current track]</chosen_track>
+<chosen_track>[Title of chosen track, or "None" if keeping current track]</chosen_track>
 </music_selection>
 
 Remember, your goal is to enhance the roleplay experience by selecting music that complements the scene. Make your decision based on the scene description, the current track (if any), and the available options in the music library.`;
@@ -2489,7 +2506,12 @@ Please provide your answer within <answer> tags.`;
         }
         const messages = messageList.join('\n');
 
-        const filteredJSON = JSON.stringify(MUSIC.filteredTracks);
+        const tracks = MUSIC.filteredTracks;
+        // Clean up the tracks JSON by removing "file" and "tags" properties
+        const filteredTracks = tracks.map(({ file, tags, ...rest }) => rest);
+        const filteredJSON = JSON.stringify(filteredTracks);
+
+        console.log('filteredJSON', filteredJSON);
 
         const currentTrack = MUSIC.currentTrack ? MUSIC.currentTrack.name : 'None';
 
@@ -2778,8 +2800,7 @@ class CampaignManager {
     }
 
     isEncounter() {
-        const encounterButton = Array.from(document.querySelectorAll('button')).find(button => button.textContent.includes('Edit Encounter'));
-        return encounterButton !== null;
+        return Array.from(document.querySelectorAll('button')).find(button => button.textContent.includes('Edit Encounter')) ? true : false;
     }
 }
 
@@ -3021,7 +3042,7 @@ class VoicesManager {
             console.log(`Playing voice: ${voiceId} with speed: ${speed} and emotions: ${emotions.join(', ')}`);
 
             TTS.cartesiaConnection.uuid = TTS.cartesiaConnection.uuidv4();
-            await TTS.sendTTSRequest(dialogText, true, voiceId, emotions, speed);
+            await TTS.sendTTSRequest(dialogText, false, voiceId, emotions, speed);
         }
     }
 
@@ -3320,11 +3341,17 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     }
 });
 
-waitPageLoad().then(() => {
-    updateSettings();
+// INITIALIZE
 
-    const targetElement = document.querySelector('div.overflow-hidden');
-  apiKey = data.apiKey || '';
+function updateSettings() {
+    chrome.storage.local.get(['ttsEnabled', 'autoPlayNew', 'autoPlayOwn', 'autoSendAfterSpeaking', 'apiKey', 'voiceId', 'speed', 'locationBackground', 'openaiApiKey', 'autoSelectMusic', 'musicAiNotes', 'enableStoryEditor', 'disallowedElements', 'disallowedRelaxed', 'cachedVoices', 'characterVoices', 'useNpcVoices', 'maxRevisions'], function(data) {
+        ttsEnabled = data.ttsEnabled || false;
+        autoPlayNew = data.autoPlayNew !== undefined ? data.autoPlayNew : true;
+        autoPlayOwn = data.autoPlayOwn || false;
+        autoSendAfterSpeaking = data.autoSendAfterSpeaking || false;
+        //leaveMicOn = data.leaveMicOn || false;
+        //deepgramApiKey = data.deepgramApiKey || '';
+        apiKey = data.apiKey || '';
         voiceId = data.voiceId || '';
         speed = data.speed || 'normal';
         if (data.locationBackground !== 'off' && data.locationBackground !== locationBackground) {
@@ -3375,3 +3402,15 @@ waitPageLoad().then(() => {
 
     const targetElement = document.querySelector('div.overflow-hidden');
     console.log('Target element:', targetElement);
+    if (targetElement) {
+        OBS.observeOverflowHidden();
+    }
+    OBS.observeBackgroundImage();
+    OBS.observeNewMessages();
+    OBS.observeURLChanges();
+    UI.addMicToggle();
+    UI.initialize();
+    MUSIC.createUI();
+    UTILITY.createUI();
+    CAMPAIGN.loadCharacters();
+});
