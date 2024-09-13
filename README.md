@@ -16,6 +16,7 @@ These features use gpt-4o-mini and cost a fraction of a penny per message.
  - Grammar, spelling, punctuation, and formatting
  - e.g. hey there walks over to merlin -> "Hey there!" *Walks over to Merlin.*
  - Automatic or manual mode (the wand button in message entry area)
+- Misc. fixes and improvements
 
 ## v0.5
 - Automatic location detection that improves upon the native Fables.gg location detection
