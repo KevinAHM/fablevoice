@@ -21,11 +21,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const disallowedRelaxedTextarea = document.getElementById('disallowedRelaxed');
     const maxRevisionsInput = document.getElementById('maxRevisions');
     const improvedLocationDetectionCheckbox = document.getElementById('improvedLocationDetection');
+    const aiEnhancedTranscriptionsCheckbox = document.getElementById('aiEnhancedTranscriptions');
 
     let cachedVoices = null;
 
     // Load saved settings
-    chrome.storage.local.get(['ttsEnabled', 'apiKey', 'openaiApiKey', 'voiceId', 'cachedVoices', 'speed', 'autoPlayNew', 'autoPlayOwn', 'autoSendAfterSpeaking', 'locationBackground', 'autoSelectMusic', 'musicAiNotes', 'enableStoryEditor', 'disallowedElements', 'useNpcVoices', 'disallowedRelaxed', 'maxRevisions', 'improvedLocationDetection'], function(data) {
+    chrome.storage.local.get(['ttsEnabled', 'apiKey', 'openaiApiKey', 'voiceId', 'cachedVoices', 'speed', 'autoPlayNew', 'autoPlayOwn', 'autoSendAfterSpeaking', 'locationBackground', 'autoSelectMusic', 'musicAiNotes', 'enableStoryEditor', 'disallowedElements', 'useNpcVoices', 'disallowedRelaxed', 'maxRevisions', 'improvedLocationDetection', 'aiEnhancedTranscriptions'], function(data) {
         const ttsEnabled = data.ttsEnabled || false;
         updateUI(ttsEnabled);
         apiKeyInput.value = data.apiKey || '';
@@ -49,6 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
         disallowedRelaxedTextarea.value = data.disallowedRelaxed || '';
         maxRevisionsInput.value = data.maxRevisions || 3;
         improvedLocationDetectionCheckbox.checked = data.improvedLocationDetection || false;
+        aiEnhancedTranscriptionsCheckbox.checked = data.aiEnhancedTranscriptions || false;
         updateVoiceSelectStatus();
     });
 
@@ -85,11 +87,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const disallowedRelaxed = disallowedRelaxedTextarea.value.trim();
         const maxRevisions = parseInt(maxRevisionsInput.value, 10);
         const improvedLocationDetection = improvedLocationDetectionCheckbox.checked;
+        const aiEnhancedTranscriptions = aiEnhancedTranscriptionsCheckbox.checked;
 
         chrome.storage.local.get(['voiceId', 'speed', 'cachedVoices'], function(data) {
             const oldVoiceId = data.voiceId;
             const oldSpeed = data.speed;
-            const oldOwnVoiceId = data.ownVoiceId;
 
             chrome.storage.local.set({
                 apiKey: apiKey,
@@ -108,7 +110,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 useNpcVoices: useNpcVoices,
                 disallowedRelaxed: disallowedRelaxed,
                 maxRevisions: maxRevisions,
-                improvedLocationDetection: improvedLocationDetection
+                improvedLocationDetection: improvedLocationDetection,
+                aiEnhancedTranscriptions: aiEnhancedTranscriptions
             }, function() {
                 if (oldVoiceId !== voiceId || oldSpeed !== speed) {
                     // Clear voice cache if voice or speed has changed

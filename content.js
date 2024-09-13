@@ -22,6 +22,7 @@ let characterVoices = {};
 let useNpcVoices = false;
 let maxRevisions = 3;
 let improvedLocationDetection = false;
+let aiEnhancedTranscriptions = false;
 
 const shortAudioThreshold = 2 * 44100; // 2 seconds at 44100 Hz
 //const delayBetweenReading = 2000;
@@ -644,18 +645,19 @@ class CaptionManager {
         });
     }
 
+        
+    getComparableName(name,lower=true) {
+        const prefixes = ['The', 'Mr.', 'Mrs.', 'Ms.', 'Dr.', 'Prof.', 'Lord', 'Lady', 'Baron', 'Baroness', 'Count', 'Countess', 'Duke', 'Duchess', 'Earl', 'Earless', 'Viscount', 'Viscountess', 'Marquis', 'Marchioness', 'Prince', 'Princess', 'King', 'Queen', 'Emperor', 'Empress', 'Pope', 'Pope'];
+        let parts = name.split(' ');
+        while (prefixes.includes(parts[0])) {
+            parts.shift();
+        }
+        return lower ? parts[0].toLowerCase() : parts[0];
+    }
+
     addCharacterTitles(textDiv) {
         const characters = CAMPAIGN.characters;
         const wordSpans = textDiv.querySelectorAll('.caption-word');
-        
-        const getComparableName = (name) => {
-            const prefixes = ['The', 'Mr.', 'Mrs.', 'Ms.', 'Dr.', 'Prof.', 'Lord', 'Lady', 'Baron', 'Baroness', 'Count', 'Countess', 'Duke', 'Duchess', 'Earl', 'Earless', 'Viscount', 'Viscountess', 'Marquis', 'Marchioness', 'Prince', 'Princess', 'King', 'Queen', 'Emperor', 'Empress', 'Pope', 'Pope'];
-            let parts = name.split(' ');
-            while (prefixes.includes(parts[0])) {
-                parts.shift();
-            }
-            return parts[0].toLowerCase();
-        };
 
         const removePunctuation = (text) => {
             return text.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?"']/g, "").toLowerCase();
@@ -664,8 +666,8 @@ class CaptionManager {
         wordSpans.forEach(span => {
             const word = removePunctuation(span.textContent);
             const character = characters.find(char => {
-                const charName = getComparableName(char.name);
-                return word === charName || (word.startsWith(charName) && !characters.some(c => word === getComparableName(c.name)));
+                const charName = this.getComparableName(char.name);
+                return word === charName || (word.startsWith(charName) && !characters.some(c => word === this.getComparableName(c.name)));
             });
             
             if (character) {
@@ -935,6 +937,7 @@ class CartesiaConnection {
 
     sendTextToCartesia(text, continueFlag = false, voice = null, emotions = [], speed = null) {
         const request = { text, continueFlag, voice, emotions, speed };
+        text = text.replaceAll('Hideout','hideout').replaceAll('hideout','hide-out');
         this.pendingRequests.push(request);
         if (!this.isProcessing) {
             this.processNextRequest();
@@ -1300,15 +1303,111 @@ class TTSManager {
 
 // SPEECH-TO-TEXT
 
-let deepgramConnection = null;
-let micAudioContext = null;
-let micStream = null;
-let isRecording = false;
-
 class STTManager {
     constructor() {
         this.recognition = null;
         this.isRecording = false;
+        this.baseDndTermsGrammar = `
+  #JSGF V1.0;
+  grammar dndTerms;
+  public <dndTerm> = 
+    // Character Classes
+    barbarian | bard | cleric | druid | fighter | monk | paladin | ranger | rogue | sorcerer | warlock | wizard |
+    
+    // Races
+    human | elf | dwarf | halfling | half-orc | tiefling | dragonborn | gnome | aasimar | goliath | tabaxi | lizardfolk | kenku | orc | goblin |
+    
+    // Monsters
+    beholder | dragon | lich | vampire | werewolf | kobold | goblin | orc | troll | ogre | giant | demon | devil | imp | wraith | ghost | skeleton | zombie | mimic | mind flayer | aboleth | basilisk | chimera | hydra | manticore | owlbear | beholder | bugbear | gnoll | griffon | wyvern | balor | golem | treant | wyvern |
+    
+    // Spells
+    fireball | lightning bolt | magic missile | healing word | cure wounds | mage hand | shield | invisibility | polymorph | fly | teleport | fire shield | dispel magic | counterspell | identify | detect magic | levitate | mirror image | scorching ray | eldritch blast | hex | thunderwave | shield of faith | bless | bane | charm person | command | guiding bolt | spirit guardians |
+    
+    // Weapons
+    sword | greatsword | longsword | shortsword | rapier | dagger | axe | battleaxe | greataxe | halberd | spear | javelin | club | mace | warhammer | crossbow | longbow | shortbow | sling | staff | quarterstaff |
+    
+    // Armor and Gear
+    shield | helmet | breastplate | chainmail | leather armor | scale mail | studded leather | cloak | boots | gloves | gauntlets | amulet | ring | necklace | robe | bracers | cape |
+    
+    // Items
+    potion | healing potion | invisibility potion | scroll | spellbook | wand | staff | rod | orb | crystal | gem | pearl | ruby | diamond | emerald | sapphire | bag of holding | magic carpet | lamp | lantern | rope | torch | thieves' tools | lockpick | trap | chest | key |
+    
+    // Locations
+    dungeon | fortress | castle | village | town | city | tavern | inn | guild | forest | mountain | river | swamp | desert | cave | temple | ruins | crypt | tower | stronghold | lair |
+    
+    // Abilities
+    strength | dexterity | constitution | intelligence | wisdom | charisma | stealth | perception | athletics | arcana | survival | insight | intimidation | deception | persuasion | acrobatics | sleight of hand | investigation | animal handling |
+    
+    // Status Effects and Conditions
+    stunned | poisoned | paralyzed | frightened | charmed | blinded | deafened | grappled | restrained | unconscious | petrified | exhausted |
+    
+    // Alignments
+    lawful good | lawful neutral | lawful evil | neutral good | true neutral | neutral evil | chaotic good | chaotic neutral | chaotic evil |
+    
+    // Miscellaneous Fantasy Terms
+    adventurer | quest | treasure | gold | silver | copper | platinum | coin | guild | faction | alliance | rival | deity | god | goddess | cult | demon lord | devil prince | prophecy | artifact | relic | scroll | ritual | spell components | arcane focus | holy symbol | druidic totem | warlock patron | planar travel | portal | rift | dimension | planar shift |
+    
+    // DnD Terms for Skills, Feats, and Equipment
+    acrobatics | animal handling | arcana | athletics | deception | history | insight | intimidation | investigation | medicine | nature | perception | performance | persuasion | religion | sleight of hand | stealth | survival |
+    
+    // Planes of Existence
+    material plane | feywild | shadowfell | astral plane | ethereal plane | elemental plane of fire | elemental plane of water | elemental plane of air | elemental plane of earth | abyss | nine hells | mount celestia | limbo | pandemonium | mechanus | ysgard | beastlands | arborea | bytopia | eberron | ravnica | faerun | forgotten realms | dark sun | dragonlance |
+    
+    // Deities and Pantheons
+    moradin | bahamut | tiamat | pelor | lathander | bane | lolth | vecna | helm | tymora | mystra | corellon | gruumsh | melora | avandra | zehir | asmodeus | tharzidun | io | anubis | thor | odin | hera | zeus | poseidon | hades | ares | athena | hecate | freyja | loki | bastet | sobek | ra |
+    
+    // Guilds and Organizations
+    thieves' guild | adventurers' guild | mages' guild | warriors' guild | merchant guild | assassins' guild | templars | order of the gauntlet | harpers | zentarim | red wizards of thay | emerald enclave | lords' alliance | xanathar's guild | cult of the dragon | cult of vecna;
+`;
+    this.baseDndTerms = [
+        // Character Classes
+        'barbarian', 'bard', 'cleric', 'druid', 'fighter', 'monk', 'paladin', 'ranger', 'rogue', 'sorcerer', 'warlock', 'wizard',
+        
+        // Races
+        'human', 'elf', 'dwarf', 'halfling', 'half-orc', 'tiefling', 'dragonborn', 'gnome', 'aasimar', 'goliath', 'tabaxi', 'lizardfolk', 'kenku', 'orc', 'goblin',
+        
+        // Monsters
+        'beholder', 'dragon', 'lich', 'vampire', 'werewolf', 'kobold', 'goblin', 'orc', 'troll', 'ogre', 'giant', 'demon', 'devil', 'imp', 'wraith', 'ghost', 'skeleton', 'zombie', 'mimic', 'mind flayer', 'aboleth', 'basilisk', 'chimera', 'hydra', 'manticore', 'owlbear', 'beholder', 'bugbear', 'gnoll', 'griffon', 'wyvern', 'balor', 'golem', 'treant', 'wyvern',
+        
+        // Spells
+        'fireball', 'lightning bolt', 'magic missile', 'healing word', 'cure wounds', 'mage hand', 'shield', 'invisibility', 'polymorph', 'fly', 'teleport', 'fire shield', 'dispel magic', 'counterspell', 'identify', 'detect magic', 'levitate', 'mirror image', 'scorching ray', 'eldritch blast', 'hex', 'thunderwave', 'shield of faith', 'bless', 'bane', 'charm person', 'command', 'guiding bolt', 'spirit guardians',
+        
+        // Weapons
+        'sword', 'greatsword', 'longsword', 'shortsword', 'rapier', 'dagger', 'axe', 'battleaxe', 'greataxe', 'halberd', 'spear', 'javelin', 'club', 'mace', 'warhammer', 'crossbow', 'longbow', 'shortbow', 'sling', 'staff', 'quarterstaff',
+        
+        // Armor and Gear
+        'shield', 'helmet', 'breastplate', 'chainmail', 'leather armor', 'scale mail', 'studded leather', 'cloak', 'boots', 'gloves', 'gauntlets', 'amulet', 'ring', 'necklace', 'robe', 'bracers', 'cape',
+        
+        // Items
+        'potion', 'healing potion', 'invisibility potion', 'scroll', 'spellbook', 'wand', 'staff', 'rod', 'orb', 'crystal', 'gem', 'pearl', 'ruby', 'diamond', 'emerald', 'sapphire', 'bag of holding', 'magic carpet', 'lamp', 'lantern', 'rope', 'torch', 'thieves\' tools', 'lockpick', 'trap', 'chest', 'key',
+        
+        // Locations
+        'dungeon', 'fortress', 'castle', 'village', 'town', 'city', 'tavern', 'inn', 'guild', 'forest', 'mountain', 'river', 'swamp', 'desert', 'cave', 'temple', 'ruins', 'crypt', 'tower', 'stronghold', 'lair',
+        
+        // Abilities
+        'strength', 'dexterity', 'constitution', 'intelligence', 'wisdom', 'charisma', 'stealth', 'perception', 'athletics', 'arcana', 'survival', 'insight', 'intimidation', 'deception', 'persuasion', 'acrobatics', 'sleight of hand', 'investigation', 'animal handling',
+        
+        // Status Effects and Conditions
+        'stunned', 'poisoned', 'paralyzed', 'frightened', 'charmed', 'blinded', 'deafened', 'grappled', 'restrained', 'unconscious', 'petrified', 'exhausted',
+        
+        // Alignments
+        'lawful good', 'lawful neutral', 'lawful evil', 'neutral good', 'true neutral', 'neutral evil', 'chaotic good', 'chaotic neutral', 'chaotic evil',
+        
+        // Miscellaneous Fantasy Terms
+        'adventurer', 'quest', 'treasure', 'gold', 'silver', 'copper', 'platinum', 'coin', 'guild', 'faction', 'alliance', 'rival', 'deity', 'god', 'goddess', 'cult', 'demon lord', 'devil prince', 'prophecy', 'artifact', 'relic', 'scroll', 'ritual', 'spell components', 'arcane focus', 'holy symbol', 'druidic totem', 'warlock patron', 'planar travel', 'portal', 'rift', 'dimension', 'planar shift',
+        
+        // DnD Terms for Skills, Feats, and Equipment
+        'acrobatics', 'animal handling', 'arcana', 'athletics', 'deception', 'history', 'insight', 'intimidation', 'investigation', 'medicine', 'nature', 'perception', 'performance', 'persuasion', 'religion', 'sleight of hand', 'stealth', 'survival',
+        
+        // Planes of Existence
+        'material plane', 'feywild', 'shadowfell', 'astral plane', 'ethereal plane', 'elemental plane of fire', 'elemental plane of water', 'elemental plane of air', 'elemental plane of earth', 'abyss', 'nine hells', 'mount celestia', 'limbo', 'pandemonium', 'mechanus', 'ysgard', 'beastlands', 'arborea', 'bytopia', 'eberron', 'ravnica', 'faerun', 'forgotten realms', 'dark sun', 'dragonlance',
+        
+        // Deities and Pantheons
+        'moradin', 'bahamut', 'tiamat', 'pelor', 'lathander', 'bane', 'lolth', 'vecna', 'helm', 'tymora', 'mystra', 'corellon', 'gruumsh', 'melora', 'avandra', 'zehir', 'asmodeus', 'tharzidun', 'io', 'anubis', 'thor', 'odin', 'hera', 'zeus', 'poseidon', 'hades', 'ares', 'athena', 'hecate', 'freyja', 'loki', 'bastet', 'sobek', 'ra',
+        
+        // Guilds and Organizations
+        'thieves\' guild', 'adventurers\' guild', 'mages\' guild', 'warriors\' guild', 'merchant guild', 'assassins\' guild', 'templars', 'order of the gauntlet', 'harpers', 'zentarim', 'red wizards of thay', 'emerald enclave', 'lords\' alliance', 'xanathar\'s guild', 'cult of the dragon', 'cult of vecna'
+    ];
     }
 
     async startRecording() {
@@ -1317,10 +1416,37 @@ class STTManager {
                 throw new Error('Web Speech API is not supported in this browser.');
             }
 
+            
+            let fullGrammar;
+            let fullTerms;
+            if (CAMPAIGN.characters && CAMPAIGN.characters.length > 0) {
+                // Example of adding character names
+                const characterNames = CAMPAIGN.characters.map(character => character.name);
+                // Convert the array of character names to a grammar-friendly format
+                const characterNamesGrammar = characterNames.map(name => CAPTION.getComparableName(name,false)).join(' | ');
+
+            
+                // Add the character names to the existing grammar
+                fullGrammar = `
+                ${this.baseDndTermsGrammar}
+                public <characterNames> = ${characterNamesGrammar};
+                `;
+                fullTerms = characterNames.map(name => CAPTION.getComparableName(name,false)).concat(this.baseDndTerms);
+            } else {
+                fullGrammar = this.baseDndTermsGrammar;
+                fullTerms = this.baseDndTerms;
+            }
+
+            console.log('fullGrammar', fullGrammar);
+            const grammarList = new webkitSpeechGrammarList();
+            grammarList.addFromString(fullGrammar, 1);  // Full weight for DnD terms
+
             this.recognition = new webkitSpeechRecognition();
             this.recognition.continuous = true;
-            this.recognition.interimResults = true;
+            this.recognition.interimResults = false;
             this.recognition.lang = 'en-US';
+            this.recognition.grammars = grammarList;
+            this.recognition.maxAlternatives = 100;
 
             this.recognition.onstart = () => {
                 console.log('Speech recognition started');
@@ -1341,11 +1467,23 @@ class STTManager {
             let finalTranscript = '';
             let interimTranscript = '';
 
-            this.recognition.onresult = (event) => {
+            this.recognition.onresult = async (event) => {
                 for (let i = event.resultIndex; i < event.results.length; ++i) {
                     if (event.results[i].isFinal) {
-                        finalTranscript += event.results[i][0].transcript;
-                        this.sendTranscriptToChat(finalTranscript, true);
+                        let bestMatch = '';
+                        let bestMatchIndex = 0;
+                        for (let j = 0; j < event.results[i].length; ++j) {
+                            const transcript = event.results[i][j].transcript.trim().toLowerCase();
+                            if (fullTerms.includes(transcript)) {
+                                bestMatch = transcript;
+                                console.log('bestMatch', bestMatch);
+                                break;
+                            } else if (j === 0) {
+                                bestMatch = transcript;
+                            }
+                        }
+                        finalTranscript += bestMatch + ' ';
+                        await this.sendTranscriptToChat(finalTranscript.trim(), true);
                         finalTranscript = '';
                     } else {
                         interimTranscript += event.results[i][0].transcript;
@@ -1381,7 +1519,8 @@ class STTManager {
         }
     }
 
-    sendTranscriptToChat(transcript, isFinal) {
+    async sendTranscriptToChat(transcript, isFinal) {
+
         const activeElement = document.activeElement;
         const isMessageTextarea = activeElement.matches('textarea[name="message"]');
         const isTextInput = activeElement.matches('input:not([type]), input[type="text"], textarea');
@@ -1389,9 +1528,36 @@ class STTManager {
         if (isTextInput) {
             const cursorPosition = activeElement.selectionStart;
             const currentValue = activeElement.value;
-            const newValue = currentValue.slice(0, cursorPosition) + transcript.trim() + currentValue.slice(cursorPosition);
+            let trimmedTranscript = transcript.trim();
+            
+            // Check if we need to add a space before the new text
+            if (cursorPosition > 0 && 
+                currentValue[cursorPosition - 1] !== ' ' && 
+                currentValue[cursorPosition - 1] !== '"' &&
+                trimmedTranscript !== '') {
+                trimmedTranscript = ' ' + trimmedTranscript;
+            }
+            
+            // Check if we need to add a space after the new text
+            if (cursorPosition < currentValue.length && 
+                currentValue[cursorPosition] !== ' ' && 
+                currentValue[cursorPosition] !== '"' &&
+                trimmedTranscript !== '') {
+                trimmedTranscript += ' ';
+            }
+
+            let newValue = currentValue.slice(0, cursorPosition) + trimmedTranscript + currentValue.slice(cursorPosition);
+
+            if (transcript && openaiApiKey && aiEnhancedTranscriptions) {
+                const newTranscript = await AI.transcriptImprovement(newValue);
+                if (newTranscript) {
+                    console.log('newTranscript', newTranscript);
+                    newValue = newTranscript;
+                }
+            }
+
             activeElement.value = newValue;
-            activeElement.setSelectionRange(cursorPosition + transcript.trim().length, cursorPosition + transcript.trim().length);
+            activeElement.setSelectionRange(newValue.length, newValue.length);
             activeElement.dispatchEvent(new Event('input', { bubbles: true }));
             
             if (isMessageTextarea && isFinal && autoSendAfterSpeaking) {
@@ -1400,6 +1566,49 @@ class STTManager {
                     sendButton.click();
                 }
             }
+        }
+    }
+    
+    addAIButton() {
+        if (document.getElementById('aiButton') || !openaiApiKey) {
+            return;
+        }
+        // Add microphone toggle
+        const sendButton = document.getElementById('send');
+        if (sendButton) {
+            const aiButton = document.createElement('button');
+            aiButton.id = 'aiButton';
+            aiButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="mr-2" style=""><path d="M7.5 5.6L5 7l1.4-2.5L5 2l2.5 1.4L10 2 8.6 4.5 10 7 7.5 5.6zm12 9.8L22 14l-1.4 2.5L22 19l-2.5-1.4L17 19l1.4-2.5L17 14l2.5 1.4zM22 2l-2.5 1.4L17 2l1.4 2.5L17 7l2.5-1.4L22 7l-1.4-2.5L22 2zm-7.63 5.29c-.39-.39-1.02-.39-1.41 0L1.29 18.96c-.39.39-.39 1.02 0 1.41l2.34 2.34c.39.39 1.02.39 1.41 0L16.7 11.05c.39-.39.39-1.02 0-1.41l-2.33-2.35zm-1.03 5.49l-2.12-2.12 2.44-2.44 2.12 2.12-2.44 2.44z"/></svg>';
+            aiButton.style.cssText = `
+                position: absolute;
+                right: 55px;
+                bottom: 15px;
+                display: inline;
+                background: none;
+                border: none;
+                cursor: pointer;
+                opacity: 0.3;
+                color: #fff;
+                transition: opacity 300ms, color 300ms;
+            `;
+    
+            aiButton.addEventListener('click', async (event) => {
+                event.preventDefault();
+                console.log('aiButton clicked');
+                const textarea = document.querySelector('textarea[name="message"]');
+                console.log('textarea', textarea);
+                if (textarea && textarea.value.trim() !== '') {
+                    console.log('textarea is not empty', textarea.value);
+                    aiButton.style.opacity = '0.3';
+                    aiButton.style.color = '';
+                    const newMessage = await AI.transcriptImprovement(textarea.value);
+                    textarea.value = newMessage ? newMessage : textarea.value;
+                    const inputEvent = new Event('input', { bubbles: true });
+                    textarea.dispatchEvent(inputEvent);
+                }
+            });
+    
+            sendButton.parentNode.insertBefore(aiButton, sendButton);
         }
     }
 }
@@ -2021,7 +2230,11 @@ class ObserverManager {
     }
     
     observeOverflowHidden() {
+        const overflowElement = document.querySelector('div.overflow-hidden');
+        if (!overflowElement) { return; }
         const targetElement = document.querySelector('.lucide-dice3');
+        if (!targetElement || targetElement.classList.contains('fable-dice3')) { return; }
+        targetElement.classList.add('fable-dice3');
         const closestButton = targetElement.closest('button');
         const closestDiv = closestButton ? closestButton.closest('div') : null;
     
@@ -2209,6 +2422,37 @@ class ObserverManager {
     
         observer.observe(document.body, { childList: true, subtree: true });
     }
+
+    observeMessageTextarea() {
+        const textarea = document.querySelector('textarea[name="message"]');
+        if (textarea && !textarea.classList.contains('fable-textarea')) {
+            textarea.classList.add('fable-textarea');
+            
+            const updateButtonState = () => {
+                const button = document.getElementById('aiButton');
+                if (!button) { return; }
+                if (textarea.value.length > 0) {
+                    button.style.opacity = '1.0';
+                    button.style.color = 'white';
+                } else {
+                    button.style.opacity = '0.3';
+                    button.style.color = '';
+                }
+            };
+
+            textarea.addEventListener('input', updateButtonState);
+
+            textarea.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter' && !event.shiftKey) {
+                    // Wait for the next tick to ensure the textarea is emptied
+                    setTimeout(updateButtonState, 0);
+                }
+            });
+
+            // Initial state
+            updateButtonState();
+        }
+    }
 }
 
 // AI
@@ -2253,8 +2497,8 @@ To select the appropriate background music, follow these steps:
    - Identify the mood, tone, and atmosphere of the scene
    - Consider any specific actions or events taking place
    - Note any cultural or historical context that might influence music choice
-   - Ensure the music fits the overall theme and setting of the world (e.g., fantasy, sci-fi, historical)
-   - The music should fit the location of the scene (e.g., tavern, battlefield, forest)
+   - Ensure the music or atmosphere track fits the overall theme and setting of the world (e.g., fantasy, sci-fi, historical)
+   - The music or atmosphere track should fit the location of the scene (e.g., tavern, battlefield, forest)
    - For example, "alchemist's lab" is a bad choice for a tavern
 
 2. Evaluate the current track (if one is playing):
@@ -2270,7 +2514,7 @@ To select the appropriate background music, follow these steps:
 4. If the current track is clearly unsuitable:
    - Review the music library for tracks that better suit the scene and world theme
    - Consider tracks that match the identified mood, tone, and atmosphere
-   - Look for music that complements the action without overpowering it
+   - Look for music or atmosphere tracks that complements the action without overpowering it
    - Take into account any cultural or historical context
    - Ensure the selected track is appropriate for the world's setting (e.g., no 1920s speakeasy jazz in a high fantasy world)
 
@@ -2296,6 +2540,17 @@ To select the appropriate background music, follow these steps:
    - Pay special attention to any location changes mentioned in the latest message, as scenes can sometimes shift locations
    - Use "Uncertain" if you are not 100% sure or if they are not in the list
    - Only provide a location if you are completely sure of the location
+   - Before providing the location, state your justification for your decision, including a brief summary of the chain of events that led to the current location or your reasoning for using "Uncertain".
+
+9. Location reasoning:
+   - Before providing the location, state your justification for your decision, including a quote from the story that 100% confirms the location. If no quote is provided, you must choose "Uncertain".
+
+10. Important notes:
+   - Just because the characters are discussing a location, it does not mean they are currently in that location.
+   - Remember that you are tracking location _changes_ rather than deciding the location based off inconclusive evidence such as mentions of locations.
+   - The story will mention when characters move between locations, so look for that, rather than assuming they are in a location.
+   - Only provide a location if you are completely sure that they are there. We are not looking for "reasonable assumptions", we are looking for definitive locations that the characters are explicitly mentioned as being in within the text.
+   - It is better that you say "Uncertain" than to guess at a location.
 
 Provide your response in the following format:
 <music_selection>
@@ -2304,6 +2559,9 @@ Provide your response in the following format:
 </reasoning>
 <decision>[Keep current track/Change track]</decision>
 <chosen_track>[Title of chosen track, or "None" if keeping current track]</chosen_track>
+<location_reasoning>
+[Explain your decision for what the current location must be, based on the latest message and overall context.]
+</location_reasoning>
 <current_location>[The location from the provided <locations> list where the latest scene takes place or ends at - use "Uncertain" if not 100% sure or if they are not in the list]</current_location>
 </music_selection>
 
@@ -2485,12 +2743,57 @@ To determine the current location, follow these steps:
    - Ensure your chosen location aligns with the latest message and overall context
    - Only provide a location if you are completely sure
 
+5. Reasoning:
+   - Before providing the location, state your justification for your decision, including a quote from the story that 100% confirms the location. If no quote is provided, you must choose "Uncertain".
+
+6. Important notes:
+   - Just because the characters are discussing a location, it does not mean they are currently in that location.
+   - Remember that you are tracking location _changes_ rather than deciding the location based off inconclusive evidence such as mentions of locations.
+   - The story will mention when characters move between locations, so look for that, rather than assuming they are in a location.
+   - Only provide a location if you are completely sure that they are there. We are not looking for "reasonable assumptions", we are looking for definitive locations that the characters are explicitly mentioned as being in within the text.
+   - It is better that you say "Uncertain" than to guess at a location.
+
 Provide your response in the following format:
-<music_selection>
+<location_selection>
+<location_reasoning>
+[Explain your decision for what the current location must be, based on the latest message and overall context.]
+</location_reasoning>
 <current_location>[The location from the provided <locations> list where the latest scene takes place or ends at - use "Uncertain" if not 100% sure or if they are not in the list]</current_location>
-</music_selection>
+</location_selection>
 
 Remember, your goal is to accurately determine the current location to help set the scene. Only provide a location if you are completely sure it matches one from the given list.`;
+        this.transcriptPrompt = `You are tasked with formatting and correcting speech-to-text transcriptions from a Dungeons & Dragons (DnD) or roleplaying game session. These transcriptions may contain grammar imperfections, spelling errors, and fantasy-related words and phrases. Your goal is to output grammatically correct, properly phrased speech and actions while preserving the original meaning and words.
+
+Here is the transcript you need to format and correct:
+
+<transcript>
+{{TRANSCRIPT}}
+</transcript>
+
+Follow these rules when formatting and correcting the text:
+
+1. Correct grammar and spelling errors, but do not change the words or meaning of the text.
+2. Format speech by placing it in quotation marks: "Like this."
+3. Format actions by placing them between asterisks: *Like this.*
+4. If the speaker is clearly addressing the Dungeon Master/Game Master (DM/GM) named Franz out of character, format it as: (OOC: Like this.)
+5. Capitalize proper nouns, including character and place names.
+6. Separate distinct actions and speech into different segments.
+7. Speech ALWAYS goes in quotes, even if it's a single word or short phrase.
+8. Actions ALWAYS go in asterisks, even if they're short.
+
+When handling speech, actions, and OOC comments:
+- Only use the (OOC: ) format when you are 100% certain the speaker is talking to the DM/GM Franz out of character. Otherwise, leave it as regular dialogue in quotes.
+- Ensure that actions and speech are clearly distinguished from each other.
+- Maintain the order of actions and speech as they appear in the original transcript.
+- Never combine speech and actions in the same set of quotes or asterisks.
+
+Examples:
+- Correct: "Hey there!" *Walks over to Merlin.*
+- Incorrect: *Hey there, walks over to Merlin.*
+
+Remember, it's crucial that you don't actually change the words or meaning of the text. Your task is to format it, correct grammar and spelling, and ensure proper capitalization.
+
+Please provide your formatted and corrected version of the transcript, following the rules and guidelines above. Place your corrected transcription in <corrected_transcript></corrected_transcript> tags.`
     }
     
     async runAI(systemMessage, userMessage) {
@@ -2763,11 +3066,28 @@ Remember, your goal is to accurately determine the current location to help set 
                 console.log('Location found in the campaign');
                 CAMPAIGN.requestLocation(location);
             } else {
+                UI.addTippy(document.getElementById('location-suggestion-button'), 'Location: ' + location);
                 console.log('Location not found in the campaign');
             }
+        } else {
+            UI.addTippy(document.getElementById('location-suggestion-button'), 'Error running AI');
         }
 
         return location;
+    }
+
+    async transcriptImprovement(text) {
+        let systemMessage = this.transcriptPrompt;
+        systemMessage = systemMessage.replace('{{TRANSCRIPT}}', text);
+        const suggestion = await this.runAI(systemMessage, 'Please improve the transcript as per the instructions.');
+        console.log('suggestion', suggestion);
+        const transcriptionMatch = suggestion.match(/<corrected_transcript>([\s\S]*?)<\/corrected_transcript>/s);
+        if (transcriptionMatch && transcriptionMatch[1]) {
+            let transcription = transcriptionMatch[1].trim();
+            console.log('Extracted transcription:', transcription);
+            return transcription;
+        }
+        return false;
     }
 
 }
@@ -3685,7 +4005,7 @@ function waitPageLoad() {
 // INITIALIZE
 
 function updateSettings() {
-    chrome.storage.local.get(['ttsEnabled', 'autoPlayNew', 'autoPlayOwn', 'autoSendAfterSpeaking', 'apiKey', 'voiceId', 'speed', 'locationBackground', 'openaiApiKey', 'autoSelectMusic', 'musicAiNotes', 'enableStoryEditor', 'disallowedElements', 'disallowedRelaxed', 'cachedVoices', 'characterVoices', 'useNpcVoices', 'maxRevisions', 'improvedLocationDetection'], function(data) {
+    chrome.storage.local.get(['ttsEnabled', 'autoPlayNew', 'autoPlayOwn', 'autoSendAfterSpeaking', 'apiKey', 'voiceId', 'speed', 'locationBackground', 'openaiApiKey', 'autoSelectMusic', 'musicAiNotes', 'enableStoryEditor', 'disallowedElements', 'disallowedRelaxed', 'cachedVoices', 'characterVoices', 'useNpcVoices', 'maxRevisions', 'improvedLocationDetection', 'aiEnhancedTranscriptions'], function(data) {
         ttsEnabled = data.ttsEnabled || false;
         autoPlayNew = data.autoPlayNew !== undefined ? data.autoPlayNew : true;
         autoPlayOwn = data.autoPlayOwn || false;
@@ -3709,7 +4029,7 @@ function updateSettings() {
         useNpcVoices = data.useNpcVoices || false;
         maxRevisions = data.maxRevisions || 3;
         improvedLocationDetection = data.improvedLocationDetection || false;
-        console.log('improvedLocationDetection',improvedLocationDetection);
+        aiEnhancedTranscriptions = data.aiEnhancedTranscriptions || false;
         if (ttsEnabled) {
             const targetDiv = document.querySelector('.flex.flex-row.items-center.overflow-hidden');
             if (targetDiv) {
@@ -3717,6 +4037,9 @@ function updateSettings() {
             }
         }
         UI.updateBackgroundImage();
+        STT.addAIButton();
+        OBS.observeOverflowHidden();
+        OBS.observeMessageTextarea();
     });
 }
 
@@ -3754,17 +4077,15 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 waitPageLoad().then(() => {
     updateSettings();
 
-    const targetElement = document.querySelector('div.overflow-hidden');
-    console.log('Target element:', targetElement);
-    if (targetElement) {
-        OBS.observeOverflowHidden();
-    }
     OBS.observeBackgroundImage();
     OBS.observeNewMessages();
     OBS.observeURLChanges();
+    OBS.observeOverflowHidden();
+    OBS.observeMessageTextarea();
     UI.addMicToggle();
     UI.addLocationSuggestion();
     UI.initialize();
+    STT.addAIButton();
     MUSIC.createUI();
     UTILITY.createUI();
     CAMPAIGN.loadCharacters();

@@ -11,6 +11,12 @@ These features use gpt-4o-mini and cost a fraction of a penny per message.
 
 # Changelog
 
+## v0.6
+- Enhanced transcriptions with AI
+ - Grammar, spelling, punctuation, and formatting
+ - e.g. hey there walks over to merlin -> "Hey there!" *Walks over to Merlin.*
+ - Automatic or manual mode (the wand button in message entry area)
+
 ## v0.5
 - Automatic location detection that improves upon the native Fables.gg location detection
 - Misc. fixes and improvements
@@ -26,6 +32,7 @@ These features use gpt-4o-mini and cost a fraction of a penny per message.
 ## Speech-To-Text
 - Built in to Chrome, free
 - Use in any text entry area
+- Enhanced transcriptions with AI (optional)
 
 ## AI-assisted Story Editing
 - You can specify elements you do not want in the story, and the AI will analyze the story and suggest changes to Franz
