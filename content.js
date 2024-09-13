@@ -936,8 +936,8 @@ class CartesiaConnection {
     }
 
     sendTextToCartesia(text, continueFlag = false, voice = null, emotions = [], speed = null) {
+        text = text.replaceAll('Hideout','hideout').replaceAll('hideout','hide out');
         const request = { text, continueFlag, voice, emotions, speed };
-        text = text.replaceAll('Hideout','hideout').replaceAll('hideout','hide-out');
         this.pendingRequests.push(request);
         if (!this.isProcessing) {
             this.processNextRequest();
@@ -2451,6 +2451,12 @@ class ObserverManager {
 
             // Initial state
             updateButtonState();
+
+            // Set up an interval to periodically check and update the button state
+            const intervalId = setInterval(updateButtonState, 1000);
+
+            // Store the interval ID on the textarea element for potential cleanup later
+            textarea.dataset.updateIntervalId = intervalId;
         }
     }
 }
@@ -3472,7 +3478,7 @@ class CampaignManager {
         console.log('Clicked "Select a Location" button');
 
         // Find and click the location in the list
-        const locationElement = await waitForElement(`div[data-value="${location}"]`, 500);
+        const locationElement = await waitForElement(`div[data-value="${location}"]`, 2000);
         if (!locationElement) {
             console.log(`Location "${location}" not found in the list of available locations`);
             changeLocationButton.click();
