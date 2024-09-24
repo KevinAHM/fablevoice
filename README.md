@@ -13,19 +13,19 @@ These features use gpt-4o-mini and cost a fraction of a penny per message.
 
 ## v0.7
 - Custom instructions for Franz
- - Experimental, adds hidden text to your messages that Franz will read before replying
- - Use only the most important instructions here rather than a large list
- - Best use case is by adding a "Custom Instructions:" heading to your Fables Campaign Settings custom instructions and then reference them here
- - Example: ```- Franz is to read and analyze the "Custom Instructions" before replying```
+  - Experimental, adds hidden text to your messages that Franz will read before replying
+  - Use only the most important instructions here rather than a large list
+  - Best use case is by adding a "Custom Instructions:" heading to your Fables Campaign Settings custom instructions and then reference them here
+  - Example: ```- Franz is to read and analyze the "Custom Instructions" before replying```
 - Added dialog selection to the preview in the Voice menu
 - Updated location list fetching for compatibility with Fables.gg updates
 - Misc. fixes and improvements
 
 ## v0.6
 - Enhanced transcriptions with AI
- - Grammar, spelling, punctuation, and formatting
- - e.g. hey there walks over to merlin -> "Hey there!" *Walks over to Merlin.*
- - Automatic or manual mode (the wand button in message entry area)
+  - Grammar, spelling, punctuation, and formatting
+  - e.g. hey there walks over to merlin -> "Hey there!" *Walks over to Merlin.*
+  - Automatic or manual mode (the wand button in message entry area)
 - Misc. fixes and improvements
 
 ## v0.5
@@ -36,8 +36,8 @@ These features use gpt-4o-mini and cost a fraction of a penny per message.
 
 ## Text-To-Speech (Cartesia)
 - Voice diarization
-  - Each PC and NPC can be assigned a different voice
-  - Emotion detection and application to the dialog
+   - Each PC and NPC can be assigned a different voice
+   - Emotion detection and application to the dialog
 - Narrator voice is chosen in the settings menu
 
 ## Speech-To-Text
