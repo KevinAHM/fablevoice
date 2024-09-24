@@ -11,6 +11,16 @@ These features use gpt-4o-mini and cost a fraction of a penny per message.
 
 # Changelog
 
+## v0.7
+- Custom instructions for Franz
+ - Experimental, adds hidden text to your messages that Franz will read before replying
+ - Use only the most important instructions here rather than a large list
+ - Best use case is by adding a "Custom Instructions:" heading to your Fables Campaign Settings custom instructions and then reference them here
+ - Example: ```- Franz is to read and analyze the "Custom Instructions" before replying```
+- Added dialog selection to the preview in the Voice menu
+- Updated location list fetching for compatibility with Fables.gg updates
+- Misc. fixes and improvements
+
 ## v0.6
 - Enhanced transcriptions with AI
  - Grammar, spelling, punctuation, and formatting
@@ -59,6 +69,12 @@ These features use gpt-4o-mini and cost a fraction of a penny per message.
 
 ## Character Information
 - Automatic display of full character names and their avatars when hovering over their names in the chat
+
+## Custom Instructions
+- Experimental, adds hidden text to your messages that Franz will read before replying
+- Use only the most important instructions here rather than a large list
+- Best use case is by adding a "Custom Instructions:" heading to your Fables Campaign Settings custom instructions and then reference them here
+- Example: ```- Franz is to read and analyze the "Custom Instructions" before replying```
 
 # Installation
 The addon isn't yet in the official Chrome store, so you must use developer method of loading unpacked extensions
@@ -119,6 +135,7 @@ After enabling it..
   - You can also click the AI button next to music player to request a new track, or toggle "Lock" to lock in a track you like
 - When the editor suggests changes to Franz, item pickups and such are cleared by off the screen by Franz, which is ideal, but may cause some confusion if the items are not actually gone, and are just off the screen
   - This is a Fables.gg bug and not an addon bug
+- Character info when hovering over names in chat can be incorrect when multiple characters have the same name, or the name is very short/a common word, or is a substring of another name
 
 # To-Do
 

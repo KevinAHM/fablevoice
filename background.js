@@ -40,8 +40,13 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     })
     .then(response => response.json())
     .then(data => {
-      console.log('LLM response received',data);
-      sendResponse({ data: data.choices[0].message.content });
+      console.log('LLM response received', data);
+      if (data.error) {
+        console.error('Error from OpenAI API:', data.error);
+        sendResponse({ error: data.error.message || 'An error occurred with the OpenAI API' });
+      } else {
+        sendResponse({ data: data.choices[0].message.content });
+      }
     })
     .catch(error => {
       console.error('Error running LLM:', error);

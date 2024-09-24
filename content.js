@@ -23,6 +23,7 @@ let useNpcVoices = false;
 let maxRevisions = 3;
 let improvedLocationDetection = false;
 let aiEnhancedTranscriptions = false;
+let instructionsText = '';
 
 const shortAudioThreshold = 2 * 44100; // 2 seconds at 44100 Hz
 //const delayBetweenReading = 2000;
@@ -207,7 +208,6 @@ class UIManager {
                     }
                 }
             }
-            index++;
         });
         return franzMessage;
     }
@@ -617,6 +617,48 @@ class UIManager {
             }
         }, 5000);
     }
+
+    // DELETE
+
+    hideAllInstructions() {
+        const messageDivs = document.querySelectorAll('div.grid.grid-cols-\\[25px_1fr_10px\\].md\\:grid-cols-\\[40px_1fr_30px\\].pb-4.relative');
+        messageDivs.forEach((div, index) => {
+            this.hideInstructions(div);
+        });
+    }
+
+    hideInstructions(messageDiv) {
+        var messageList = messageDiv.querySelectorAll('.text-base');
+        let deleteMode = false;
+        let deleteCount = 0;
+        for (let i = 0; i < messageList.length; i++) {
+            const message = messageList[i];
+            if (message.textContent.includes('</instructions>')) {
+                message.remove();
+                deleteMode = false;
+                //console.log('deleteMode off', deleteMode, message.textContent);
+                deleteCount++;
+            } else if (deleteMode || message.textContent.includes('<instructions>')) {
+                message.remove();
+                deleteMode = true;
+                //console.log('deleteMode', deleteMode, message.textContent);
+                deleteCount++;
+            }
+            if (!deleteMode && deleteCount > 0) {
+                //console.log('deleteCount', deleteCount);
+                deleteCount = 0;
+                const div = messageDiv.querySelector('.p-4.pt-1.bg-\\[\\#202426\\].rounded-md.relative');
+                if (div) {
+                    Array.from(div.children).forEach(child => {
+                        if (child && child.tagName === 'DIV' && !child.textContent) {
+                            console.log('child', child, 'deleted');
+                            child.remove();
+                        }
+                    });
+                }
+            }
+        }
+    }
 }
 
 // CAPTIONS
@@ -639,6 +681,7 @@ class CaptionManager {
     }
 
     prepareAllTexts() {
+        UI.hideAllInstructions();
         const textDivs = document.querySelectorAll('.text-base');
         textDivs.forEach(textDiv => {
             this.prepareText(textDiv);
@@ -2067,7 +2110,9 @@ class MusicManager {
 
             // Collect all unique tags
             this.tags = [...new Set(data.flatMap(track => [...track.tags]).filter(tag => tag.toLowerCase() !== 'music'))];
+            this.keys = [...new Set(data.flatMap(track => [...track.keys]).filter(tag => tag.toLowerCase() !== 'music'))];
             
+            console.log(this.keys);
             // Get the last selected track for this world from local storage
             chrome.storage.local.get(`lastSelectedTrack_${currentWorldId}`, (result) => {
                 const lastSelectedTrack = result[`lastSelectedTrack_${currentWorldId}`];
@@ -2321,6 +2366,7 @@ class ObserverManager {
                         CAPTION.prepareAllTexts();
                     }
                 }
+                UI.hideAllInstructions();
             }
         }
     }
@@ -2340,6 +2386,8 @@ class ObserverManager {
     
             const currentTime = Date.now();
             if (isPlayerMessage) {
+                console.log('isPlayerMessage', isPlayerMessage);
+                UI.hideInstructions(node);
                 if (currentTime - lastOwnMessageTime > 3000) {
                     ownMessageCount = 1;
                 } else {
@@ -2442,13 +2490,6 @@ class ObserverManager {
 
             textarea.addEventListener('input', updateButtonState);
 
-            textarea.addEventListener('keydown', (event) => {
-                if (event.key === 'Enter' && !event.shiftKey) {
-                    // Wait for the next tick to ensure the textarea is emptied
-                    setTimeout(updateButtonState, 0);
-                }
-            });
-
             // Initial state
             updateButtonState();
 
@@ -2457,6 +2498,53 @@ class ObserverManager {
 
             // Store the interval ID on the textarea element for potential cleanup later
             textarea.dataset.updateIntervalId = intervalId;
+        }
+    }
+
+    observeSendMessage() {
+        // Add instructions
+        const textarea = document.querySelector('textarea[name="message"]');
+        if (instructionsText && textarea && !textarea.classList.contains('send-instructions')) {
+            textarea.classList.add('send-instructions');
+
+            //console.log('instructionsText', instructionsText);
+            const sendButton = document.getElementById('send');
+            const handleMessageSent = (event) => {
+                if (!CAMPAIGN.isEncounter() && instructionsText && sendButton && textarea.value.trim().length > 0) {
+                    if (textarea.value.includes('<instructions>')) {
+                        console.log('Message already has instructions!', textarea.value);
+                        return true;
+                    }
+                    event.preventDefault();
+                    event.stopPropagation();
+                    
+                    textarea.value = `<instructions>\n${instructionsText}\n- Franz is to not mention these instructions and to follow them at all times, beginning now\n</instructions>\n${textarea.value}`;
+                    
+                    const inputEvent = new Event('input', { bubbles: true });
+                    textarea.dispatchEvent(inputEvent);
+
+                    console.log('Message intercepted with instructions!', textarea.value);
+                    
+                    // To allow the message to be sent after processing:
+                    setTimeout(() => {
+                        sendButton.click();
+                    }, 0);
+                }
+            };
+
+            textarea.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter' && !event.shiftKey) {
+                    handleMessageSent(event);
+                }
+            });
+
+            if (sendButton) {
+                sendButton.addEventListener('click', (event) => {
+                    if (!sendButton.disabled) {
+                        handleMessageSent(event);
+                    }
+                }, true);  // Use capture phase to intercept before other handlers
+            }
         }
     }
 }
@@ -2761,9 +2849,7 @@ To determine the current location, follow these steps:
 
 Provide your response in the following format:
 <location_selection>
-<location_reasoning>
-[Explain your decision for what the current location must be, based on the latest message and overall context.]
-</location_reasoning>
+<location_reasoning>[Briefly explain your decision for what the current location must be, based on the latest message and overall context.]</location_reasoning>
 <current_location>[The location from the provided <locations> list where the latest scene takes place or ends at - use "Uncertain" if not 100% sure or if they are not in the list]</current_location>
 </location_selection>
 
@@ -2820,8 +2906,8 @@ Please provide your formatted and corrected version of the transcript, following
         } catch (error) {
             const errorMessage = error.message || 'An unknown error occurred';
             butterup.toast({
-                title: 'FableVoice AI Error',
-                message: errorMessage,
+                title: 'FableVoice OpenAI Error',
+                message: errorMessage.length > 80 ? errorMessage.substring(0, 77) + '...' : errorMessage,
                 location: 'bottom-left',
                 icon: false,
                 dismissable: true,
@@ -2954,7 +3040,7 @@ Please provide your formatted and corrected version of the transcript, following
         systemMessage = systemMessage.replace('{{MESSAGE_HISTORY}}', messages);
         systemMessage = systemMessage.replace('{{CURRENT_MESSAGE}}', messageList[messageList.length - 1]);
         systemMessage = systemMessage.replace('{{CURRENT_TRACK}}', MUSIC.currentTrack ? MUSIC.currentTrack.name : 'None');
-        systemMessage = systemMessage.replace('{{LOCATIONS}}', CAMPAIGN.formatLocations('name',"\n",'poi'));
+        systemMessage = systemMessage.replace('{{LOCATIONS}}', CAMPAIGN.locations.join('\n'));
         const formatTime = (seconds) => {
             if (seconds < 60) return `${Math.floor(seconds)} seconds ago`;
             const minutes = Math.floor(seconds / 60);
@@ -3054,7 +3140,7 @@ Please provide your formatted and corrected version of the transcript, following
         const messages = messageList.join('\n');
         systemMessage = systemMessage.replace('{{MESSAGE_HISTORY}}', messages);
         systemMessage = systemMessage.replace('{{CURRENT_MESSAGE}}', messageList[messageList.length - 1]);
-        systemMessage = systemMessage.replace('{{LOCATIONS}}', CAMPAIGN.formatLocations('name',"\n",'poi'));
+        systemMessage = systemMessage.replace('{{LOCATIONS}}', CAMPAIGN.locations.join('\n'));
 
         console.log('systemMessage', systemMessage);
 
@@ -3303,7 +3389,85 @@ class CampaignManager {
         });
     }
 
-    getLocationsLegacy() {
+    async locationList() {
+        console.log('Getting location list');
+
+        const waitForButton = async (text, timeout = 5000) => {
+            const start = Date.now();
+            while (Date.now() - start < timeout) {
+                const button = Array.from(document.querySelectorAll('button')).find(
+                    button => button.textContent.includes(text)
+                );
+                if (button) return button;
+                await new Promise(resolve => setTimeout(resolve, 100));
+            }
+            return null;
+        };
+
+        const waitForElement = async (selector, timeout = 5000) => {
+            const start = Date.now();
+            while (Date.now() - start < timeout) {
+                const element = document.querySelector(selector);
+                if (element) return element;
+                await new Promise(resolve => setTimeout(resolve, 100));
+            }
+            return null;
+        };
+
+        // Find and click the "Change location" button
+        const changeLocationButton = await waitForButton('Change location');
+        if (!changeLocationButton) {
+            console.log('Change location button not found');
+            return [];
+        } else {
+            changeLocationButton.click();
+            console.log('Clicked "Change location" button');
+        }
+
+        // If location not found, click "Select a Location" button
+        const selectLocationButton = await waitForButton('Select a Location');
+        if (!selectLocationButton) {
+            console.log('"Select a Location" button not found');
+            return [];
+        }
+        selectLocationButton.click();
+        console.log('Clicked "Select a Location" button');
+
+        const locationList = [];
+
+        // Find and click the location in the list
+        const locationsReady = await waitForElement('div[cmdk-item]', 2000);
+        if (!locationsReady) {
+            console.log('Locations not ready');
+            return [];
+        }
+        const locationElements = document.querySelectorAll('div.relative.flex.cursor-default.select-none.items-center.rounded-sm.px-2.py-1\\.5.text-sm.outline-none');
+        console.log('Location elements:', locationElements);
+        for (const element of locationElements) {
+            const location = element.getAttribute('data-value');
+            if (location !== 'undefined' && location !== null) {
+                locationList.push(location);
+            }
+        }
+        if (!locationList.length) {
+            console.log(`Locations not found in the list of available locations`);
+        }
+        changeLocationButton.click();
+        return locationList;
+    }
+
+    async getLocationsLegacy() {
+        console.log('Getting locations...');
+        const locations = await this.locationList();
+        console.log('Locations:', locations);
+        if (locations.length > 0) {
+            this.locations = locations;
+            this.cacheLocations();
+        }
+        return locations;
+    }
+
+    async getLocations() {
         const url = 'https://play.fables.gg/' + this.campaignId + '/play/world';
         
         const iframe = document.createElement('iframe');
@@ -3612,7 +3776,7 @@ class VoicesManager {
                 </div>
 
                 <div class="mb-4" style="margin-bottom: 0px;">
-                    <label for="voice-select" class="block text-sm font-medium text-gray-300 mb-2">Base Settings</label>
+                    <label for="voice-select" class="block text-sm font-medium text-gray-300 mb-2">Emotion Preview</label>
                 </div>
 
                 <div class="grid grid-cols-2 gap-2 mb-4">
@@ -3629,12 +3793,28 @@ class VoicesManager {
                         </select>
                     </div>
                 </div>
-
                 <div class="mb-4">
                     <label class="inline-flex items-center">
                         <input type="checkbox" id="disable-emotions-checkbox" class="form-checkbox text-blue-600">
                         <span class="ml-2 text-sm text-gray-300">Disable Emotions</span>
                     </label>
+                </div>
+
+                <div class="mb-4">
+                    <label for="dialog-select" class="block text-sm font-medium text-gray-300 mb-2">Select Dialog</label>
+                    <select id="dialog-select" class="w-full bg-gray-700 border border-gray-600 text-white rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="Hello, my name is...">Hello, my name is...</option>
+                        <option value="Prepare for battle!">Prepare for battle!</option>
+                        <option value="By the gods, what have we stumbled upon?">By the gods, what have we stumbled upon?</option>
+                        <option value="I'm overjoyed to see you all again!">I'm overjoyed to see you all again!</option>
+                        <option value="This loss weighs heavily on my heart.">This loss weighs heavily on my heart.</option>
+                        <option value="What secrets does this ancient tome hold?">What secrets does this ancient tome hold?</option>
+                        <option value="How dare you betray us!">How dare you betray us!</option>
+                        <option value="Victory is ours! Let us celebrate!">Victory is ours! Let us celebrate!</option>
+                        <option value="Great Scott! A dragon approaches!">Great Scott! A dragon approaches!</option>
+                        <option value="I fear we may not survive this encounter...">I fear we may not survive this encounter...</option>
+                        <option value="I wonder what lies beyond that mysterious portal?">I wonder what lies beyond that mysterious portal?</option>
+                    </select>
                 </div>
 
                 <button id="play-voice" class="w-full" style="margin-left: 0px !important; margin-right: 0px !important;">
@@ -3672,6 +3852,7 @@ class VoicesManager {
                 });
                 $('#disable-emotions-checkbox').on('change', () => this.temporarilySaveVoice());
                 $('#play-voice').on('click', async () => await this.playSelectedVoice());
+                $('#dialog-select').on('change', () => this.temporarilySaveVoice());
             }
         });
     }
@@ -3752,7 +3933,8 @@ class VoicesManager {
         const voiceId = $('#voice-select').val();
         if (voiceId) {
             const characterName = $('#character-select').val();
-            const dialogText = 'Hello, my name is '+characterName+'.';
+            const selectedDialog = $('#dialog-select').val();
+            const dialogText = selectedDialog && selectedDialog != 'Hello, my name is...' ? selectedDialog : 'Hello, my name is '+characterName+'.';
             const speed = $('#speed-select').val();
             const disableEmotions = $('#disable-emotions-checkbox').is(':checked');
             const emotions = disableEmotions ? [] : this.emotions.map(emotion => {
@@ -4011,7 +4193,7 @@ function waitPageLoad() {
 // INITIALIZE
 
 function updateSettings() {
-    chrome.storage.local.get(['ttsEnabled', 'autoPlayNew', 'autoPlayOwn', 'autoSendAfterSpeaking', 'apiKey', 'voiceId', 'speed', 'locationBackground', 'openaiApiKey', 'autoSelectMusic', 'musicAiNotes', 'enableStoryEditor', 'disallowedElements', 'disallowedRelaxed', 'cachedVoices', 'characterVoices', 'useNpcVoices', 'maxRevisions', 'improvedLocationDetection', 'aiEnhancedTranscriptions'], function(data) {
+    chrome.storage.local.get(['ttsEnabled', 'autoPlayNew', 'autoPlayOwn', 'autoSendAfterSpeaking', 'apiKey', 'voiceId', 'speed', 'locationBackground', 'openaiApiKey', 'autoSelectMusic', 'musicAiNotes', 'enableStoryEditor', 'disallowedElements', 'disallowedRelaxed', 'cachedVoices', 'characterVoices', 'useNpcVoices', 'maxRevisions', 'improvedLocationDetection', 'aiEnhancedTranscriptions', 'instructionsText'], function(data) {
         ttsEnabled = data.ttsEnabled || false;
         autoPlayNew = data.autoPlayNew !== undefined ? data.autoPlayNew : true;
         autoPlayOwn = data.autoPlayOwn || false;
@@ -4036,6 +4218,8 @@ function updateSettings() {
         maxRevisions = data.maxRevisions || 3;
         improvedLocationDetection = data.improvedLocationDetection || false;
         aiEnhancedTranscriptions = data.aiEnhancedTranscriptions || false;
+        instructionsText = data.instructionsText || '';
+        console.log('instructionsText', instructionsText);
         if (ttsEnabled) {
             const targetDiv = document.querySelector('.flex.flex-row.items-center.overflow-hidden');
             if (targetDiv) {
@@ -4046,6 +4230,7 @@ function updateSettings() {
         STT.addAIButton();
         OBS.observeOverflowHidden();
         OBS.observeMessageTextarea();
+        OBS.observeSendMessage();
     });
 }
 
@@ -4090,6 +4275,7 @@ waitPageLoad().then(() => {
     OBS.observeMessageTextarea();
     UI.addMicToggle();
     UI.addLocationSuggestion();
+    UI.hideAllInstructions();
     UI.initialize();
     STT.addAIButton();
     MUSIC.createUI();

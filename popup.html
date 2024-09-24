@@ -147,7 +147,7 @@
         <input type="checkbox" id="useNpcVoices">
         <label for="useNpcVoices">Use NPC Voices</label>
     </div>
-    <span class="api-description">(requires OpenAI key to process dialog)</span>
+    <span class="api-description">(requires OpenAI key to process dialog into separate voices)</span>
     <h3>Speech-To-Text</h3>
     <div class="checkbox-setting">
         <input type="checkbox" id="autoSendAfterSpeaking">
@@ -181,6 +181,7 @@
         <textarea id="musicAiNotes" rows="3" style="width: 100%;" placeholder="Enter any additional notes for music selection..."></textarea>
     </div>
     <p class="api-description">Music provided by <a href="https://tabletopaudio.com/" target="_blank" class="api-link">Tabletop Audio</a>.</p>
+    <span class="api-description">(requires OpenAI key to suggest background music)</span>
 
     <h3>Editor</h3>
     <div class="checkbox-setting">
@@ -196,8 +197,7 @@
         <textarea id="disallowedElements" rows="3" style="width: 100%;" placeholder="- windmills
 - hooded figures
 - ornate boxes
-- conspiritorial whispers, tones, gestures
-- any references to 'conspiritorial'"></textarea>
+- any use of the word 'conspiritorial'"></textarea>
     </div>
     <div class="setting">
         <label for="disallowedRelaxed">Disallowed While Relaxed:</label>
@@ -206,7 +206,15 @@
 - bandits
 - combat
 - urgency"></textarea>
+    <span class="api-description">(requires OpenAI key to scan and edit story)</span>
     </div>
+
+    <h3>Instructions</h3>
+    <div class="setting">
+        <label for="instructionsText">Add Custom Instructions:</label>
+        <textarea id="instructionsText" rows="3" style="width: 100%;" placeholder="- Franz allows each NPC in the scene a chance to speak or be mentioned"></textarea>
+    </div>
+    <p class="api-description">EXPERIMENTAL - only use high priority instructions that Franz needs to follow at all times</p>
 
     <button id="loadVoices" style="margin-top: 0px;">Load Voices</button>
     <button id="saveSettings">Save Settings</button>
