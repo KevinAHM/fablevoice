@@ -11,12 +11,16 @@ These features use gpt-4o-mini and cost a fraction of a penny per message.
 
 # Changelog
 
+## v0.8
+- Improved custom instruction prompting
+  - Franz is more likely to listen to the instructions
+
 ## v0.7
 - Custom instructions for Franz
   - Experimental, adds hidden text to your messages that Franz will read before replying
   - Use only the most important instructions here rather than a large list
   - Best use case is by adding a "Custom Instructions:" heading to your Fables Campaign Settings custom instructions and then reference them here
-  - Example: ```- Franz is to read and analyze the "Custom Instructions" before replying```
+  - Example: ```- Franz is to carefully read and analyze "Custom Instructions" in the Dungeon Master Book before replying```
 - Added dialog selection to the preview in the Voice menu
 - Updated location list fetching for compatibility with Fables.gg updates
 - Misc. fixes and improvements

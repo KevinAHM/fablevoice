@@ -50,6 +50,7 @@ let disallowedElements = '';
 let disallowedRelaxed = '';
 let lastRevised = null;
 let revisions = 0;
+let notebookEnabled = true;
 let OBS;
 let UI;
 let TTS;
@@ -61,6 +62,7 @@ let CAPTION;
 let EDITOR;
 let VOICE;
 let UTILITY;
+let NOTEBOOK;
 
 // UI
 
@@ -102,6 +104,25 @@ class UIManager {
                 }
             });
         }
+
+        // Add keyboard shortcut to open AI Editor
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'F4') {
+                event.preventDefault(); // Prevent default F4 behavior
+                //AI.notebookHandler();
+            } else if (event.ctrlKey && event.key === 'm') {
+                event.preventDefault(); // Prevent default Ctrl+M behavior
+                //AI.notebookHandler();
+            }
+            if (event.key === 'F6') {
+                event.preventDefault(); // Prevent default F4 behavior
+                //NOTEBOOK.eraseNotebook(true);
+            }
+            if (event.key === 'F3') {
+                event.preventDefault(); // Prevent default F4 behavior
+                //CAMPAIGN.updateNotebook();
+            }
+        });
     }
    
     // TTS Toggle Button
@@ -633,12 +654,12 @@ class UIManager {
         let deleteCount = 0;
         for (let i = 0; i < messageList.length; i++) {
             const message = messageList[i];
-            if (message.textContent.includes('</instructions>')) {
+            if (message.textContent.includes('- Franz is to not mention these instructions and to follow them at all times, beginning now')) {
                 message.remove();
                 deleteMode = false;
                 //console.log('deleteMode off', deleteMode, message.textContent);
                 deleteCount++;
-            } else if (deleteMode || message.textContent.includes('<instructions>')) {
+            } else if (deleteMode || message.textContent.includes('Franz, I have some requests for you:')) {
                 message.remove();
                 deleteMode = true;
                 //console.log('deleteMode', deleteMode, message.textContent);
@@ -2440,6 +2461,10 @@ class ObserverManager {
                 AI.locationSuggestion();
             }
 
+            if (notebookEnabled && openaiApiKey && !CAMPAIGN.isEncounter() && !isPlayerMessage) {
+                //AI.notebookHandler();
+            }
+
             if (cartesiaConnected && !CAMPAIGN.isEncounter() && ((!isPlayerMessage && autoPlayNew) || (isPlayerMessage && autoPlayOwn && ownMessageCount >= 2))) {
                 if (currentlyPlaying) {
                     console.log('Queueing message');
@@ -2511,14 +2536,14 @@ class ObserverManager {
             const sendButton = document.getElementById('send');
             const handleMessageSent = (event) => {
                 if (!CAMPAIGN.isEncounter() && instructionsText && sendButton && textarea.value.trim().length > 0) {
-                    if (textarea.value.includes('<instructions>')) {
+                    if (textarea.value.includes('Franz, I have some requests for you:')) {
                         console.log('Message already has instructions!', textarea.value);
                         return true;
                     }
                     event.preventDefault();
                     event.stopPropagation();
                     
-                    textarea.value = `<instructions>\n${instructionsText}\n- Franz is to not mention these instructions and to follow them at all times, beginning now\n</instructions>\n${textarea.value}`;
+                    textarea.value = `Franz, I have some requests for you:\n${instructionsText}\n- Franz is to not mention these instructions and to follow them at all times, beginning now\n${textarea.value}`;
                     
                     const inputEvent = new Event('input', { bubbles: true });
                     textarea.dispatchEvent(inputEvent);
@@ -2588,15 +2613,15 @@ The list of locations in the story so far is:
 To select the appropriate background music, follow these steps:
 
 1. Analyze the current scene:
-   - Identify the mood, tone, and atmosphere of the scene
-   - Consider any specific actions or events taking place
+   - Identify the location of the scene
+   - Ensure the music or atmosphere track fits the location of the scene (e.g., tavern, battlefield, forest)
    - Note any cultural or historical context that might influence music choice
-   - Ensure the music or atmosphere track fits the overall theme and setting of the world (e.g., fantasy, sci-fi, historical)
-   - The music or atmosphere track should fit the location of the scene (e.g., tavern, battlefield, forest)
-   - For example, "alchemist's lab" is a bad choice for a tavern
+   - The music or atmosphere track should fit the overall theme and setting of the world (e.g., fantasy, sci-fi, historical)
+   - Meeting the mood is a bonus, but the primary focus should be on matching the location
+   - Avoid inappropriate music such as battle music for an argument, as environmental sounds included in the track should also be considered
 
 2. Evaluate the current track (if one is playing):
-   - Determine if the current track is suitable for the mood and atmosphere of the scene
+   - Determine if the current track is suitable for the location of the scene
    - Consider if the track enhances or at least doesn't detract from the scene's impact
    - Assess if the track's tempo and intensity are appropriate for the action
    - Verify that the track aligns with the world's theme (e.g., avoid modern music in a medieval fantasy setting)
@@ -2607,8 +2632,8 @@ To select the appropriate background music, follow these steps:
 
 4. If the current track is clearly unsuitable:
    - Review the music library for tracks that better suit the scene and world theme
-   - Consider tracks that match the identified mood, tone, and atmosphere
-   - Look for music or atmosphere tracks that complements the action without overpowering it
+   - Consider tracks that match the identified location
+   - Look for music or atmosphere tracks that complement the action without overpowering it
    - Take into account any cultural or historical context
    - Ensure the selected track is appropriate for the world's setting (e.g., no 1920s speakeasy jazz in a high fantasy world)
 
@@ -2652,6 +2677,9 @@ Provide your response in the following format:
 [Explain your decision, including why the chosen track (or current track, if kept) is appropriate for the scene. If changing tracks, explain why the current track was not suitable.]
 </reasoning>
 <decision>[Keep current track/Change track]</decision>
+<best_matching_tracks>
+[List of tracks (up to 5) from <music_library> that are the best match, separated by commas]
+</best_matching_tracks>
 <chosen_track>[Title of chosen track, or "None" if keeping current track]</chosen_track>
 <location_reasoning>
 [Explain your decision for what the current location must be, based on the latest message and overall context.]
@@ -2886,6 +2914,117 @@ Examples:
 Remember, it's crucial that you don't actually change the words or meaning of the text. Your task is to format it, correct grammar and spelling, and ensure proper capitalization.
 
 Please provide your formatted and corrected version of the transcript, following the rules and guidelines above. Place your corrected transcription in <corrected_transcript></corrected_transcript> tags.`
+        this.notebookPrompt = `You are an AI assistant responsible for managing memory in a roleplay scenario. Your task is to analyze recent messages, identify important information, and update the memory accordingly using provided functions.
+
+The list of locations in the story so far is:
+<locations>
+{{LOCATIONS}}
+</locations>
+
+The list of characters in the story so far is:
+<characters>
+{{CHARACTERS}}
+</characters>
+
+First, review the existing memory entries:
+
+<existing_memory>
+{{EXISTING_MEMORY}}
+</existing_memory>
+
+Now, analyze the following previous messages for context:
+
+<message_history>
+{{MESSAGE_HISTORY}}
+</message_history>
+
+And then analyze the following current messages to determine any necessary updates to the memory:
+
+<current_message>
+{{CURRENT_MESSAGE}}
+</current_message>
+
+Your task is to:
+1. Analyze the messages to extract significant information.
+2. Determine if this information warrants updating or adding to the memory.
+3. Use appropriate functions to update the memory, ensuring no duplicates and maintaining data integrity.
+4. Due to limited memory space, only store information that is important for future interactions.
+
+Here are the available functions you can use to interact with the memory:
+
+<available_functions>
+createEntry(type, data, name)
+updateEntry(id, name, data)
+updateEntryProperty(id, name, key, value)
+deleteEntryProperty(id, name, key)
+appendToEntry(id, name, field, value)
+deleteEntry(id, name)
+replaceEntry(id, name, data)
+doNothing(reason)
+</available_functions>
+
+Functions:
+- You must createEntry if no entry exists for a type and id.
+- For example, if memory does not contain an entry for a character, you must create one using createEntry.
+- When creating an entry, set the data you are planning to add within the creation function call instead of updating the entry after creating it.
+- If using createEntry, use it BEFORE updating the entry with updateEntry.
+- Use deleteEntry to remove an entry if it is no longer needed, for example, if a character's full name is revealed to be different than the alias you have been using, you must delete the old entry and create a new one while preserving the properties from the old entry.
+  - This can happen when you are using the the best known information to identify a character (e.g. using "So and so's father" instead of the father's name), or if a character reveals their true name or identity.
+Provide your response as a series of function calls, if any are needed. Do not include explanations or additional text—only the necessary function calls.
+- Please keep redundancy to minimum, so do not mention the character's name within their own entry details because it is already stored in the entry.
+
+Affinity System:
+- Affinities are a measure of how close two characters are, and can affect how they interact with each other.
+- Affinities are stored as a number between 0 and 10, and are updated based on the characters' actions and interactions in the story.
+- Affinities can be positive or negative, and can affect the story in a variety of ways.
+- Affinities are stored in the memory under the character's entity.
+- Affinities are updated based on the characters' actions and interactions in the story.
+- An affinity should only change when logical and significant events happen in the story or in the interactions between the characters.
+- The affinities should be incremented or decremented naturally without rising or falling too much at once unless characters explicitly state or indicate otherwise.
+- If an affinity is not set yet, you may make your best guess when enough context is available, but do not set it to 0 or 10.
+- Affininity is a numerical score from 1 to 10, 10 being the highest and 1 being the lowest - higher means more positive.
+- At the moment, affinity _only applies_ to the characters affinity towards the player, who is referred to as "you" in the story, and also the name {{CHARACTER}} in the story.
+- This means that only interactions between the characters and the player will affect the affinity, and not interactions between characters.
+
+Backstory System:
+- Character interactions that may seem to be important should not be stored in memory unless they have an extremely significant impact on the story or the characters involved.
+- The affinity system is there to track the characters' relationships to each other, so if a player character has a significant interaction with another character you should update their affinities rather than their backstory, unless the relationship is moving from platonic to romantic, etc.
+- Avoid adding minor details or repetitive information that can be handled by the affinity system.
+- Please don't add backstory to characters unless it's extremely significant and has a direct impact on the story. For example, if a character reveals a major secret, or makes a major decision that changes the story, or a character's backstory is revealed to be different than previously thought, etc.
+- Write with extreme brevity, making your writing compact and to the point.
+- Backstory should only be updated with extremely important information that has a direct and significant impact on the story or the character's development.
+
+Types:
+- These are the only valid data types: character, location, item, world
+- An item is any significant item that has story/plot/sentimental significance.
+- A basic weapon or piece of gear, or an ornate box, even if magical, would not be considered an item.
+- A character is an NPC, player, named animal, or other character (except Franz, the DM/Game Master and narrator).
+- World is for any changing world condition that encompasses the entire story and not just a single location, such as war, peace, natural disaster, or other significant change.
+- Do _NOT_ store quest information, a separate system handles quests.
+
+Remember:
+- Be sure that you have the correct character or location names - always use the full name from <characters> or <locations> lists.
+- If you are unsure which character or location is being referenced, _do not guess_, simply avoid running any function calls unless you are 100% sure.
+- Avoid duplicates by checking for existing entries and property entries before creating or appending.
+- Prioritize significance by only storing information likely to impact future interactions.
+- Be concise due to limited memory space, keeping stored information brief and essential.
+- Ensure all updates are consistent with existing memory entries.
+- Consider updating affinities if implied in the messages.
+- If the messages are about Franz, do not store them in the memory.
+- Franz should not be included in any memories as he is the DM and not a player character or NPC.
+- If you cannot find anything to update or add in the memory, call doNothing(reason) to avoid unnecessary function calls while stating your reason.
+
+# Really important:
+- Entries should be written from the perspective of the player character, using "you" and "your" to refer to them. This is the player character's notebook, after all.
+  - For example, if backstory is being added to a character regarding an interaction with the player, use "you" and "your" to refer to the player rather than the player's character name which is {{CHARACTER}}.
+- Entries should be written in the past tense, as they are memories.
+
+Proceed with analyzing the recent messages and run any necessary function calls to update the memory.
+Please refrain from adding unnecessary information. If there are no changes, simply use doNothing.
+Avoid adding duplicate backstory entries. Check <existing_memory> to ensure you are not repeating information.
+Write extremely concisely, using only as many words as necessary to convey the information.
+Do not adjust affinity if both characters are not physically present in the scene.
+`;
     }
     
     async runAI(systemMessage, userMessage) {
@@ -3182,6 +3321,721 @@ Please provide your formatted and corrected version of the transcript, following
         return false;
     }
 
+    async toolCalls(tool_calls) {
+        console.log('tool_calls', tool_calls);
+        tool_calls.sort((a, b) => {
+            if (a.function.name === "createEntry" && b.function.name !== "createEntry") {
+                return -1;
+            } else if (a.function.name !== "createEntry" && b.function.name === "createEntry") {
+                return 1;
+            }
+            return 0;
+        });
+
+        for (const tool_call of tool_calls) {
+            const { name: functionName, arguments: functionArgs } = tool_call.function;
+            const parsedArgs = JSON.parse(functionArgs);
+
+            switch (functionName) {
+                case "createEntry":
+                    console.log(`Creating entry: ${parsedArgs.type}`);
+                    await this.handleNotebookAction(NOTEBOOK.createEntry.bind(NOTEBOOK), parsedArgs.type, parsedArgs.name, parsedArgs.data, 'Entry created successfully', 'Failed to create entry');
+                    break;
+                case "getEntryById":
+                    console.log(`Getting entry by ID: ${parsedArgs.id}`);
+                    await this.handleNotebookAction(NOTEBOOK.getEntryByIdOrName.bind(NOTEBOOK), parsedArgs.id, parsedArgs.name, 'Entry retrieved successfully', 'Failed to retrieve entry');
+                    break;
+                case "findEntries":
+                    console.log(`Finding entries of type: ${parsedArgs.type}`);
+                    await this.handleNotebookAction(NOTEBOOK.findEntries.bind(NOTEBOOK), parsedArgs.type, parsedArgs.query, 'Entries found successfully', 'Failed to find entries');
+                    break;
+                case "updateEntry":
+                    console.log(`Updating entry with ID: ${parsedArgs.id}`);
+                    await this.handleNotebookAction(NOTEBOOK.updateEntry.bind(NOTEBOOK), parsedArgs.id, parsedArgs.name, parsedArgs.data, 'Entry updated successfully', 'Failed to update entry');
+                    break;
+                case "appendToEntry":
+                    console.log(`Appending to entry with ID: ${parsedArgs.id}`);
+                    await this.handleNotebookAction(NOTEBOOK.appendToEntry.bind(NOTEBOOK), parsedArgs.id, parsedArgs.name, parsedArgs.field, parsedArgs.value, 'Value appended successfully', 'Failed to append value');
+                    break;
+                case "deleteEntry":
+                    console.log(`Deleting entry with ID: ${parsedArgs.id}`);
+                    await this.handleNotebookAction(NOTEBOOK.deleteEntry.bind(NOTEBOOK), parsedArgs.id, parsedArgs.name, 'Entry deleted successfully', 'Failed to delete entry');
+                    break;
+                case "replaceEntry":
+                    console.log(`Replacing entry with ID: ${parsedArgs.id}`);
+                    await this.handleNotebookAction(NOTEBOOK.replaceEntry.bind(NOTEBOOK), parsedArgs.id, parsedArgs.name, parsedArgs.data, 'Entry replaced successfully', 'Failed to replace entry');
+                    break;
+                case "touchEntry":
+                    console.log(`Touching entry with ID: ${parsedArgs.id}`);
+                    await this.handleNotebookAction(NOTEBOOK.touchEntry.bind(NOTEBOOK), parsedArgs.id, parsedArgs.name, 'Entry timestamp updated successfully', 'Failed to update entry timestamp');
+                    break;
+                case "updateEntryProperty":
+                    console.log(`Updating property of entry with ID: ${parsedArgs.id}`);
+                    await this.handleNotebookAction(NOTEBOOK.updateEntryProperty.bind(NOTEBOOK), parsedArgs.id, parsedArgs.name, parsedArgs.key, parsedArgs.value, 'Entry property updated successfully', 'Failed to update entry property');
+                    break;
+                case "deleteEntryProperty":
+                    console.log(`Deleting property of entry with ID: ${parsedArgs.id}`);
+                    await this.handleNotebookAction(NOTEBOOK.deleteEntryProperty.bind(NOTEBOOK), parsedArgs.id, parsedArgs.name, parsedArgs.key, 'Entry property deleted successfully', 'Failed to delete entry property');
+                    break;
+                case "doNothing":
+                    console.log(`Doing nothing: ${parsedArgs.reason}`);
+                    break;
+                default:
+                    console.error(`Unknown function: ${functionName}`);
+            }
+        }
+    }
+
+    async handleNotebookAction(action, ...args) {
+        try {
+            const result = await action(...args);
+            if (result) {
+                console.log(args[args.length - 2]);
+            } else {
+                console.error(args[args.length - 1]);
+            }
+        } catch (error) {
+            console.error('Error executing notebook action:', error);
+        }
+    }
+    
+    async runNotebookAI(systemMessage, userMessage) {
+        try {
+            const response = await chrome.runtime.sendMessage({
+                action: 'runNotebookAI',
+                apiKey: openaiApiKey,
+                model: openaiModel,
+                systemMessage: systemMessage,
+                userMessage: userMessage
+            });
+            
+            if (response.error) {
+                throw new Error(response.error);
+            }
+
+            console.log('response', response);
+
+            if (response.tool_calls) {
+                this.toolCalls(response.tool_calls);
+            }
+            
+            return response.data;
+        } catch (error) {
+            const errorMessage = error.message || 'An unknown error occurred';
+            butterup.toast({
+                title: 'FableVoice OpenAI Error',
+                message: errorMessage.length > 80 ? errorMessage.substring(0, 77) + '...' : errorMessage,
+                location: 'bottom-left',
+                icon: false,
+                dismissable: true,
+                type: 'error',
+            });
+            console.error('Error running AI:', error);
+            throw error;
+        }
+    }
+
+    async notebookHandler() {
+        let systemMessage = this.notebookPrompt;
+
+        // get current world context
+        const messageDivs = document.querySelectorAll('div.grid.grid-cols-\\[25px_1fr_10px\\].md\\:grid-cols-\\[40px_1fr_30px\\].pb-4.relative');
+        let messageList = [];
+        let messageCount = 8;
+        for (let i = messageDivs.length - 1; i >= 0 && messageCount > 0; i--) {
+            const messages = messageDivs[i].querySelectorAll('p.text-base');
+            if (messages.length > 0) {
+                let messageText = Array.from(messages).map(p => p.textContent).join(' ');
+                messageList.unshift('Message #' + messageCount + ': ' + messageText);
+                messageCount--;
+            }
+        }
+
+        //const messages = messageList.join('\n');
+        systemMessage = systemMessage.replace('{{MESSAGE_HISTORY}}', messageList.slice(0, -1).join('\n'));
+        systemMessage = systemMessage.replace('{{CURRENT_MESSAGE}}', messageList[messageList.length - 1]);
+        systemMessage = systemMessage.replace('{{LOCATIONS}}', CAMPAIGN.locations.join('\n'));
+
+        const characters = CAMPAIGN.characters.sort((a, b) => {
+            if (a.type === b.type) {
+                return a.name.localeCompare(b.name);
+            }
+            return a.type === 'PC' ? -1 : 1;
+        });
+
+        const characterNames = characters
+            .map(character => character.name)
+            .filter(name => !characters.some(other => other.name.includes(name + ' ')))
+            .join("\n");
+        systemMessage = systemMessage.replace('{{CHARACTERS}}', characterNames);
+        systemMessage = systemMessage.replace('{{CHARACTER}}', characters[0].name);
+
+        systemMessage = systemMessage.replace('{{EXISTING_MEMORY}}', JSON.stringify(NOTEBOOK.entries));
+
+        console.log('systemMessage', systemMessage);
+
+        const userMessage = 'Please run any necessary function calls.';
+        console.log('userMessage', userMessage);
+        const suggestion = await this.runNotebookAI(systemMessage, userMessage);
+        console.log('suggestion', suggestion);
+        return suggestion;
+    }
+
+}
+
+// NOTEBOOK
+
+class NotebookManager {
+    constructor() {
+        this.logging = true;
+        this.entries = {};
+        this.saveEntriesTimeout = null;
+        this.tippyMessages = [];
+        this.tippyTimeout = null;
+        this.loadEntries();
+    }
+
+    toast(message) {
+        butterup.toast({
+            title: 'FableVoice Notebook',
+            message: message,
+            location: 'bottom-left',
+            icon: false,
+            dismissable: true,
+            type: 'success',
+        });
+        console.log('Toast message:', message);
+        console.log('Notebook entries:', this.entries);
+    }
+
+    tippyInfo(message) {
+        this.tippyMessages.push(message);
+
+        clearTimeout(this.tippyTimeout);
+        this.tippyTimeout = setTimeout(() => {
+            const combinedMessage = this.tippyMessages.join('\n');
+            UI.addTippy(document.getElementById('notebook-button'), combinedMessage);
+            this.tippyMessages = [];
+        }, 1000);
+    }
+
+    eraseNotebook(all=false) {
+        const campaignId = CAMPAIGN.campaignId;
+        if (all) {
+            this.entries = {};
+            this.saveEntries();
+            this.toast('Notebook erased successfully.');
+        } else if (this.entries[campaignId]) {
+            this.entries[campaignId] = [];
+            this.saveEntries();
+            this.toast('Notebook for this campaign erased successfully.');
+        } else {
+            this.toast('No entries found for this campaign.');
+        }
+    }
+
+    getNotebook() {
+        if (!notebookEnabled) { return ''; }
+        const campaignId = CAMPAIGN.campaignId;
+        if (!this.entries[campaignId]) { return ''; }
+        
+        const descriptions = {
+            'character': 'NPCs should act accordingly based on the information below. Note, information here overrides any NPC backstories as this is the most current information available:',
+            'location': 'Locations have the current state:',
+            'item': 'Items have the current state:',
+            'event': 'Events have the current state:',
+            'world': 'The world has the current state:',
+        };
+
+        const groupedEntries = this.entries[campaignId].reduce((acc, entry) => {
+            if (Object.keys(entry.properties).length === 0) {
+                return acc;
+            }
+            if (!acc[entry.type]) {
+                acc[entry.type] = [];
+            }
+            acc[entry.type].push(entry);
+            return acc;
+        }, {});
+
+        const formattedEntries = Object.keys(groupedEntries)
+            .sort()
+            .map(type => {
+                let description = '';
+                if (descriptions[type]) {
+                    description = `##  ${descriptions[type]}\n\n`;
+                }
+                const entries = groupedEntries[type]
+                    .sort((a, b) => a.name.localeCompare(b.name))
+                    .map(entry => {
+                        const displayProperties = { ...entry.properties };
+                        if (displayProperties.affinity !== undefined) {
+                            displayProperties["affinity for me"] = `${displayProperties.affinity}/10`;
+                            delete displayProperties.affinity;
+                        }
+                        return `### ${entry.name}:\n${JSON.stringify(displayProperties, null, 2)}`;
+                    })
+                    .join('\n\n');
+                return `# ${type.charAt(0).toUpperCase() + type.slice(1)}:\n\n${description}${entries}`;
+            })
+            .join('\n\n');
+        
+        return formattedEntries;
+    }
+
+    loadEntries() {
+        chrome.storage.local.get(['notebookEntries'], (result) => {
+            if (result.notebookEntries) {
+                this.entries = result.notebookEntries;
+                if (false) {
+                    this.entries = {'7bb4a5e8-538a-4826-84c4-22e4dbff436a' : [
+                        {
+                            "id": "character_1727176596099",
+                            "lastAccessed": "2024-09-24T12:45:45.662Z",
+                            "name": "Leif Gunnarson",
+                            "properties": {
+                                "affinity": 5,
+                                "backstory": [
+                                    "Leif Gunnarson has a personal vendetta against Fjallheim as they killed his family and burned their farm.",
+                                    "Leif Gunnarson appreciates Eirik's offer of comfort during a difficult moment."
+                                ]
+                            },
+                            "type": "character"
+                        }
+                    ]};
+                }
+                //this.toast('Entries loaded successfully.');
+            } else {
+                //this.toast('No entries found.');
+            }
+        });
+    }
+
+    saveEntries() {
+        clearTimeout(this.saveEntriesTimeout);
+        this.saveEntriesTimeout = setTimeout(() => {
+            // clean up entries by removing empty parameters etc.
+            function cleanProperties(properties) {
+                for (const key in properties) {
+                    if (properties[key] === null || properties[key] === undefined || properties[key] === '') {
+                        delete properties[key];
+                    } else if (Array.isArray(properties[key])) {
+                        cleanProperties(properties[key]);
+                    } else if (typeof properties[key] === 'object') {
+                        cleanProperties(properties[key]);
+                    }
+                }
+            }
+
+            for (const campaignId in this.entries) {
+                for (const entry of this.entries[campaignId]) {
+                    cleanProperties(entry.properties);
+                }
+            }
+            
+            chrome.storage.local.set({ notebookEntries: this.entries }, () => {
+                //this.toast('Entries saved successfully.');
+                CAMPAIGN.updateNotebook();
+            });
+        }, 1000);
+    }
+
+    typifyData(data) {
+        if (typeof data === 'string' && !isNaN(data)) {
+            return parseInt(data, 10);
+        } else if (Array.isArray(data)) {
+            return data.map(item => this.typifyData(item));
+        } else if (typeof data === 'object' && data !== null) {
+            for (const key in data) {
+                data[key] = this.typifyData(data[key]);
+            }
+            return data;
+        } else {
+            return data;
+        }
+    }
+
+    createEntry(type, name, data) {
+        const campaignId = CAMPAIGN.campaignId;
+        if (!this.entries[campaignId]) {
+            this.entries[campaignId] = [];
+        }
+        if (!name) { return; }
+        console.log('Creating entry:', type, name, data);
+        console.log('Existing entries:', this.entries[campaignId]);
+        const existingEntry = this.entries[campaignId].find(entry => entry.type === type && entry.name === name);
+        if (existingEntry) {
+            const message = `Entry with name ${name} already exists.`;
+            this.toast(message);
+            return message;
+        }
+        const newEntry = {
+            id: `${type}_${Date.now()}`,
+            type: type,
+            name: name,
+            properties: this.typifyData(data ?? {}),
+            lastAccessed: new Date().toISOString()
+        };
+        this.entries[campaignId].push(newEntry);
+        this.saveEntries();
+        const message = `Entry with name ${name} created.`;
+        this.tippyInfo(message+( data ? "<br><br>"+JSON.stringify(data, null, 2)+"" : "" ));
+        this.toast(message);
+        return newEntry.id;
+    }
+
+    getEntryByIdOrName(id, name) {
+        const campaignId = CAMPAIGN.campaignId;
+        if (!this.entries[campaignId]) {
+            this.toast(`No entries found for this campaign.`);
+            return null;
+        }
+        const entry = this.entries[campaignId].find(entry => id && entry.id === id || name && entry.name === name);
+        if (entry) {
+            entry.lastAccessed = new Date().toISOString();
+            this.saveEntries();
+            this.toast(`Entry with id ${id} or name ${name} accessed successfully.`);
+            return entry;
+        }
+        const message = `Entry with id ${id} or name ${name} not found.`;
+        this.toast(message);
+        return null;
+    }
+
+    findEntries(type, query) {
+        const campaignId = CAMPAIGN.campaignId;
+        if (!this.entries[campaignId]) {
+            this.toast(`No entries found for this campaign.`);
+            return [];
+        }
+        const results = this.entries[campaignId].filter(entry => entry.type === type && Object.keys(query).every(key => entry.properties[key] === query[key]));
+        results.forEach(entry => entry.lastAccessed = new Date().toISOString());
+        this.saveEntries();
+        this.toast(`${results.length} entries found.`);
+        return results;
+    }
+
+    updateEntry(id, name, data) {
+        const campaignId = CAMPAIGN.campaignId;
+        if (!this.entries[campaignId]) {
+            this.toast(`No entries found for this campaign.`);
+            return `Entry with id ${id} or name ${name} not found.`;
+        }
+        const entry = this.entries[campaignId].find(entry => id && entry.id === id || name && entry.name === name || id && entry.name === id);
+        if (entry) {
+            const previousAffinity = entry.properties.affinity ?? 0;
+            console.log('previousAffinity', previousAffinity, 'data', data);
+            Object.assign(entry.properties, this.typifyData(data));
+            entry.lastAccessed = new Date().toISOString();
+            this.saveEntries();
+            let message = `${entry.name} updated.`;
+            this.tippyInfo(message);
+            this.toast(message);
+            return message;
+        }
+        const message = `Entry with id ${id} or name ${name} not found.`;
+        this.toast(message);
+        console.warn(message,campaignId,this.entries);
+        return message;
+    }
+
+    updateEntryProperty(id, name, key, value) {
+        const campaignId = CAMPAIGN.campaignId;
+        if (!this.entries[campaignId]) {
+            this.toast(`No entries found for this campaign.`);
+            return `Entry with id ${id} or name ${name} not found.`;
+        }
+        const entry = this.entries[campaignId].find(entry => id && entry.id === id || name && entry.name === name);
+        if (entry) {
+            const previousAffinity = entry.properties.affinity ?? 0;
+            entry.properties[key] = this.typifyData(value);
+            entry.lastAccessed = new Date().toISOString();
+            this.saveEntries();
+            let message;
+            if (key === "affinity" && previousAffinity) {
+                if (parseInt(value) > parseInt(previousAffinity)) {
+                    message = `${entry.name} liked that. 🎉`;
+                } else if (parseInt(value) < parseInt(previousAffinity)) {
+                    message = `${entry.name} disliked that. 💔`;
+                } else {
+                    message = `${entry.name} updated.`;
+                }
+            } else {
+                message = `${entry.name} updated.`;
+            }
+            this.tippyInfo(message);
+            this.toast(message);
+            return message;
+        }
+        const message = `Entry with id ${id} or name ${name} not found.`;
+        this.toast(message);
+        return message;
+    }
+
+    deleteEntryProperty(id, name, key) {
+        const campaignId = CAMPAIGN.campaignId;
+        if (!this.entries[campaignId]) {
+            this.toast(`No entries found for this campaign.`);
+            return `Entry with id ${id} or name ${name} not found.`;
+        }
+        const entry = this.entries[campaignId].find(entry => id && entry.id === id || name && entry.name === name);
+        if (entry) {
+            delete entry.properties[key];
+            entry.lastAccessed = new Date().toISOString();
+            this.saveEntries();
+            const message = `${entry.name} - ${key} deleted.`;
+            this.tippyInfo(message);
+            this.toast(message);
+            return message;
+        }
+        const message = `Entry with id ${id} or name ${name} not found.`;
+        this.toast(message);
+        return message;
+    }
+
+    appendToEntry(id, name, field, value) {
+        const campaignId = CAMPAIGN.campaignId;
+        if (!this.entries[campaignId]) {
+            this.toast(`No entries found for this campaign.`);
+            return `Entry with id ${id} or name ${name} not found.`;
+        }
+        const entry = this.entries[campaignId].find(entry => id && entry.id === id || name && entry.name === name);
+        if (entry) {
+            if (!Array.isArray(entry.properties[field])) {
+                entry.properties[field] = [];
+            }
+            if (typeof value === 'array') {
+                value = value.join(', ');
+            }
+            entry.properties[field].push(this.typifyData(value));
+            entry.lastAccessed = new Date().toISOString();
+            this.saveEntries();
+            const message = `${entry.name} - ${field} updated.`;
+            this.tippyInfo(message+"<br><br><code>"+JSON.stringify({field:value}, null, 2)+"</code>");
+            this.toast(message);
+            return message;
+        }
+        const message = `Entry with id ${id} or name ${name} not found.`;
+        this.toast(message);
+        return message;
+    }
+
+    deleteEntry(id, name) {
+        const campaignId = CAMPAIGN.campaignId;
+        if (!this.entries[campaignId]) {
+            this.toast(`No entries found for this campaign.`);
+            return `Entry with id ${id} or name ${name} not found.`;
+        }
+        const index = this.entries[campaignId].findIndex(entry => entry.id === id || entry.name === name);
+        if (index !== -1) {
+            this.entries[campaignId].splice(index, 1);
+            this.saveEntries();
+            let identifier = id ? `id ${id}` : `name ${name}`;
+            const message = `${entry.name} deleted.`;
+            this.toast(message);
+            return message;
+        }
+        const message = `Entry with id ${id} or name ${name} not found.`;
+        this.tippyInfo(message);
+        this.toast(message);
+        return message;
+    }
+
+    replaceEntry(id, name, data) {
+        const campaignId = CAMPAIGN.campaignId;
+        if (!this.entries[campaignId]) {
+            this.toast(`No entries found for this campaign.`);
+            return `Entry with id ${id} or name ${name} not found.`;
+        }
+        const index = this.entries[campaignId].findIndex(entry => entry.id === id || entry.name === name);
+        if (index !== -1) {
+            this.entries[campaignId][index] = {
+                id: id,
+                type: data.type,
+                name: data.name,
+                properties: this.typifyData(data),
+                lastAccessed: new Date().toISOString()
+            };
+            this.saveEntries();
+            const message = `${entry.name} replaced.`;
+            this.tippyInfo(message+"<br><br><code>"+JSON.stringify(data, null, 2)+"</code>");
+            this.toast(message);
+            return message;
+        }
+        const message = `Entry with id ${id} or name ${name} not found.`;
+        this.toast(message);
+        return message;
+    }
+
+    touchEntry(id, name) {
+        const campaignId = CAMPAIGN.campaignId;
+        if (!this.entries[campaignId]) {
+            this.toast(`No entries found for this campaign.`);
+            return `Entry with id ${id} or name ${name} not found.`;
+        }
+        const entry = this.entries[campaignId].find(entry => id && entry.id === id || name && entry.name === name);
+        if (entry) {
+            entry.lastAccessed = new Date().toISOString();
+            this.saveEntries();
+            let identifier = id ? `id ${id}` : `name ${name}`;
+            const message = `${identifier} - ${entry.type} timestamp updated.`;
+            //this.toast(message);
+            return message;
+        }
+        let identifier = id ? `id ${id}` : `name ${name}`;
+        const message = `${identifier} - ${entry.type} not found.`;
+        this.toast(message);
+        return message;
+    }
+
+    showNotebookDialog() {
+        const campaignId = CAMPAIGN.campaignId;
+        if (!this.entries[campaignId]) {
+            this.toast('No entries found for this campaign.');
+            return;
+        }
+
+        console.info('Notebook entries', this.entries[campaignId]);
+
+        const types = [...new Set(this.entries[campaignId].map(entry => entry.type))];
+        let content = `
+            <div id="notebook-dialog" class="p-4 rounded-lg shadow-lg">
+                <div class="mb-4">
+                    <label for="type-select" class="block text-sm font-medium text-gray-300 mb-2">Select Type</label>
+                    <select id="type-select" class="w-full bg-gray-700 border border-gray-600 text-white rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="">Select type</option>
+                        ${types.map(type => `<option value="${type}">${type.charAt(0).toUpperCase() + type.slice(1)}</option>`).join('')}
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="name-select" class="block text-sm font-medium text-gray-300 mb-2">Select Name</label>
+                    <select id="name-select" class="w-full bg-gray-700 border border-gray-600 text-white rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="">Select name</option>
+                    </select>
+                </div>
+                <div id="entry-properties" class="bg-gray-800 p-4 rounded-md text-white text-left"></div>
+                <button id="save-button" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md">Save</button>
+                <button id="delete-button" class="mt-4 bg-red-500 text-white px-4 py-2 rounded-md">Delete</button>
+            </div>
+        `;
+
+        $.confirm({
+            title: 'Notebook Entries',
+            content: content,
+            boxWidth: '400px',
+            useBootstrap: false,
+            buttons: {
+                close: {
+                    text: 'Close',
+                    btnClass: 'btn btn-default',
+                    action: function () {}
+                }
+            },
+            onContentReady: () => {
+                $('#type-select').on('change', () => {
+                    const selectedType = $('#type-select').val();
+                    const names = this.entries[campaignId]
+                        .filter(entry => entry.type === selectedType)
+                        .map(entry => entry.name);
+                    $('#name-select').html('<option value="">Select name</option>' + names.map(name => `<option value="${name}">${name}</option>`).join(''));
+                });
+
+                $('#name-select').on('change', () => {
+                    const selectedName = $('#name-select').val();
+                    const entry = this.entries[campaignId].find(entry => entry.name === selectedName);
+                    if (entry) {
+                        $('#entry-properties').html(this.generateEditableFields(entry.properties));
+                    } else {
+                        $('#entry-properties').html('');
+                    }
+                });
+
+                $('#save-button').on('click', () => {
+                    const selectedName = $('#name-select').val();
+                    const entry = this.entries[campaignId].find(entry => entry.name === selectedName);
+                    if (entry) {
+                        const updatedProperties = this.collectUpdatedProperties();
+                        this.updateEntry(entry.id, entry.name, updatedProperties);
+                    }
+                });
+
+                $('#delete-button').on('click', () => {
+                    const selectedName = $('#name-select').val();
+                    const entry = this.entries[campaignId].find(entry => entry.name === selectedName);
+                    if (entry) {
+                        this.deleteEntry(entry.id, entry.name);
+                        $('#entry-properties').html('');
+                    }
+                });
+            }
+        });
+    }
+
+    generateEditableFields(properties, prefix = '') {
+        let fields = '';
+        Object.keys(properties).forEach((key, index) => {
+            console.log('key', key, typeof key);
+            const displayKey = prefix ? `${prefix}[${key}]` : key;
+            const value = properties[key];
+            if (Array.isArray(value)) {
+                fields += `<div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-300 mb-2">${displayKey}</label>
+                    ${value.map((item, idx) => this.generateEditableFields({ [idx]: item }, `${displayKey}`)).join('')}
+                </div>`;
+            } else if (typeof value === 'object' && value !== null) {
+                fields += `<div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-300 mb-2">${displayKey}</label>
+                    ${this.generateEditableFields(value, displayKey)}
+                </div>`;
+            } else {
+                const isLongText = typeof value === 'string' && value.length > 50;
+                fields += `<div class="mb-4">
+                    <label for="${displayKey}" class="block text-sm font-medium text-gray-300 mb-2">${displayKey}</label>
+                    ${isLongText ? 
+                        `<textarea id="${displayKey}" class="w-full bg-gray-700 border border-gray-600 text-white rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">${value}</textarea>` :
+                        `<input type="text" id="${displayKey}" class="w-full bg-gray-700 border border-gray-600 text-white rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" value="${value}">`
+                    }
+                </div>`;
+            }
+        });
+        return fields;
+    }
+
+    collectUpdatedProperties() {
+        const updatedProperties = {};
+        $('#entry-properties input, #entry-properties textarea').each(function() {
+            const id = $(this).attr('id');
+            let value = $(this).val();
+            if (value === null || value === '' || (typeof value === 'string' && value.trim() === '')) {
+                return; // Skip empty/null/NaN values
+            }
+            const keys = id.split(/[\[\]]+/).filter(Boolean);
+            let current = updatedProperties;
+            for (let i = 0; i < keys.length; i++) {
+                if (i === keys.length - 1) {
+                    current[keys[i]] = value;
+                } else {
+                    current = current[keys[i]] = current[keys[i]] || (isNaN(keys[i + 1]) ? {} : []);
+                }
+            }
+        });
+
+        function cleanProperties(properties) {
+            for (const key in properties) {
+                if (properties[key] === null || properties[key] === '' || (typeof properties[key] === 'string' && properties[key].trim() === '')) {
+                    delete properties[key];
+                } else if (typeof properties[key] === 'object') {
+                    cleanProperties(properties[key]);
+                    if (Object.keys(properties[key]).length === 0) {
+                        delete properties[key];
+                    }
+                }
+            }
+        }
+
+        cleanProperties(updatedProperties);
+        return updatedProperties;
+    }
 }
 
 // EDITOR
@@ -3390,7 +4244,7 @@ class CampaignManager {
     }
 
     async locationList() {
-        console.log('Getting location list');
+        //console.log('Getting location list');
 
         const waitForButton = async (text, timeout = 5000) => {
             const start = Date.now();
@@ -3421,7 +4275,7 @@ class CampaignManager {
             return [];
         } else {
             changeLocationButton.click();
-            console.log('Clicked "Change location" button');
+            //console.log('Clicked "Change location" button');
         }
 
         // If location not found, click "Select a Location" button
@@ -3431,7 +4285,7 @@ class CampaignManager {
             return [];
         }
         selectLocationButton.click();
-        console.log('Clicked "Select a Location" button');
+        //console.log('Clicked "Select a Location" button');
 
         const locationList = [];
 
@@ -3442,7 +4296,7 @@ class CampaignManager {
             return [];
         }
         const locationElements = document.querySelectorAll('div.relative.flex.cursor-default.select-none.items-center.rounded-sm.px-2.py-1\\.5.text-sm.outline-none');
-        console.log('Location elements:', locationElements);
+        //console.log('Location elements:', locationElements);
         for (const element of locationElements) {
             const location = element.getAttribute('data-value');
             if (location !== 'undefined' && location !== null) {
@@ -3457,9 +4311,9 @@ class CampaignManager {
     }
 
     async getLocationsLegacy() {
-        console.log('Getting locations...');
+        //console.log('Getting locations...');
         const locations = await this.locationList();
-        console.log('Locations:', locations);
+        //console.log('Locations:', locations);
         if (locations.length > 0) {
             this.locations = locations;
             this.cacheLocations();
@@ -3596,7 +4450,7 @@ class CampaignManager {
         );
         
         if (isAlreadyAtLocation) {
-            console.log('Already at the requested location:', location);
+            //console.log('Already at the requested location:', location);
             return;
         }
 
@@ -3629,7 +4483,7 @@ class CampaignManager {
             //return;
         } else {
             changeLocationButton.click();
-            console.log('Clicked "Change location" button');
+            //console.log('Clicked "Change location" button');
         }
 
         // If location not found, click "Select a Location" button
@@ -3639,7 +4493,7 @@ class CampaignManager {
             return;
         }
         selectLocationButton.click();
-        console.log('Clicked "Select a Location" button');
+        //console.log('Clicked "Select a Location" button');
 
         // Find and click the location in the list
         const locationElement = await waitForElement(`div[data-value="${location}"]`, 2000);
@@ -3650,7 +4504,7 @@ class CampaignManager {
         }
 
         locationElement.click();
-        console.log(`Selected location: ${location}`);
+        //console.log(`Selected location: ${location}`);
 
         // Click the "Update Location" button
         const updateLocationButton = await waitForButton('Update Location');
@@ -3659,7 +4513,7 @@ class CampaignManager {
             return;
         }
         updateLocationButton.click();
-        console.log('Clicked "Update Location" button');
+        //console.log('Clicked "Update Location" button');
     }
 
     getCharacters() {
@@ -3686,6 +4540,57 @@ class CampaignManager {
 
     isEncounter() {
         return Array.from(document.querySelectorAll('button')).find(button => button.textContent.includes('Edit Encounter')) ? true : false;
+    }
+
+    updateNotebook() {
+        // let's edit the custom instructions
+        console.log('Updating notebook...');
+        var url = `https://play.fables.gg/${this.campaignId}/play/settings`;
+        const iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        document.body.appendChild(iframe);
+
+        iframe.src = url;
+        iframe.onload = () => {
+            setTimeout(() => {
+                // get areas
+                // then switch to points of interest
+                const textarea = iframe.contentDocument.querySelector('textarea');
+                if (!textarea) {
+                    console.log('Textarea not found');
+                    return;
+                }
+                // let's find the notebook entry <notebook></notebook> within the textarea value
+                const instructions = textarea.value;
+                let notebookStart = instructions.indexOf("<notebook>");
+                let notebookEnd = instructions.indexOf('</notebook>');
+                let newNotebookContent = NOTEBOOK.getNotebook();
+
+                if (notebookStart === -1 || notebookEnd === -1) {
+                    console.log('Notebook not found');
+                    // let's create it and add the new notebook content
+                    textarea.value = instructions + "\n\n<notebook>\n" + newNotebookContent + "\n</notebook>\n";
+                } else {
+                    // replace the content between <notebook> and </notebook> with the new notebook content
+                    textarea.value = instructions.substring(0, notebookStart + "<notebook>".length) + "\n" + newNotebookContent + "\n</notebook>";
+                }
+                textarea.dispatchEvent(new Event('input', { bubbles: true }));
+                console.log('Notebook content replaced:', newNotebookContent);
+
+                // let's wait for the save button to appear
+                setTimeout(() => {  
+                    const saveButton = Array.from(iframe.contentDocument.querySelectorAll('button')).find(button => button.textContent.includes('Save'));
+                    console.log('Save button:', saveButton);
+                    if (saveButton) {
+                        saveButton.click();
+                        console.log('Save button clicked');
+                        setTimeout(() => {
+                            document.body.removeChild(iframe);
+                        }, 2000);
+                    }
+                }, 500);
+            }, 3000);
+        };
     }
 }
 
@@ -4011,14 +4916,35 @@ class UtilitiesManager {
             <span style="line-height: 1; margin-top: 1px;">${this.mode === 'active' ? 'Active' : 'Relaxed'} Mode</span>
         `;
 
+        const notebookButton = document.createElement('button');
+        notebookButton.id = 'notebook-button';
+        notebookButton.className = 'inline-flex items-center justify-center whitespace-nowrap font-medium ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 group bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-20 border border-gray-500 hover:border-primary text-gray-300 h-9 rounded-md px-3';
+        notebookButton.style.fontSize = '14px';
+        notebookButton.style.display = 'flex';
+        notebookButton.style.alignItems = 'center';
+        notebookButton.style.marginBottom = '10px';
+        notebookButton.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book mr-2 h-4 w-4" style="margin-bottom: -2px;">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                <path d="M4 4v16"/>
+                <path d="M4 4a2.5 2.5 0 0 1 2.5-2.5H20v16H6.5A2.5 2.5 0 0 1 4 15.5z"/>
+            </svg>
+            <span style="line-height: 1; margin-top: 1px;">Notebook</span>
+        `;
+
         const inviteButton = Array.from(document.querySelectorAll('button')).find(button => button.textContent.includes('Invite') || button.textContent.includes('Party Full'));
         if (inviteButton && inviteButton.parentNode) {
             inviteButton.parentNode.insertBefore(modeToggleButton, inviteButton);
+            //inviteButton.parentNode.insertBefore(notebookButton, inviteButton);
         }
 
         modeToggleButton.addEventListener('click', () => {
             this.showPreferencesDialog();
         });
+
+        //notebookButton.addEventListener('click', () => {
+        //    NOTEBOOK.showNotebookDialog();
+        //});
     }
 
     showPreferencesDialog() {
@@ -4171,6 +5097,7 @@ CAPTION = new CaptionManager();
 EDITOR = new EditorManager();
 VOICE = new VoicesManager();
 UTILITY = new UtilitiesManager();
+//NOTEBOOK = new NotebookManager();
 
 function waitPageLoad() {
     return new Promise((resolve, reject) => {
@@ -4219,7 +5146,7 @@ function updateSettings() {
         improvedLocationDetection = data.improvedLocationDetection || false;
         aiEnhancedTranscriptions = data.aiEnhancedTranscriptions || false;
         instructionsText = data.instructionsText || '';
-        console.log('instructionsText', instructionsText);
+        //console.log('instructionsText', instructionsText);
         if (ttsEnabled) {
             const targetDiv = document.querySelector('.flex.flex-row.items-center.overflow-hidden');
             if (targetDiv) {
