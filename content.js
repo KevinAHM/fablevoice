@@ -4172,9 +4172,9 @@ class CampaignManager {
                 console.log('Characters loaded from cache:', this.characters);
                 VOICE.createUI();
                 CAPTION.prepareAllTexts();
-                this.getCharactersLegacy();
+                //this.getCharactersLegacy();
             } else {
-                this.getCharactersLegacy();
+                //this.getCharactersLegacy();
             }
         });
     }
@@ -4194,17 +4194,36 @@ class CampaignManager {
         });
     }
 
-    getCharactersLegacy() {
-        const url = 'https://play.fables.gg/' + this.campaignId + '/play/characters';
-        
-        const iframe = document.createElement('iframe');
-        iframe.style.display = 'none';
-        document.body.appendChild(iframe);
-
-        iframe.src = url;
-        iframe.onload = () => {
+    async getCharactersLegacy() {
+        const worldLink = document.querySelector(`a[href="/${this.campaignId}/play/world"]`);
+        if (worldLink) {
+            worldLink.click();
+        } else {
+            console.error('World link not found');
+            return false;
+        }
+        // get button with text Characters
+        let charactersButton;
+        const startTime = Date.now();
+        while (!charactersButton && Date.now() - startTime < 5000) {
+            charactersButton = Array.from(document.querySelectorAll('button')).find(button => button.textContent.includes('Characters') && !button.textContent.includes('Load'));
+            if (!charactersButton) {
+                await new Promise(resolve => setTimeout(resolve, 10));
+            }
+        }
+        if (!charactersButton) {
+            console.log('Characters button not found');
+            return false;
+        }
+        console.log('Characters button found', charactersButton);
+        setTimeout(() => {
+            charactersButton.click();
+            // Press enter on the button
+            charactersButton.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }));
+            charactersButton.dispatchEvent(new KeyboardEvent('keypress', { key: 'Enter', bubbles: true }));
+            charactersButton.dispatchEvent(new KeyboardEvent('keyup', { key: 'Enter', bubbles: true }));
             setTimeout(() => {
-                const characters = Array.from(iframe.contentDocument.querySelectorAll('button[id^="radix-:r"]'))
+                const characters = Array.from(document.querySelectorAll('button[id^="radix-:r"]'))
                     .map(button => {
                         const nameElement = button.querySelector('.text-xl.font-bold');
                         const typeElement = button.querySelector('.text-xs.text-foreground-muted');
@@ -4224,17 +4243,20 @@ class CampaignManager {
                     })
                     .filter(character => character !== null);
 
-                //console.log('Characters found:', characters);
+                console.log('Characters found:', characters);
                 this.characters = characters;
-                
-                document.body.removeChild(iframe);
                 
                 this.cacheCharacters();
                 
                 VOICE.createUI();
                 CAPTION.prepareAllTexts();
-            }, 3000);
-        };
+
+                if (characters.length > 0) {
+                    alert(characters.length + ' characters loaded from Fables campaign');
+                }
+            }, 1500);
+        }, 500);
+        return true;
     }
 
     cacheCharacters() {
@@ -4915,6 +4937,22 @@ class UtilitiesManager {
             </svg>
             <span style="line-height: 1; margin-top: 1px;">${this.mode === 'active' ? 'Active' : 'Relaxed'} Mode</span>
         `;
+        
+        const loadCharactersButton = document.createElement('button');
+        loadCharactersButton.id = 'load-characters-button';
+        loadCharactersButton.className = 'inline-flex items-center justify-center whitespace-nowrap font-medium ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 group bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-20 border border-gray-500 hover:border-primary text-gray-300 h-9 rounded-md px-3';
+        loadCharactersButton.style.fontSize = '14px';
+        loadCharactersButton.style.display = 'flex';
+        loadCharactersButton.style.alignItems = 'center';
+        loadCharactersButton.style.marginBottom = '10px';
+        loadCharactersButton.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book mr-2 h-4 w-4" style="margin-bottom: -2px;">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                <path d="M4 4v16"/>
+                <path d="M4 4a2.5 2.5 0 0 1 2.5-2.5H20v16H6.5A2.5 2.5 0 0 1 4 15.5z"/>
+            </svg>
+            <span style="line-height: 1; margin-top: 1px;">Load Characters</span>
+        `;
 
         const notebookButton = document.createElement('button');
         notebookButton.id = 'notebook-button';
@@ -4935,11 +4973,16 @@ class UtilitiesManager {
         const inviteButton = Array.from(document.querySelectorAll('button')).find(button => button.textContent.includes('Invite') || button.textContent.includes('Party Full'));
         if (inviteButton && inviteButton.parentNode) {
             inviteButton.parentNode.insertBefore(modeToggleButton, inviteButton);
+            inviteButton.parentNode.insertBefore(loadCharactersButton, inviteButton);
             //inviteButton.parentNode.insertBefore(notebookButton, inviteButton);
         }
 
         modeToggleButton.addEventListener('click', () => {
             this.showPreferencesDialog();
+        });
+
+        loadCharactersButton.addEventListener('click', () => {
+            CAMPAIGN.getCharactersLegacy();
         });
 
         //notebookButton.addEventListener('click', () => {

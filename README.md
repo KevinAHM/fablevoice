@@ -11,6 +11,9 @@ These features use gpt-4o-mini and cost a fraction of a penny per message.
 
 # Changelog
 
+## v0.9
+- Updated for compatibility with Fables.gg updates
+
 ## v0.8
 - Improved custom instruction prompting
   - Franz is more likely to listen to the instructions

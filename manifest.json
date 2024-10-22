@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "FableVoice - Friends & Fables Extension",
-  "version": "0.8",
+  "version": "0.9",
   "author": "Anaheim",
   "description": "Adds streaming Text-To-Speech, Speech-To-Text, and other features to Fables & Friends.",
   "icons": {
