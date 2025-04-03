@@ -3,6 +3,8 @@
 ## NOTICE
 This addon is likely out of date and no longer functions as intended.
 
+## ORIGINAL README
+
 An unofficial Chrome extension for Friends & Fables.
 
 For Text-To-Speech, get an API key from https://www.cartesia.ai
